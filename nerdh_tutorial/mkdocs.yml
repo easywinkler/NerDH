@@ -1,0 +1,79 @@
+site_name: NerDH Tutorial
+site_url: https://easyh.github.io/nerDH/
+repo_url: https://github.com/easyh/NerDH
+repo_name: easyh/NerDH
+nav:
+   - Named Entity Recognition: index.md
+   - NER Tutorial mit Spacy: tut.md
+   - NerDH-Visualisierer: gui.md
+extra_css:
+  - stylesheets/extra.css
+
+theme: 
+  name: material
+  logo: img/favicon.ico
+  favicon: img/favicon.ico  
+  language: de 
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.top
+    - navigation.tabs
+    - navigation.expand
+    - toc.integrate
+    - content.code.annotate
+    - content.tabs
+    
+  palette: 
+   # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: deep purple
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: dark mode
+    # Palette toggle for light mode
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/toggle-switch
+        name: light mode
+  font: 
+    text: Multi Regular
+    code: Roboto Mono
+
+extra:
+  generator: false
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - abbr
+  - tables
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - footnotes
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+ 
+
+plugins:
+  - glightbox
+  - search
+
+name: easyh

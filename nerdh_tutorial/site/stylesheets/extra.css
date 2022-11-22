@@ -1,0 +1,60 @@
+:root {
+    --md-admonition-icon--code: url('../img/code-solid.svg')
+}      
+  .md-typeset .admonition.code,
+  .md-typeset details.code {
+    border-color: #209485;
+  }
+  .md-typeset .code > .admonition-title,
+  .md-typeset .code > summary {
+    background-color: rgba(32, 148,133, 0.1);
+  }
+  .md-typeset .code > .admonition-title::before,
+  .md-typeset .code > summary::before {
+    background-color: #209485;
+    -webkit-mask-image: var(--md-admonition-icon--code);
+            mask-image: var(--md-admonition-icon--code);
+  }
+  
+
+:root {
+    --md-admonition-icon--int: url('https://img.icons8.com/external-smashingstocks-fill-lineal-smashing-stocks/67/null/external-interactive-networking-smashingstocks-fill-lineal-smashing-stocks.png')
+}      
+  .md-typeset .admonition.int,
+  .md-typeset details.int {
+    border-color: #e88613;
+  }
+  .md-typeset .int > .admonition-title,
+  .md-typeset .int > summary {
+    background-color: rgba(232, 198, 158, 0.1);
+  }
+  .md-typeset .int > .admonition-title::before,
+  .md-typeset .int > summary::before {
+    background-color: #e88613;
+    -webkit-mask-image: var(--md-admonition-icon--int);
+            mask-image: var(--md-admonition-icon--int);
+  }
+
+  
+:root {
+    --md-admonition-icon--ex: url('https://img.icons8.com/ios-filled/50/null/search--v1.png')
+}      
+  .md-typeset .admonition.ex,
+  .md-typeset details.ex {
+    border-color: #7968a6;
+  }
+  .md-typeset .ex > .admonition-title,
+  .md-typeset .ex > summary {
+    background-color: rgba(121, 104, 166, 0.1);
+  }
+  .md-typeset .ex > .admonition-title::before,
+  .md-typeset .ex > summary::before {
+    background-color: #7968a6;
+    -webkit-mask-image: var(--md-admonition-icon--ex);
+            mask-image: var(--md-admonition-icon--ex);
+  }
+
+
+.md-typeset p {
+  font-size: 15px;
+}

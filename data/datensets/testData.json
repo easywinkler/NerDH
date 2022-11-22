@@ -1,0 +1,1585 @@
+{
+    "classes": [
+        "PERSON",
+        "ORT",
+        "ORGANISATION",
+        "OBJEKT",
+        "ZEIT"
+    ],
+    "annotations": [
+        [
+            "Adj 13. Julij.",
+            {
+                "entities": [
+                    [
+                        4,
+                        13,
+                        "ZEIT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "1603 mit meim schwager Daniel Rem, Martin Horndacher, Doktor Jeorg Miller nach München geraist, dan sie wegen Anzenhoffen lehen alda zuempfangen gehabt, haben ihr aigne Pferdt vnd gutschen genommen vnd ain Ainspenniger haist Hans Wachter, sein Am morgens Vmb 4 Vhr aufgewest, vnd geraist auf den hochen Zoll zu, Vondar auf Kissingen, pagus welches die Jesuiter Vmb 40000 Gulden Vom Ilsing kaufft",
+            {
+                "entities": [
+                    [
+                        0,
+                        4,
+                        "ZEIT"
+                    ],
+                    [
+                        23,
+                        33,
+                        "PERSON"
+                    ],
+                    [
+                        35,
+                        52,
+                        "PERSON"
+                    ],
+                    [
+                        54,
+                        73,
+                        "PERSON"
+                    ],
+                    [
+                        79,
+                        86,
+                        "ORT"
+                    ],
+                    [
+                        110,
+                        121,
+                        "ORT"
+                    ],
+                    [
+                        206,
+                        218,
+                        "ORT"
+                    ],
+                    [
+                        225,
+                        237,
+                        "PERSON"
+                    ],
+                    [
+                        255,
+                        264,
+                        "ZEIT"
+                    ],
+                    [
+                        323,
+                        332,
+                        "ORT"
+                    ],
+                    [
+                        352,
+                        360,
+                        "ORGANISATION"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Nietelsteten.",
+            {
+                "entities": [
+                    [
+                        0,
+                        12,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Prugg, gar ain schöner lustiger marckht, hüpsche heuser vnd schön sauber gassen.",
+            {
+                "entities": [
+                    [
+                        0,
+                        5,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "München.",
+            {
+                "entities": [
+                    [
+                        0,
+                        7,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Haben Vnsern einkher gnommen, zum guldin Kreuz beim Michael Herdtnit, Vor dem salzstadel, auf welchem der Landtschafft waffen.",
+            {
+                "entities": [
+                    [
+                        52,
+                        68,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Den 14. Jullj.",
+            {
+                "entities": [
+                    [
+                        4,
+                        13,
+                        "ZEIT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Am morgens hinauß gangen zum Ÿser thor Vor welchem aine lange hülzerne Prug Vber die Ÿser, alda man auf die flöß sizt, ist ains Von den 4 haupt thorn, das Ander haist Neuhauser thor, zu welchem man Von Augspurg auß hinein reut, das dritte thor ist das sendlinger thor, vnd das Vierte würdt genent, Vnsers herrn thor.",
+            {
+                "entities": [
+                    [
+                        3,
+                        10,
+                        "ZEIT"
+                    ],
+                    [
+                        29,
+                        38,
+                        "OBJEKT"
+                    ],
+                    [
+                        85,
+                        89,
+                        "ORT"
+                    ],
+                    [
+                        167,
+                        181,
+                        "OBJEKT"
+                    ],
+                    [
+                        202,
+                        210,
+                        "ORT"
+                    ],
+                    [
+                        252,
+                        267,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Vnder allen thoren nimbt man die namen Von den Durchreisenden, vnd wo ainer einzeucht, in nota, nach dem thor sperren Vbergebens die Vnder dem thor, dem Alten Herrn Herzog Willhalm, Vnd dem Herzog Maximiliano, so wol Auch dem burgermaister Jm Ampt, vnd wans der würth nit vor der thorwart hat anzaigt, würdt er in gfenckhnuß geworfen.",
+            {
+                "entities": [
+                    [
+                        159,
+                        180,
+                        "PERSON"
+                    ],
+                    [
+                        190,
+                        208,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Der burgermaister alda sein 6 alle patritij, werden Junckher gescholten, vnd von der gmain erwelt, muesen Jn monaten abwixlen.",
+            {
+                "entities": [
+                    [
+                        109,
+                        116,
+                        "ZEIT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Haben ihren gerichts vnd malefiz tag am freÿtag, der fürst aber am Afftermontag.",
+            {
+                "entities": [
+                    [
+                        40,
+                        47,
+                        "ZEIT"
+                    ],
+                    [
+                        67,
+                        79,
+                        "ZEIT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Das Raths hauß ist gar all’antica, vnd das landthauß, gleich darbeÿ, stehn baide auf dem marckht, da man die wein verkaufft, Von dar sein wir gangen zu den Capuziner welche ihr wohnung Vor dem thor haben, Ain schlecht gebew, Vnd nur 2 Altar Jn der Kirchen, oben auf aine borkirchen mit Aim getter für, da der herzog Willhalm droben hört mößlesen oder predigen, het Von seim gebew ainen langen gang hinüber zu den Capuziner, zu den Jesuiter vnd zu den baarfueser münch.",
+            {
+                "entities": [
+                    [
+                        156,
+                        165,
+                        "ORGANISATION"
+                    ],
+                    [
+                        248,
+                        255,
+                        "OBJEKT"
+                    ],
+                    [
+                        309,
+                        324,
+                        "PERSON"
+                    ],
+                    [
+                        413,
+                        422,
+                        "ORGANISATION"
+                    ],
+                    [
+                        431,
+                        439,
+                        "ORGANISATION"
+                    ],
+                    [
+                        451,
+                        467,
+                        "ORGANISATION"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Jn gmelter kirchen haben wir herzog Maximilianj gmahel vnd sein schwester sehen, möß hören , hat klain vnd groß hundt mit lauffen ghabt, die sie sehr liebt, Nach disem das spital gesehen, Vnd Von dannen Jn die thum kürch gangen, zu Vnser frawen genent, welche schön Vnd groß aine hilzine Orgel darin, vnd nur mehr, vt aiunt, beim grosen altar, wie dan auch beÿ dem darneben, Sancto Benonj dediciert, grose miracula täglich geschechen, das erst miraculum war an eim weibsbildt geoffenbaret, welche vil Jahr lam war an ainem fueß, nun mehr durch hilff Benonis widerumb gesundt worden, extat libellus tÿpo impressus continens miracula Sancti Bennonis.",
+            {
+                "entities": [
+                    [
+                        11,
+                        18,
+                        "OBJEKT"
+                    ],
+                    [
+                        29,
+                        47,
+                        "PERSON"
+                    ],
+                    [
+                        375,
+                        388,
+                        "PERSON"
+                    ],
+                    [
+                        415,
+                        422,
+                        "ZEIT"
+                    ],
+                    [
+                        550,
+                        557,
+                        "PERSON"
+                    ],
+                    [
+                        632,
+                        647,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Sankt Benon ligt in ainem ebeno sarch mit silber eingefast, vnd ain silberin bischofflich brusthaupt darauf stehn, vmbhenckht mit mancherlaÿ clainoter, gsundt kreuz, steckhen sonderlich die finger Voller ring, vnder andern auch ain mehlring der herzogin maria Maximiliana, ist ain schöner rubin, vnd klain rubin drumb rumb, darneben ist ain stück seins Arms Jn silber vnd Christall eingfast, den man vnß zu kussen geben, auf der andern seitten ist Sanctj Paulj finger gleicher massen eingefast, darhinder Vnser frawen haupt Jn silber, ain schöns ganz guldins Chrucifix, sonst ain schöns silberins kunstlich gearbait, Vnd ain hauffen reliquiae Jn silber, das die Pfaffen selbs nit wissen, was drin ist, man hat 2 wechsin kerzen daruor aufgesteckht, Vnd ist ain blechine büchß darbeÿ, Jn welche man opfert, habe 3 Kreuzer drein glegt, dem Pfaffen 2 maß rothen wein, Vnd deß Custers weib Kreuzer 15 Verehrt.",
+            {
+                "entities": [
+                    [
+                        0,
+                        11,
+                        "PERSON"
+                    ],
+                    [
+                        245,
+                        271,
+                        "PERSON"
+                    ],
+                    [
+                        448,
+                        460,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Sankt Peters Kirchen ist iezt auch gespert, dan mans widerumb weihen muß, weil ain eheman mit aim Jungen megdlin hinder aim Altar Vnzucht beim tag getrieben, Vnd er geflochen ist.",
+            {
+                "entities": [
+                    [
+                        0,
+                        20,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Der baarfueser Münch kürchen ist auch zümlich groß, Voller altar Vnd nit so gar schön, haben aine feine orgel, vnd lustig Vhrwerckh darbeÿ so alle stunden geht vnd schlecht, alß den Englischen gruß, ain Posauneten Engel et cetera.",
+            {
+                "entities": [
+                    [
+                        4,
+                        28,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Jn der Kirchen hats ain Altar zu welchem sich, wer from will sein, ain Jedlicher, mann vnd weib, verlobt, vnd Jn francisci bruederschafft khombt, würdt Jedlichem, der sich verlobt Ain doppelte Von weissem garn gezwürnete gürtel geben, die er muß auf blosem leib stets Vmb die Waichen herumb tragen, vnd ist das ihr Ambt, das sie ain gnants Allmuesen geben, täglich möß hören, 6 pater noster, 6 aue maria betten sollen, monatlich beichten vnd communiciern, vnd offt predig hören, so offt sie ains thun, haben sie selbigen tag remissionem venialem, wans aber communiciern, remissionem plenariam, Jst auch Vnser würthin Jn selbiger bruederschafft.",
+            {
+                "entities": [
+                    [
+                        7,
+                        14,
+                        "OBJEKT"
+                    ],
+                    [
+                        113,
+                        137,
+                        "ORGANISATION"
+                    ],
+                    [
+                        357,
+                        364,
+                        "ZEIT"
+                    ],
+                    [
+                        398,
+                        403,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Das closter belangent, ist es sehr groß vnd schön, vil hüpscher tafflen darin, vnd ain schönen newen baw, den sie erst gefuert haben, dan ihnen der fürst ain garten gnommen, den Jesuitern geben, vnd ihnen dargegen andere heuser kaufft, die sie abbrochen, zu ihrem closter gericht, vnd in ainer kurzen zeit aufgebawt, den Jederman Vmb sonst darzu geholffen.",
+            {
+                "entities": [
+                    [
+                        4,
+                        11,
+                        "OBJEKT"
+                    ],
+                    [
+                        178,
+                        187,
+                        "ORGANISATION"
+                    ],
+                    [
+                        264,
+                        271,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Haben gar ain schöns refectorium, 2 fein wurz gerten, ain grosen hoff, ain guete wünterstuben, Jn welcher ain groser offen, darbeÿ steth in holz ain geschnizleter tod, nach welchen auf ain zeit ain burger, so im closter gessen Vnd lustig worden, mit aim bolz geschossen, welcher am dritten tag darnach gestorben, Jtem, auf ain zeit hat ihn ain anderer in die handt gnommen, vnd mit in der stuben rumb danzt, so auch am dritten tag tod blieben, wie sie referiern.",
+            {
+                "entities": [
+                    [
+                        212,
+                        219,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "NB Zusehen ihr Bibliotheca.",
+            {
+                "entities": [
+                    [
+                        15,
+                        26,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Jm closter bruwen sie ain trefflich guet bier, Jst ainer Jmhoff Von Augspurg auch Jm closter, haben ain zümblich feinen schaz von goldt vnd silber, vnd auch schöne mößgwandt, aber nit die fühle, herunder haben sie etlich schöne gemahlte sacellas.",
+            {
+                "entities": [
+                    [
+                        3,
+                        10,
+                        "OBJEKT"
+                    ],
+                    [
+                        68,
+                        76,
+                        "ORT"
+                    ],
+                    [
+                        85,
+                        92,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Der Jesuiter Kirchen ist ain V̈ber auß kostlichs Stattlichs gebew, der gleichen man nit baldt fündet Jm Deutschlandt, auf baiden seiten kunstliche vnd zierliche Altär, nach dem costlichsten, sonderlich aber der groß altar Jm chor daruornen ist alles Von Ebeno vnd mit silber eingelegt quam sumptuosissimè ornatum An der wand darbeÿ rumb tapezereÿen mit gfarbter seidin genehet, Jm frawen zümmer gar kunstlich gmacht, werden vil gelts werth geschezt, Vor dem Altar hengt ain stetigsbrinnende lampen kunstlich Von silber gmacht, wigt 50 Mark, die Mark per Gulden 20, das macht Gulden 1000.",
+            {
+                "entities": [
+                    [
+                        4,
+                        20,
+                        "OBJEKT"
+                    ],
+                    [
+                        104,
+                        116,
+                        "ORT"
+                    ],
+                    [
+                        381,
+                        394,
+                        "ORGANISATION"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Hinder dem beckhin ist gar ain hoches ebenis Crucifix auf in qua pendet Christus auß möß, auf aim Ebeno stockh, crucem brachijs circumuoluit Sancta Magdalena auch alles Jn möß, drumb rumb Vil mössin toden köpf vnd bainer.",
+            {
+                "entities": [
+                    [
+                        141,
+                        157,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Alexander Papa et Martyr circa anno DCXXI epistola Prima aquam sale conspersam populis benedicimus, ut ea cuncti aspersi sanctificentur, quod et cunctis sacerdotibus faciendum mandamus. ",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Die Kirch hat 2 orglen neben ainander, Vnd haben oben herumb gscheiweiß schöne vergetterte borkürchen, sonst alß Von marmelstain Pflestert, Vnd gar ain kunstlich pauiment oben herumb, alß Jn gibs gossen.",
+            {
+                "entities": [
+                    [
+                        4,
+                        9,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Oben auf hat der herzog sein schöns Capellin, mit 2 schönen kunstlich gmahlten tafflen auf dem Altar, darin er rab hört möß lösen Vnd predigen.",
+            {
+                "entities": [
+                    [
+                        36,
+                        44,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Vnderschidliche gemäch Vnd zellen haben sie zu ihrem schaz, welcher ain Vnglaublichen gelts wehrt ist, dan sie kelch vnd anders der hailigen gefeß, Vnderschidlich tafflen, Crucifix, alles Von lauter goldt haben Vnd vnderschidliche truchlen Von eitelen Edelgestain, Jn der schwere, das sie selbs bekennen, khündens khaum ertragen, Die costlichait vnd Anzahl ihrer möß gwandt, schöne ganz silberne gfeß vnd grose leuchter, mit buzern, schöne herrliche tapezereÿen Vnd ornamenta, auch ganz silberne Vnd guldine Maÿenkrieg, ist Vnzahlbar, Vnd hat ainer nit augen gnug zu sehen, alls goldt auf goldt, Vnd khünden sie die Jesuiter anderst nit, dan solchen ihren schaz nit gnugsam rüemen, haben gar ain schöne ordnung Jn dem kalter, Vnd wie das möß gwandt, so ist auch das claid Vnd ornat auf dem Altar, Vnder anderm ist wol wehrt zu sehen ain trefflich schön kunstückh nach dem leben, welches ist ain Saluator Jn holz geschnitten so zierlich, alß wan er das leben hette, mit flaisch Vnd bluet Vmbgeben were, den sie in die resurectionis brauchen, ist sonst noch ain schöner Saluator darbeÿ, aber beÿ disem nit zugleichen",
+            {
+                "entities": [
+                    [
+                        616,
+                        624,
+                        "ORGANISATION"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Vnder anderm hailtumb haben sie Vnß ain stück Von Sanctae Barbarae haupt gewisen so ihnen Von Cölln geschückht worden, Jn silber eingfast (nota hat noch eins zu Cölln, hab auch Sanctae Barbarae haupt Senarum Vnd Romae gesehen, muß ain grosen kopf ghabt haben.) beÿ ihren mößgwandt haben sie ain schöne Capell, darunder sie selbs ainander begraben, wan ain seiten Voll ist, legen Vnd sezen sies auf die ander, derweiln verwist die ain seiten.",
+            {
+                "entities": [
+                    [
+                        50,
+                        66,
+                        "PERSON"
+                    ],
+                    [
+                        94,
+                        99,
+                        "ORT"
+                    ],
+                    [
+                        161,
+                        166,
+                        "ORT"
+                    ],
+                    [
+                        177,
+                        193,
+                        "PERSON"
+                    ],
+                    [
+                        302,
+                        308,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Beÿ dem messinen Crucifix, sein auch klaine messine Engel auf der seiten, vnd oben Jn der Kürchen herumb allerlaÿ schöne stainerne statuae.",
+            {
+                "entities": [
+                    [
+                        90,
+                        97,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Jhr kürchen Von aussen hat 2 hauptthör, ain schöne prospectiu, Jst Christus mit dem Apfel Vnder ihme Otto dux Bauariae, Vnder disem 6 andere Duces, Abermahlen 6 Duces Vnd imperatores alle in weiß marmelstain gehawen.",
+            {
+                "entities": [
+                    [
+                        4,
+                        11,
+                        "OBJEKT"
+                    ],
+                    [
+                        67,
+                        75,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Vnder den letstern 6 ist guilelmus helt ain kürchen in der handt, Vnd stehn Volgende wort, mit guldinen buchstaben Jn roth marmelstain graben der kürchen braite nach Guillelmus comes Palatinus Rhenj, vtriusque Bauariae dux, patronus et fundator.",
+            {
+                "entities": [
+                    [
+                        44,
+                        51,
+                        "OBJEKT"
+                    ],
+                    [
+                        146,
+                        153,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Zu Vnderst zwischen den 2 thüren ist in glockhenspeiß Angelus Michael Draconem perfoderans, sehr groß Vnd schön, darunder deß herzogs wappen auch Jn möß.",
+            {
+                "entities": [
+                    [
+                        62,
+                        69,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Hat Von aussen vnd Jnnen das collegium Vnd die Kürchen aines Küniglichen pallasts ansehen, das Vnder pauiment Jn der kürchen ist gwirffleter weiß mit weiß vnd blaw marmelstain gepflestert, wie deß herzogs wappen.",
+            {
+                "entities": [
+                    [
+                        47,
+                        54,
+                        "OBJEKT"
+                    ],
+                    [
+                        117,
+                        124,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Heist der Scurial das closter Sankt Lorenze, sein Hieromiten drin mit 80000 Scudi ein khommens.",
+            {
+                "entities": [
+                    [
+                        22,
+                        43,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Jhr collegium belangent, hat selbiges in circuitu ain gleichsam Vnermeßlichen plaz, vnd khündt sich wol ain künig darin behelffen, hat gweltige lange Vnd liechte braite kreuzgeng ain Jn andern, Jedlicher pater sein sauber aigen zümmer, bestat mit Vmbheng, Vnd was aim Von nöthen, Ain aignen grosen plaz, mit gmahlter leinwath iedlicher biß Jn die etlich Vnd sezig klainer stüblen vnderschlagen darin sie Jm wünter studiern Dreÿ haupt zümmer obainander sehr groß das aine ihr Bibliotheca, welche Von ordnung Vnd anzahl der bücher wehrt zu sehen, das ander ihr erquickh stuben, darin sie nach essens zusamen khommen, drin ab zu döwen, mit gmahlten tafflen zieret, das dritte ihr stuben darin sie essen, alles mit schönem teffer zieret, khünden ain wenig Jn herzog Willhalms baw sehen, aber nit vil, sonderlich zu sehen ihre schuelen, darin sie die Jugent trefflich abrichten zum disputiern Vnd zanckhen, fürnemlich aber der treflich herrliche Vnd schöne Saal, gweltig groß, vnd gleich die kürchen ziert, ain schönen altar darin, auf welchem alle tag die knaben möß hören, ehe sie zur lection gehn , haben auch ihren Aignen prediger darin, Vnd sicht man diser zeit vber die tausent knaben darin beÿsamen.",
+            {
+                "entities": [
+                    [
+                        4,
+                        13,
+                        "OBJEKT"
+                    ],
+                    [
+                        475,
+                        486,
+                        "OBJEKT"
+                    ],
+                    [
+                        755,
+                        771,
+                        "PERSON"
+                    ],
+                    [
+                        987,
+                        994,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Das collegium hat Vnderschidliche schöne gerten Vnd höff, Vnd 800 Creuz fenster, sagt der rector collegij, welcher vnß herumb gefuehrt, das kain solches collegium in europa seÿe, so schön wie das ihrig, ausser ainem welches Jn Spannia solle sein, Vnd 11000 fenster habben. ",
+            {
+                "entities": [
+                    [
+                        153,
+                        162,
+                        "OBJEKT"
+                    ],
+                    [
+                        166,
+                        177,
+                        "ORT"
+                    ],
+                    [
+                        227,
+                        234,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Herzog Willhalm, welcher gaistlichait halber sich Vom Regiment gethan, vnd ain Jesuiter worden, hat Vast gleich so groß gebew ihn alß die Jesuiter Vnd anainander steth, hat ain aigne thür, auf ihre geng, Allerlaÿ künstler beÿ sich, vnd last ihm iezt aine grotta, (vt rumor est,) vnder der erden bawen, darin allerlaÿ baum sezen, villen Vögel vnd thier darein zuthun, vnd drunder zuwohnen, tanquam eremita, sein gesündlin beurlauben deren er iezt in die 80, will nur 2 Jn 3 beÿ sich behalten.",
+            {
+                "entities": [
+                    [
+                        0,
+                        15,
+                        "PERSON"
+                    ],
+                    [
+                        79,
+                        87,
+                        "ORGANISATION"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Adi 15 Juli dem newen baw zugangen, oder der newen Veste, welches ain herrlich schoner pallast ist, vnd gar aine lustige perspectiu hat, Jm eingang ain langer hoff, auß disem kombt man gar Jn ain grosen runden hoff, alles mit schönem gebew Vmbgeben, auf der rechten seiten hat man Vnß in ain schönen lustgarten, welches das belvedere genent würdt, gefuert , ist ain Kämmerling herr Ludwig genant, mit gangen, das belvedere, ist ain herlich werckh in aim mit marmelstain gepflesterten sal, an die wandt zwischen 2 thüren gemacht, alles Von meermutschlen Von Vnderschidlichen farben bilderweiß gezieret, Alß mann vnd weiber, Adler, schwannen, vnd andere thier, durchauß mit roth Corallin Zünckhen ornieret, wie ain grotta, da an vnderschidlichen orten wasser rauß springt, oben auf schwebt der mercurius Jn messin, An disem saalin ist der lustgarten, gar artig mit aufgesezten klainen weiß vnd blawen stainlen geeckhet weiß, wie das bairisch wappen ist, gepflestert, die lender mit schönen weissen quader stuckhen eingefast, 4 höch inen aufainander, der garten ist in 4 thail gethailt, vnd in iedlichem quartier ain artigs treglin mit springendem wasser, Jn der mitt deß gartens ain kunstlicher schöner messiner röhrkasten, mit vilen schönen bildern Von möß, Jn den tregen allerlaÿ schöne bluemen Vnd negelen, ",
+            {
+                "entities": [
+                    [
+                        4,
+                        11,
+                        "ZEIT"
+                    ],
+                    [
+                        45,
+                        56,
+                        "OBJEKT"
+                    ],
+                    [
+                        324,
+                        333,
+                        "OBJEKT"
+                    ],
+                    [
+                        377,
+                        388,
+                        "PERSON"
+                    ],
+                    [
+                        413,
+                        422,
+                        "OBJEKT"
+                    ],
+                    [
+                        931,
+                        939,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Das belvedere ist oben mit costlichen gmahlten tafflen am getill geziert, Vor nibert, alß zu endt deß gartens ist widerumb ain anders schöns saalin mit schönen Alabasternen büldern, sonderlich die ceres Jn mans vnd weibs tracht, Jm garten rings herumb stehn schöne stainerne groß Vnd klaine bülder in lustiger ordnung, Vnd ist auf der seiten deß gartens widerumb ain schöner langer saahl mit tafflen.",
+            {
+                "entities": [
+                    [
+                        4,
+                        13,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Das belvedere mahnt mich an das pratellino zu Florenz, ist aber noch schöner das da.",
+            {
+                "entities": [
+                    [
+                        4,
+                        13,
+                        "OBJEKT"
+                    ],
+                    [
+                        32,
+                        42,
+                        "OBJEKT"
+                    ],
+                    [
+                        46,
+                        53,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Kunstkhammer",
+            {
+                "entities": [
+                    [
+                        0,
+                        12,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Von dannen hat man Vnß für die Veste hinauß gefürt, für den falchenthurn für Vber, Jn welchem mehr thails, wer drein khombt, Vmbs leben gefangen ligt, gleich ohnlangst dem Astor, herzog Maximiliani Obristem stallmaister ervolgt ist, welcher der herzogen vergeben wöllen, Vnd dem herzog Maximiliano eine spannierin zutürmen, weil sein iezigs gmahel Vnfruchtbar ist, an disem thurn, welcher ain zümlich lange maur hat, khombt man hinfür zu deß herzogs stallung, ob welcher die Kunstkhammer, so würdig zu sehen, durch ain klains dennelin geht man hinein, auf welchem lauter narren an tafflen abkunterfect sein, alß dan khombt man Jn ain sehr groß gevierts zümmer in der mit ain gevierts hülzins getter rumb, wen man zur thür hinein khombt, so sicht man auf dem hilzin getter stehn Ain Eber, hat 7 köpf, 2 hendt, 4 fueß, vnd 4 schwenz alß dan gehet man hinein, da ist ringsweißrumb ain tisch am andern mit selzamen sachen, fast alzeit zwischen anderen sachen, ain Tisch mit rothem, weissem vnd leibfarbem Corall, dergleichen zünckhen, bülder, triumph, music wägen, denzen wie dan Vber die 100000 Ungarischen Dukaten an Corall soll Jn der kunstkhammer sein.",
+            {
+                "entities": [
+                    [
+                        31,
+                        36,
+                        "OBJEKT"
+                    ],
+                    [
+                        179,
+                        197,
+                        "PERSON"
+                    ],
+                    [
+                        279,
+                        297,
+                        "PERSON"
+                    ],
+                    [
+                        303,
+                        313,
+                        "ORT"
+                    ],
+                    [
+                        475,
+                        487,
+                        "OBJEKT"
+                    ],
+                    [
+                        1092,
+                        1103,
+                        "ORT"
+                    ],
+                    [
+                        1134,
+                        1146,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Mehr hat man Vnß schöne bucher gewisen, Jn welchen der Griechen vnd Römer münzen vnd bildtnusen gemahlt sein, auch die münzen selbs gezaigt, welche in fein lauter goldt, Von silber, Vnd auch Von andern metall Vnzählich da sein, wie dan Vber die 30000 Scudi An dergleichen münzen vorhanden sollen sein: ain trefflich schönen geviereckheten spiegel sicht man, aussen Vnd innen gar kunstlich Jn holz geschnitten schöne landschafften, Krieg vnd anders mehr, ain andern spiegel an der wandt, in dem ainer vilerlaÿ angesichter hat, sonst Vnderschidliche spiegel, sonderlich aber Zu end der kunstkhammer ist ainer Jn aim kasten, darin man die ganz kunstkammer, Vnd ainer sein ganz corpus sihet, iha wol 3 oder Vier neben ainander ihr ganze staturam sehen, ain Artigs klains guldins kettelin Von aim edelman gemacht, mit etlich hundert klainen wünzigen glaichlen, ist in aim klainen kästlin auf gruenem sammet aufgespant, Vnderschidliche Idoles Vnd simulachra Von Erden Vnd anderer materia, dardurch (Gott behuet vnß Vor ihm.) der teuffel geredt, vnd den haiden die oracula angezaigt.",
+            {
+                "entities": [
+                    [
+                        55,
+                        63,
+                        "ORT"
+                    ],
+                    [
+                        68,
+                        73,
+                        "ORT"
+                    ],
+                    [
+                        584,
+                        596,
+                        "OBJEKT"
+                    ],
+                    [
+                        993,
+                        997,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Rinden auf welchen geschrieben, hülzine teppich vnd fazelen, tafflen auß gfarbten Papigaÿ federlen, Jtem auß seÿdin genehet, schön Spannisch weiß gelter mit fäden gestickht.",
+            {
+                "entities": [
+                    [
+                        131,
+                        140,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Hüpsche türckhische, Jndianische, klaider mascheren claider auß federn.",
+            {
+                "entities": [
+                    [
+                        8,
+                        19,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Allerlaÿ selzam türckhisch , Jndianisch wehren vnd dolchen, vil altfränckhisch waffen, gar Vil messer mit Corallinen, berlmueterinen, Christallinen, silbernen und guldinen hefften, Vnder anderm ain wehr mit menschen haut Vberzogen, aines Von Fronberg gewest, welcher in champagna mit aim franzosen kempft, Vnd verlassen, welcher den andern ermürdt, solle deß ainen haut Vber sein wehr ziechen.",
+            {
+                "entities": [
+                    [
+                        16,
+                        26,
+                        "ORT"
+                    ],
+                    [
+                        64,
+                        78,
+                        "ORT"
+                    ],
+                    [
+                        242,
+                        250,
+                        "ORT"
+                    ],
+                    [
+                        270,
+                        279,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Vnderschidliche selzame Vierfuesige Vnd fliegende thier, Alß etlich groß Crocodil, so oben hin Vnd wider hangen, Ain groser eingefilter Elephant, Ain eingefilter basilischkh, mancherlaÿ meerfisch, ain hauffen Jndianischer, türckhischer Vnd sonst schuch, allerlaÿ selzame meer schnekhen Vnd muschlen.",
+            {
+                "entities": [
+                    [
+                        223,
+                        235,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Vnderschidlich Christalline, Coralline, bainine kuglen, paternoster, leffel, Piron, auch auß holz, die 12 Apostel schön in helffenbain geschnitten, schöne kunstliche spherae, vnderschidliche berckhwerckh, Allerlaÿ hilzine auch gar Vil liderne Jndianische, türckhische geschür, Ain hoches Vbergultes blech, wie mans auf die thuren sezt, so man zu Pesch in der letsten eroberung Jn der türckhen kürchen gefunden hat, ain grose anzahl ob Vnd Vnder dem tisch mit Porzulaninen geschür, ain grose Anzahl silberne Vnd ganz guldine tafflen, kunstliche schaalen Vnd andere geschürr, ain lapislazerines handbeckhin Vnd nÿmpha darzu, sonst edelgstaine Vnderschidliche gfäß, trüchlen, becher vnd schalen, ain schöner groser geschnittner Jaspis gröser alß ain gans Aÿr, Ain leilach 9 brabantisch eln brait ohne nat, etlich Paradeÿß Vögel.",
+            {
+                "entities": [
+                    [
+                        256,
+                        267,
+                        "ORT"
+                    ],
+                    [
+                        384,
+                        400,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Jn ainer truchen reseruiert man regis Galliae schwert (welches mit aim vergulten kreuz vnd sehr schwer) vnd sein schwarz sammetiner kriegs rockh mit goldt brembt, den er braucht, Vnd von Carolo V. Jm thier garten Vor Pauia drin gfangen worden, Darbeÿ ligt auch ain wammes, so dem probst Von Elchingen gerecht gewest, hat in der weitin 3 eln lang, oder 11 spannen.",
+            {
+                "entities": [
+                    [
+                        291,
+                        300,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Jm Jnnern gaden das ist zwischen dem obgemelten getter sein rundts herumb schöne kunstliche tafflen, sonderlich oben Jn der hoche hangent, regum et principum Imagines et statuae depictae, derer qui adhuc aura vescuntur, et eorum, qui pridem ex hac vita ad gloriam demigraverunt, sonderlich zu merckhen Hainricus 3 Rex galliae, et 3 Duces Guisienses, inter quos alter cardinalis erat, welche der Künig hat lassen hinrichten; neben dem Künig hangt der baarfueser münch beÿ seim linckhen knue abconterfect, herr Jacobus Clemens, welcher den gemelten Künig interimiert Vnd ermordet hat, Vnder her wol zu sehen Vier alte kunstlich gmahlte tafflen mit romanischen Kriegen, 2 Lucretias, die aine ist Vber die massen kunstlich vnd schön, alß wans lebete, oben auf dem gsimbs allerlaÿ frembde vnd selzame Krieg vnd gschürr.",
+            {
+                "entities": [
+                    [
+                        450,
+                        466,
+                        "ORGANISATION"
+                    ],
+                    [
+                        509,
+                        524,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "wol zu sehen deß gwaltigen Römer feindts deß Hannibalis, auch deß Attilae Conterfect.",
+            {
+                "entities": [
+                    [
+                        27,
+                        32,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "2 täfelen von dergleichen stainlen, wie die Sankt Marxen kürchen zu Venetia, Lutheri bildtnuß Von Öhlfarben gemahlet.",
+            {
+                "entities": [
+                    [
+                        44,
+                        64,
+                        "OBJEKT"
+                    ],
+                    [
+                        68,
+                        75,
+                        "ORT"
+                    ],
+                    [
+                        77,
+                        84,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Alte Veste",
+            {
+                "entities": [
+                    [
+                        0,
+                        10,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Die Alte Veste, hat ain grosen hoff vnd ain Altfrenckisch geheuß drumb rumb, haben Vor Jahren die herzog Jn Baÿrn alda hoffgehalten, nun ist die rend Vnd lehenstuben Vnd ain thail Von der Canzleÿ alda, zu sehen ain thurn, so Vnden Vnd oben spizig.",
+            {
+                "entities": [
+                    [
+                        4,
+                        14,
+                        "OBJEKT"
+                    ],
+                    [
+                        44,
+                        57,
+                        "ORT"
+                    ],
+                    [
+                        108,
+                        113,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "1557.",
+            {
+                "entities": [
+                    [
+                        0,
+                        4,
+                        "ZEIT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Alß nach Christi geburt gezehlet war Vierzehenhundert Vnd nainzig Jahr hat herzog Christof hochgeboren Ain heldt von Baÿrn ausserkhorn den stain gehebt von freÿer erdt, Vnd weit geworfen ohngeferdt, der wigt dreÿhundert Vier sechzig Pfundt das gibt der stain Vnd schrifft Vhrkhundt. ",
+            {
+                "entities": [
+                    [
+                        9,
+                        16,
+                        "PERSON"
+                    ],
+                    [
+                        37,
+                        70,
+                        "ZEIT"
+                    ],
+                    [
+                        75,
+                        90,
+                        "PERSON"
+                    ],
+                    [
+                        117,
+                        122,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Dreÿ negel steckhen hie Vor augen die mag ain jeder springer schawen Der erst 12 schuch hoch Von der erdt, der herzog Christoff ehren wehrt mit seinem fueß herab thet schlagen zaunridt laufft biß zum andern nagel, Wol Von der erdt zechenhalb schuch Neundthalben Philipp Springer luff, zum dritten nagel Jn der wandt wie hoch er springt, würdt noch bekhandt. ",
+            {
+                "entities": [
+                    [
+                        111,
+                        127,
+                        "PERSON"
+                    ],
+                    [
+                        262,
+                        278,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Vor deß herzog Ferdinandi hauß, steth ain schöner Röhrkasten, mit messinen bildern, sonderlich schön das Pferdt Vnd reiter so obenauf Jn aim beckhin oder schalen steth, Vnd wasser zum federbusch rauß springt, ist mit aim eissin getter eingefast, das man nit darzue khan aber wasser springt zwischen dem getter heraus, deß man brauchen khan.",
+            {
+                "entities": [
+                    [
+                        8,
+                        25,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Die herzogin Maria Maximiliana wohnt gleich Jn aim hauß darneben.",
+            {
+                "entities": [
+                    [
+                        4,
+                        30,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Durch des herzog Ferdinandi behausung sein wir mit seiner Kämmerling ainem gangen, hat vnß sein garten Vor dem thor sehen lassen, am nauß gehn treffen wir den herzog selbs an Vnder der garten thür stehn am hauß, welcher Vnß gnedige erlaubtnuß geben, was zusehen ist, zu sehen, vnd mit huet abziehen sich gar gnedig erzaigt.",
+            {
+                "entities": [
+                    [
+                        10,
+                        27,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Von disen 5 gemelten heußlen khombt man gar in ain schön Lusthauß, wol wehrt zusehen, hat sonderlich ainen herrlichen schönen saal, mit kunstlichem zierlichem gmahltem getill, Von gueten maistern gemacht, Jm saal rundts herumb an der maur die Niderlendische krieg vnd schlachten, belegerungen abgemahlt, die herzog Ferdinandus Jn Niderlandt gefuert hat, sein statua vnd bildtnus ist auch nach dem leben, steth Jn aim Kiris, mit seim schwert Vmbgürtet, Vnd mit seim schönen feldtzaichen behenckht, so er dazumahl braucht hat, auch sein helmlin vnd grosen federbusch sampt dem schildt neben ihm stehn, den sein spießjung gefuert hat.",
+            {
+                "entities": [
+                    [
+                        308,
+                        326,
+                        "PERSON"
+                    ],
+                    [
+                        330,
+                        340,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Zusehen in ainer stuben ain schöner lustiger offen, welchen ain haffner gar kunstlich gemacht, Von allerlaÿ farben, ist der ganz passion dran, schön Maÿen krieg vnd früchten, alß wans ain stain mez gemacht hette, vnd hab dergleichen nie gesehen.",
+            {
+                "entities": [
+                    [
+                        149,
+                        154,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Sein in der Jesuiter collegio auch schöne öffen zusehen, aber nichts gegen disem.",
+            {
+                "entities": [
+                    [
+                        12,
+                        20,
+                        "ORGANISATION"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Mehr alda gesehen ain Jung tÿger thier, ist hupsch gespreglet wie die Leopardt, hat mit den hunden Vmbgeschunden.",
+            {
+                "entities": [
+                    [
+                        70,
+                        78,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Jn obgemelten 5 Sommerheusern ist hin Vnd wider herzog ferdinandus selbs auf dem giaidt abconterfect, gleich wol er ihm iezt selbs nit mehr gleich sihet, dan er Vast graw würdt, hat ain schlechte hoffhaltung, Vnd auch ain weib Von aim geringen hauß gefreÿt, sich sonst neben zu beholffen, ist sonst ain fraindtlicher herr, haben ihne sehen im garten am hauß, essen, an ainer langen taffel, mit fräwlen Vnd seinen leuten oder officieri, noch ain runder tisch mit frawen zimmern darneben, Ain diener oder Vier Vor dem tisch stehn.",
+            {
+                "entities": [
+                    [
+                        48,
+                        66,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "haben auch gesehen der fraw Rosina geborner Hördtnittin ihren garten ist schön, hat ain feins hauß vnd thurn darbeÿ dem grafen Von Schwarzenberg gehört, wie dan sein wappen noch Jm hauß, hats aber der frawen anderer mann so Jeorg würtenberger gehaissen, Vmb Gulden 2000 verkaufft, ist weit ain mehrers wehrt, der frawen erster man hat hans Sterenberger gehaissen, Von selbigem hats ain Ainige dochter, welche 12000 Gulden soll vermögen.",
+            {
+                "entities": [
+                    [
+                        28,
+                        34,
+                        "PERSON"
+                    ],
+                    [
+                        131,
+                        144,
+                        "ORT"
+                    ],
+                    [
+                        224,
+                        242,
+                        "PERSON"
+                    ],
+                    [
+                        335,
+                        352,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Zumerckhen an der thumb kürchen 2 schöne hoche thurn mit kupfer deckht, welche man weit sihet, die Jesuiter bawen auch wider ain schönen thurn, weil ihnen der ander eingefallen, Jn der Capel Vil schaden gethan, haben sie den Jezigen zümlich weit von der kürchen gesezt.",
+            {
+                "entities": [
+                    [
+                        18,
+                        31,
+                        "OBJEKT"
+                    ],
+                    [
+                        99,
+                        107,
+                        "ORGANISATION"
+                    ],
+                    [
+                        185,
+                        190,
+                        "OBJEKT"
+                    ],
+                    [
+                        254,
+                        261,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Sie die Jesuiter sein nit wol gewolt Jn der Statt, Vmb ihrs brachts vnd geiz willen, haben durch ihr groß gebew Vil armer leut gemacht, die Jn heusern nit khünden Vnderkhommen, vnd gstaigert sein worden.",
+            {
+                "entities": [
+                    [
+                        8,
+                        16,
+                        "ORGANISATION"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Herzog Willhalm raumbt ihnen Vil ein, haben ohnlangst ain closter Ebersperg, bekhommen, die münch so Vil Jahr drin gwest, drauß verstossen, Also das auch ain Alter münch auf allen Vieren zum closter nauß krisen, welcher verrett gehabt, ehe sterben, dan zum closter nauß gehn wölle.",
+            {
+                "entities": [
+                    [
+                        0,
+                        15,
+                        "PERSON"
+                    ],
+                    [
+                        58,
+                        75,
+                        "OBJEKT"
+                    ],
+                    [
+                        164,
+                        169,
+                        "PERSON"
+                    ],
+                    [
+                        191,
+                        198,
+                        "OBJEKT"
+                    ],
+                    [
+                        257,
+                        264,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Wer Jn münch lehen empfangt, mueß auf Gott vnd seine hailigen schweren, auch 5 percento Vom guet geben, welches vor disem nit gewest, Rem Vnd Horndacher, weil ihnen der lehen probst bekhandt, haben sie nit schweren dörfen, sondern nur die handt trew geraicht Vnd versprochen, haben Vor disen 20 Gulden Von Anzenhofen geben, iezt Gulden 25 außgeben, hetten sonst auch sollen 5 percento geben, Ain silberiner becher so sie ihme verehrt, Von Gulden 30 wehrt hat das best thun, den schreibern haben sie 2 Taler geschenckht.",
+            {
+                "entities": [
+                    [
+                        7,
+                        12,
+                        "ORT"
+                    ],
+                    [
+                        38,
+                        42,
+                        "PERSON"
+                    ],
+                    [
+                        142,
+                        152,
+                        "PERSON"
+                    ],
+                    [
+                        306,
+                        316,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Zu Münch gilt ain salzscheib 26 bazen.",
+            {
+                "entities": [
+                    [
+                        3,
+                        8,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Sein zu Münch 5 hoffhaltungen, deß herzog Willhalms, herzog Maximilianj, herzog ferdinandj, der herzogin Maria Maximiliana, Vnd der Jesuiter.",
+            {
+                "entities": [
+                    [
+                        8,
+                        13,
+                        "ORT"
+                    ],
+                    [
+                        35,
+                        51,
+                        "PERSON"
+                    ],
+                    [
+                        53,
+                        71,
+                        "PERSON"
+                    ],
+                    [
+                        73,
+                        90,
+                        "PERSON"
+                    ],
+                    [
+                        96,
+                        122,
+                        "PERSON"
+                    ],
+                    [
+                        132,
+                        140,
+                        "ORGANISATION"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Herzog Albertus geht beÿ seim herr brueder zur taffel. ",
+            {
+                "entities": [
+                    [
+                        0,
+                        15,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Es hat zu Münch feine weinstedel, die wein sein guet, aber theur.",
+            {
+                "entities": [
+                    [
+                        10,
+                        15,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "München ist rundts Vmb mit kraut gärten Vmbgeben.",
+            {
+                "entities": [
+                    [
+                        0,
+                        7,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Baÿrlandt hat wie Volgt 35 Statt: 94 märckht.",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "75 klöster, ausser der bettelorden 8 stifft.",
+            {
+                "entities": [
+                    [
+                        3,
+                        10,
+                        "OBJEKT"
+                    ],
+                    [
+                        23,
+                        34,
+                        "ORGANISATION"
+                    ]
+                ]
+            }
+        ],
+        [
+            "720 schlösser 4700 dörfer.",
+            {
+                "entities": [
+                    [
+                        4,
+                        13,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "2874 kirchen auf dem landt.",
+            {
+                "entities": [
+                    [
+                        5,
+                        12,
+                        "OBJEKT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Adj 16. Julj, haben wir deß morgens Vmb 6 Vhr Vnsern weeg wider nach hauß genomen nemlich auf Basing.",
+            {
+                "entities": [
+                    [
+                        4,
+                        12,
+                        "ZEIT"
+                    ],
+                    [
+                        28,
+                        35,
+                        "ZEIT"
+                    ],
+                    [
+                        36,
+                        45,
+                        "ZEIT"
+                    ],
+                    [
+                        94,
+                        100,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Prugg.",
+            {
+                "entities": [
+                    [
+                        0,
+                        5,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Dünzelhoffen, der wittfraw Octauianus Jm Hoff gehörig.",
+            {
+                "entities": [
+                    [
+                        0,
+                        12,
+                        "ORT"
+                    ],
+                    [
+                        27,
+                        37,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Vnd den Pfaffen Plaz Voll getrunckhen, ist ain schlechte herberg alda.",
+            {
+                "entities": [
+                    [
+                        8,
+                        15,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Nietelstetten.",
+            {
+                "entities": [
+                    [
+                        0,
+                        13,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Kissingen, Hoherzoll.",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "ORT"
+                    ],
+                    [
+                        11,
+                        20,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Augspurg.",
+            {
+                "entities": [
+                    [
+                        0,
+                        8,
+                        "ORT"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Gott lob Vmb 6 Vhr wol ankhommen.",
+            {
+                "entities": [
+                    [
+                        0,
+                        4,
+                        "PERSON"
+                    ],
+                    [
+                        9,
+                        18,
+                        "ZEIT"
+                    ]
+                ]
+            }
+        ]
+    ]
+}

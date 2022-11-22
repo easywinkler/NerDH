@@ -1,0 +1,8 @@
+streamlit
+spacy>=3.0.0,<4.0.0
+spacy-streamlit
+pandas
+de_fnhd_nerdh @ https://huggingface.co/easyh/de_fnhd_nerdh/resolve/main/de_fnhd_nerdh-any-py3-none-any.whl
+de_core_news_sm @ https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.4.0/de_core_news_sm-3.4.0-py3-none-any.whl
+de_core_news_md @ https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.4.0/de_core_news_md-3.4.0-py3-none-any.whl
+de_core_news_lg @ https://github.com/explosion/spacy-models/releases/download/de_core_news_lg-3.4.0/de_core_news_lg-3.4.0-py3-none-any.whl
