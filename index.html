@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://easyh.github.io/nerDH/" rel="canonical"/>
+<link href="img/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.4.1, mkdocs-material-8.5.6" name="generator"/>
+<title>NerDH Tutorial</title>
+<link href="assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Multi+Regular:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Multi Regular";--md-code-font:"Roboto Mono"}</style>
+<link href="stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="deep-purple" data-md-color-primary="teal" data-md-color-scheme="slate" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ner-tutorial-am-beispiel-deutscher-historischer-texte">
+          Zum Inhalt
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Kopfzeile" class="md-header__inner md-grid">
+<a aria-label="NerDH Tutorial" class="md-header__button md-logo" data-md-component="logo" href="." title="NerDH Tutorial">
+<img alt="logo" src="img/favicon.ico"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            NerDH Tutorial
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Named Entity Recognition
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="dark mode" class="md-option" data-md-color-accent="deep-purple" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="teal" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="light mode" class="md-option" data-md-color-accent="teal" data-md-color-media="" data-md-color-primary="teal" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Suche" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Suche" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Suche" class="md-search__options">
+<button aria-label="Zurücksetzen" class="md-search__icon md-icon" tabindex="-1" title="Zurücksetzen" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/easyh/NerDH" title="Zum Repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    easyh/NerDH
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Hauptnavigation" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href=".">
+      Named Entity Recognition
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="tut/">
+      NER Tutorial mit Spacy
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="gui/">
+      NerDH-Visualisierer
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="NerDH Tutorial" class="md-nav__button md-logo" data-md-component="logo" href="." title="NerDH Tutorial">
+<img alt="logo" src="img/favicon.ico"/>
+</a>
+    NerDH Tutorial
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/easyh/NerDH" title="Zum Repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    easyh/NerDH
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Named Entity Recognition
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href=".">
+        Named Entity Recognition
+      </a>
+<nav aria-label="Inhaltsverzeichnis" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-was-ist-named-entity-recognition-ner">
+    1. Was ist Named Entity Recognition (NER)?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-warum-ner">
+    2. Warum NER?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-ner-in-den-digital-humanities">
+    3. NER in den Digital Humanities
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-der-ner-prozess">
+    4. Der NER-Prozess
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-ubersicht-uber-ner-tools">
+    5. Übersicht über NER Tools
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="tut/">
+        NER Tutorial mit Spacy
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="gui/">
+        NerDH-Visualisierer
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/easyh/NerDH/edit/master/docs/index.md" title="Seite editieren">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="ner-tutorial-am-beispiel-deutscher-historischer-texte"><strong>NER Tutorial am Beispiel deutscher historischer Texte</strong></h1>
+<p>Das NerDH-Tutorial ist im Rahmen einer Masterarbeit an der Universität Trier im Wintersemester 2022/23 entstanden. Das Thema der Arbeit war <strong>Named Entity Recognition: Einsatz und Verwendung der Technologie in den Digital Humanities</strong>. Daraus leitet sich auch der Name des Tutorials ab: <em>NER</em> steht für die Abkürzung von Named Entity Recognition und <em>DH</em> für Digital Humanities. Im praktischen Teil der Arbeit wurde mit dem NER-Tool <code>spaCy</code> ein eigenes Modell für frühneuhochdeutsche Texte trainiert. </p>
+<details class="frühneuhochdeutsch question"><summary>Frühneuhochdeutsch</summary><p>Die Periode des Frühneuhochdeutschen (Fnhd.) ist zwischen dem mittelalterlichen und neuzeitlichen Deutsch angesiedelt und erstreckt sich über einen Zeitraum von circa 1350-1650.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+</details>
+<p>Ziel dieses Web-Tutorials ist es nun Interessierten grundlegende Kenntnisse in Bezug auf Named Entity Recognition sowie die praktische Anwendung eines NER-Tools zu vermitteln. Somit kann dieses Tutorial in zwei Teile gegliedert werden: <a href=".#1-was-ist-named-entity-recognition-ner">Theorie</a> und <a href="tut/">praktische Anwendung</a>. </p>
+<p>Der praktische Teil wird dabei neben einer Einführung in <code>spaCy</code> den Trainingsprozess des frühneuhochdeutschen NER-Modells erklären. Abgerundet wird das Web-Tutorial durch den <a href="gui/">NerDH-Visualisierer</a>, welcher mit einer grafischen Benutzeroberfläche für eine einfache Ermittlung von Named Entities in deutschen (historischen) Texten sorgt.</p>
+<p><br/>
+<br/>
+<strong>Viel Spaß und Erfolg mit dem Tutorial!</strong> <img alt="💪" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg" title=":muscle:"> <img alt="🤓" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f913.svg" title=":nerd:">
+<br/></img></img></p>
+<p><br/></p>
+<hr/>
+<h2 id="1-was-ist-named-entity-recognition-ner"><strong>1. Was ist Named Entity Recognition (NER)?</strong></h2>
+<p><code>Named Entity Recognition (NER)</code> ist ein Textanalyse Verfahren des Natural Language Processing (NLP), welches sich mit der Identifizierung und Klassifizierung von benannten Entitäten (<code>Named Entities</code>) beschäftigt. Mit Entitäten werden Dinge der realen Welt bezeichnet, die einen Namen haben können. Die klassischen Entitäten in NER-Modellen sind: <code>PERSONEN</code>, <code>ORTE</code> und <code>ORGANISATIONEN</code>. </p>
+<div class="admonition beispiel ex">
+<p class="admonition-title">Beispiel</p>
+<p><div>
+<figure style="margin-bottom: 1rem">
+<div class="entities" style="line-height: 2.5; direction: ltr">
+<mark class="entity" style="color: black; background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Mia Müller
+    <span style="font-size: 0.6em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">PER</span>
+</mark>
+wohnt in 
+<mark class="entity" style="color: black; background: #ff9561; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Trier
+    <span style="font-size: 0.6em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">LOC</span>
+</mark>
+und studiert an der 
+<mark class="entity" style="color: black; background: #7aecec; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Universität Trier.
+    <span style="font-size: 0.6em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">ORG</span>
+</mark>
+</div>
+</figure>
+</div></p>
+</div>
+<h2 id="2-warum-ner"><strong>2. Warum NER?</strong></h2>
+<p>Der Einsatz von NER bedeutet eine enorme Zeitersparnis gegenüber der manuellen Annotation von Named Entities in Texten. NER ist nützlich, um Schlüsselinformationen aus Texten zu extrahieren. </p>
+<p>Zum Beispiel könnte NER genutzt werden, um die am häufigsten vorkommenden Figuren in einem Roman zu identifzieren oder ein Netz von Figuren zu erstellen. NER könnte aber auch verwendet werden, um die in Texten erwähnten geografischen Orte zu identifizieren, was der erste Schritt für die Kartierung von Orten wäre. Damit macht NER vor allem bei der Analyse von großen Textmengen Sinn, um Daten für weitere Analyseschritte zu erhalten. </p>
+<h2 id="3-ner-in-den-digital-humanities"><strong>3. NER in den Digital Humanities</strong></h2>
+<p>Named Entity Recognition funktioniert besonders gut mit Zeitungsdaten - einfach aus dem Grund, weil die Systeme vor allem mit solchen Daten trainiert wurden. Allerdings wird NER auch in vielen anderen spezifischen Bereichen angewandt. Für die Digital Humanities wurden NER-Systeme besonders durch die massive Anzahl an digitalisierten historischen Dokumenten interessant.</p>
+<p>Allerdings haben sich die Entwickler von NER-Modellen  beim Training haupsächlich auf moderne und englischsprachige Texte konzentriert. Besonders bei historischen Texten schneiden NER-Modelle nicht gut ab. Für die Digital Humanities ist es daher oft sehr herausfordernd mit aktuellen NER-Tools zu arbeiten, da man in den meisten Fällen nicht mit standardisierten und modernen Sprachen arbeitet. Meist - wie auch in diesem Tutorial - arbeitet man mit seltenen oder alten Sprachen. Bei einem solchen Textkorpus führen standardisierte NER-Modelle zu hohen Fehlerquoten. </p>
+<p>Herausfordernd ist dabei vor allem die Heterogenität der historischen Dokumente. Denn innerhalb eines Korpus oder sogar eines Dokumentes können wir verschiedene Sprachen (z.B. Deutsch, Latein, Französisch), eine uneinheitliche Schreibweise und Fehler in der Transkription durch Schreiber bzw. Texterkennungssoftware wie OCR vorfinden. Das folgende Bild stammt aus dem Annotationsprozess des <strong>Goldstandards</strong> für das Training mit dem frühhochneudeutschen Text und soll einen kleinen Einblick auf die uneinheitliche Schreibweise zeigen:  </p>
+<details class="goldstandard question"><summary>Goldstandard</summary><p>Ein Goldstandard ist die finale Version der annotierten Daten, die für den Trainingsprozess verwendet werden. Je besser und genauer die Auszeichnungen für den Goldstandard gemacht werden, desto besser ist das Trainingsergebnis.</p>
+</details>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="img/history_example.png"><img alt="Annotation Goldtstandard" src="img/history_example.png" width="800"/></a>
+</p>
+<figcaption style="font-size: 0.8em;">Erstellung des Goldstandards für das Training. </figcaption>
+</figure>
+<p>Wir sehen, dass hier besonders die Ortsnamen eine untypische Schreibweise im Vergleich zu deren heutiger aufweisen. Ebenso erkennen wir den Mix der verschiedenen Sprachen, da hier <code>Anno</code> verwendet wird, was lateinisch ist und <code>im Jahr</code> bedeutet. All diese Faktoren können die Genauigkeit von NER stark beeinflussen. </p>
+<p>Das Problem ist in den Digital Humanities bekannt. Vereinzelt wurden daher bereits auch schon experimentell Modelle und Untersuchungen mit deutschen historische Texte trainiert und gemacht.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+<p>Genau das werden wir auch wir im <a href="tut/">praktischen Teil</a> des Tutorials angehen. </p>
+<h2 id="4-der-ner-prozess"><strong>4. Der NER-Prozess</strong></h2>
+<p>Der Named Entity Recognition Prozess lässt sich in zwei Schritte aufteilen:<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
+<ol>
+<li><strong>Extraktion von Entitäten:</strong> In diesem Schritt scannt das NER-Modell die Daten und findet die Wörter, die als Entität behandelt werden können.  Ein NER-Modell ist in der Lage, die benannte Entität im Modell auf der Grundlage der ihm bekannten benannten Entitäten zu finden. </li>
+<li><strong>Klassifizierung von Entitäten:</strong> Hier werden die Entitäten in vordefinierte Klassen kategorisiert, die benannte Entität <code>Trier</code> würde beispielsweise als <code>ORT</code> kategorisiert werden. </li>
+</ol>
+<p>Die meisten NER-Tools basieren auf Machine-Learning Algorithmen. Hier wird vorher eine Reihe von Merkmalen (Features) definiert, um eine möglichst präzise Erkennung möglich zu machen. Zum Beispiel können Wortlisten berücksichtigt werden, die alle Namen von Person, Orte und Organisationen verzeichnet, die vorkommen könnten. Zusätzlich können auch Worte mit einbezogen werden, die sich entweder vor oder nach der benannten Entität befinden. Weitere Merkmale könnten auch häufig vorher genannte Wörter sein, sowie zum Beispiel bei Orten das Wort <code>in</code>. Ein anderes erlernbares Muster könnte das Darstellungsformat bei Daten sein (z.B. 01.01.2023 oder 1. Januar 2023). Eine wichtige Rolle spielen auch Merkmale wie Groß- und Kleinschreibung sowie Positionen im Satz. Sämtliche Tools die es gibt, unterscheiden sich u.a. genau in diesem Punkt, der Anzahl der verschiedenen Merkmale.<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup> </p>
+<p>Mit Hilfe dieser im Tool vordefinierten Merkmale findet dann der Machine Learning Prozess statt. Der Lernprozess des NER-Tools besteht darin, dass diese Merkmale mit einem manuell annotierten Text (ein Teil des Goldstandards) abgeglichen werden, dem sogenannten Trainingskorpus. Das Ergebnis dieses Abgleichs ist dann das NER-Modell. Da Entitäten meist unterschiedliche Bedeutungen tragen können, führt nur die Kombination verschiedener Merkmale zu guten Ergebnissen. Das Tool errechnet anhand der Feature-Kombinationen und der Trainingsdaten, welche Zuordnung in welchem Kontext wahrscheinlicher ist.  </p>
+<div class="admonition info">
+<p class="admonition-title">Named Entity Linking &amp; Beziehungsextraktion</p>
+<p>Der Standardprozess kann allerdings noch um zwei weitere Schritte erweitert werden, die bei NER eine wichtige Rolle spielen:<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> </p>
+<ol>
+<li>
+<p><strong>Disambiguation/Linking:</strong> Hier wird den gefundenen Entitäten eine eindeutige Referenz wie z.B. ein Wikidata-Eintrag hinzufügt. In unserem Beispiel <code>Trier</code> als Entität <code>ORT</code>  würde der entsprechende Wikidata-Eintrag von Trier <a href="https://www.wikidata.org/wiki/Q3138"><code>Q3138</code></a> verlinkt werden.</p>
+</li>
+<li>
+<p><strong>Beziehungsexktraktion:</strong> In diesem Schritt können Beziehungen zwischen den benannten Entitäten hergestellt werden.   </p>
+</li>
+</ol>
+</div>
+<h2 id="5-ubersicht-uber-ner-tools"><strong>5. Übersicht über NER Tools</strong></h2>
+<p>Es gibt eine Vielzahl von vorhandenen NER-Tools. Meist wurden diese mit großen Korpora aus modernen journalistischen Texten traniniert. Speziell für die DH ist es daher wichtig auf die Anwendungs- und Trainingsmöglichkeiten der Tools zu achten. Da wir im Tutorial nur mit dem Tool <code>spaCy</code> arbeiten werden, soll die folgende Tabelle einen Überblick über Tools bieten, die ebenfalls in den Digital Humanities zum Einsatz kommen. </p>
+<p><br/></p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spaCy</code></td>
+<td>Spacy ist ein leistungsstarkes Tool für die Verarbeitung natürlicher Sprache, das zur Verarbeitung großer Datenmengen eingesetzt wird. Mit Unterstützung für mehr als 64 Sprachen und 63 trainierten Pipelines für 19 Sprachen ist es ein praktisches Tool für NLP. Das Trainieren einer eigenen Pipeline ermöglicht die Anwendung auf spezifische Texte.</td>
+<td><a href="https://spacy.io/"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+</tr>
+<tr>
+<td><code>NLTK</code></td>
+<td>Das NLTK (Natural Language Toolkit) ist eine Reihe von Bibliotheken, die für NLP verwendet werden. Es wird häufig in der Forschung und für Bildungszwecke verwendet. Es ist in Python geschrieben und hat Zugang zu mehr als 50 Textkorpora in 7 Sprachen.</td>
+<td><a href="https://www.nltk.org/"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+</tr>
+<tr>
+<td><code>Stanford NER</code></td>
+<td>Stanford NER ist eins der bekanntesten NER Tools unter Geisteswissenschaftlern, da es mehrere vortrainierte Modelle in verschiedenen Sprachen und eine Möglichkeit für die Erstellung von eigenen Modellen bietet.</td>
+<td><a href="https://nlp.stanford.edu/software/CRF-NER.html#About"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+</tr>
+<tr>
+<td><code>HER</code></td>
+<td>Das HER-Tool (Humanities Entity Recognizer) wurde speziell für die  Digital Humanities entwickelt. Es bietet eine Whitebox-Lösung für den robusten Umgang mit verschiedenen Arten von Entitäten, verschiedenen Sprachen, Stilen und Domänen sowie unterschiedlichen Strukturierungsebenen in Texten.</td>
+<td><a href="https://github.com/alexerdmann/HER/"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+</tr>
+<tr>
+<td><code>WebLicht</code></td>
+<td>WebLicht ist eine webbasierte Anwendung für automatische Annotation von Textkorpora, welche sowohl verschiedene Services für die Verarbeitung von Daten anbietet als auch eine anwenderfreundliche grafische Oberfläche für die Verkettung von verschiedenen linguistischen Anwendungen. WebLicht bietet auch mehrere Pipelines für deutschsprachige NER an.</td>
+<td><a href="https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/Main_Page"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+</tr>
+<tr>
+<td><code>Flair</code></td>
+<td>Flair ist eine leistungsstarke NLP-Bibliothek in einem PyTorch-Framework, welches es einfach macht eigene Modelle zu trainieren und mit neuen Ansätzen zu experimentieren, die Flair-Einbettungen und -Klassen verwenden.</td>
+<td><a href="https://github.com/flairNLP/flair"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+</tr>
+<tr>
+<td><code>TAGME</code></td>
+<td>TAGME ist ein leistungsfähiges Werkzeug, das in der Lage ist in einem unstrukturierten Text Entitäten zu identifizieren und sie auf schnelle und effektive Weise mit einer entsprechenden Wikipedia-Seite zu verknüpfen. Dieser Annotationsprozess hat Auswirkungen, die weit über die Anreicherung des Textes mit erklärenden Links hinausgehen, da er die Kontextualisierung und in gewisser Weise auch das Verständnis des Textes betrifft (Named Entity Linking)</td>
+<td><a href="https://tagme.d4science.org/tagme/"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+</tr>
+<tr>
+<td><code>DBPedia</code></td>
+<td>DPPedia ist ein Tool zur automatischen Annotation von DBpedia-Ressourcen in Texten und bietet eine Lösung für die Verknüpfung unstrukturierter Informationsquellen mit der Linked Open Data Cloud durch DBpedia (Named Entity Linking).</td>
+<td><a href="https://www.dbpedia-spotlight.org/"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Wikimedia Foundation. (2022, Oktober 24). Frühneuhochdeutsche Sprache. Wikipedia. <a href="https://de.wikipedia.org/wiki/Fr%C3%BChneuhochdeutsche_Sprache">https://de.wikipedia.org/wiki/Frühneuhochdeutsche_Sprache</a> <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>More, Jacqueline. Theorie und Anwendung von Named Entity Recognition in den Digital Humanities mit Fokus auf historische Texte des 17. Jahrhunderts (2021). <a href="https://github.com/jackymore/NER_historical_texts">https://github.com/jackymore/NER_historical_texts</a> <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:3">
+<p>Ehrmann, M., Hamdi, A., Pontes, E. L., Romanello, M., &amp; Doucet, A. (2021). Named entity recognition and classification on historical documents: A survey. <a href="https://arxiv.org/pdf/2109.11406.pdf">https://arxiv.org/pdf/2109.11406.pdf</a> <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:4">
+<p>Labusch, K., Kulturbesitz, P., Neudecker, C., &amp; Zellhöfer, D. (2019, Oktober). BERT for named entity recognition in contemporary and historical German. In Proceedings of the 15th conference on natural language processing (S. 9-11). <a href="https://corpora.linguistik.uni-erlangen.de/data/konvens/proceedings/papers/KONVENS2019_paper_4.pdf">https://corpora.linguistik.uni-erlangen.de/data/konvens/proceedings/papers/KONVENS2019_paper_4.pdf</a> <a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:5">
+<p>Aruja, M. P. (2022, 19. Februar). Top 3 Packages for Named Entity Recognition - Quantrium.ai. Medium. <a href="https://medium.com/quantrium-tech/top-3-packages-for-named-entity-recognition-e9e14f6f0a2a">https://medium.com/quantrium-tech/top-3-packages-for-named-entity-recognition-e9e14f6f0a2a</a> <a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:6">
+<p>Named Entity Recognition (NER) | forTEXT. (o. D.). <a href="https://fortext.net/routinen/methoden/named-entity-recognition-ner">https://fortext.net/routinen/methoden/named-entity-recognition-ner</a> <a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">↩</a></p>
+</li>
+<li id="fn:7">
+<p>Ehrmann, M., Nouvel, D. &amp; Rosset, S. (2016). Named Entity Resources - Overview and Outlook. Language Resources and Evaluation. <a href="https://hal-inalco.archives-ouvertes.fr/hal-01359441/document">https://hal-inalco.archives-ouvertes.fr/hal-01359441/document</a> <a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Zurück zum Seitenanfang
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Fußzeile" class="md-footer__inner md-grid">
+<a aria-label="Weiter: NER Tutorial mit Spacy" class="md-footer__link md-footer__link--next" href="tut/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Weiter
+              </span>
+              NER Tutorial mit Spacy
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "navigation.tabs", "navigation.expand", "toc.integrate", "content.code.annotate", "content.tabs"], "search": "assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}}</script>
+<script src="assets/javascripts/bundle.078830c0.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>
