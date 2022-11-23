@@ -2,9 +2,8 @@
 
 ### **NerDH Visualisierer auf Huggingface**
 
-https://huggingface.co/spaces/easyh/NerDH_Visualisierer
+[https://huggingface.co/spaces/easyh/NerDH_Visualisierer](https://huggingface.co/spaces/easyh/NerDH_Visualisierer)
 
-<br>
 ___________________________________________
 
 <br>
