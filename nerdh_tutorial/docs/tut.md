@@ -11,7 +11,7 @@ Im zweiten Teil des Tutorials werden wir Schritt für Schritt lernen, wie man mi
 
     In diesem Tutorial werden lediglich die Code Beispiele dargestellt. Für die interaktive Benutzung bieten sich folgende drei Möglichkeiten an:   
     
-    - Jupyter Notebook auf [mybinder.org](https://mybinder.org/v2/gh/isabelhansen/NERinDH/HEAD)
+    - Jupyter Notebook auf [mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD)
 
     - [Github Repository Download](https://github.com/easyh/NerDH) 
 
@@ -23,7 +23,7 @@ Im zweiten Teil des Tutorials werden wir Schritt für Schritt lernen, wie man mi
 
         [Hier geht es zu allen Jupyter Notebooks auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
 
-        Die einzelnen Notebooks werden nochmal bei jedem Schritt im Tutorial, an dem sie zum Einsatz kommen, verlinkt. 
+        **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
 
 
     === ":fontawesome-brands-github: Github"
@@ -434,7 +434,9 @@ Hier können wir jetzt noch eigene Anpassungen wie die Auswahl der Entitäten, a
 
     === ":fontawesome-solid-laptop-code: mybinder.org"
 
-        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://hub.gke2.mybinder.org/user/easyh-nerdh-8bcua59i/lab/tree/notebooks/01_firstSteps_spacy.ipynb){ .md-button }
+        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
+
+         **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
 
 
     === ":fontawesome-brands-github: Github"
@@ -524,7 +526,9 @@ Vor der Annotation des Goldstandards, sollten wir unsere beiden Texte allerdings
 
     === ":fontawesome-solid-laptop-code: mybinder.org"
 
-        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://hub.gke2.mybinder.org/user/easyh-nerdh-8bcua59i/lab/tree/notebooks/02_preprocessingText.ipynb){ .md-button }
+        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
+
+         **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
 
 
     === ":fontawesome-brands-github: Github"
@@ -754,7 +758,9 @@ Damit ist das Preprocessing abgeschlossen und wir können mit dem Training des M
 
     === ":fontawesome-solid-laptop-code: mybinder.org"
 
-        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://hub.gke2.mybinder.org/user/easyh-nerdh-8bcua59i/lab/tree/notebooks/03_createDatasets_spacy.ipynb){ .md-button }
+        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
+
+         **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
 
 
     === ":fontawesome-brands-github: Github"
@@ -987,12 +993,14 @@ pip install https://huggingface.co/easyh/de_fnhd_nerdh/resolve/main/de_fnhd_nerd
 
     === ":fontawesome-solid-laptop-code: mybinder.org"
 
-        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://hub.gke2.mybinder.org/user/easyh-nerdh-8bcua59i/lab/tree/notebooks/04_trainEvaluateModel_spacy.ipynb){ .md-button }
+        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
+
+         **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
 
 
     === ":fontawesome-brands-github: Github"
 
-        [Hier geht es zum Notebook auf Github](04_trainEvaluateModel_spacy.ipynb){ .md-button }
+        [Hier geht es zum Notebook auf Github](https://github.com/easyh/NerDH/blob/main/notebooks/04_trainEvaluateModel_spacy.ipynb){ .md-button }
 
 <br>
 
@@ -1037,12 +1045,14 @@ Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nic
 
     === ":fontawesome-solid-laptop-code: mybinder.org"
 
-        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://hub.gke2.mybinder.org/user/easyh-nerdh-8bcua59i/lab/tree/notebooks/04_trainEvaluateModel_spacy.ipynb){ .md-button }
+        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
+
+        **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
 
 
     === ":fontawesome-brands-github: Github"
 
-        [Hier geht es zum Notebook auf Github](04_trainEvaluateModel_spacy.ipynb){ .md-button }
+        [Hier geht es zum Notebook auf Github](https://github.com/easyh/NerDH/blob/main/notebooks/04_trainEvaluateModel_spacy.ipynb){ .md-button }
 
 <br>
 
