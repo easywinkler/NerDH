@@ -1,7 +1,4 @@
 ## **NerDH Visualisierer** 
-___________________________________________
-
-<br>
 
 ### **NerDH Visualisierer auf Huggingface**
 
