@@ -1,16 +1,22 @@
-### NerDH Visualisierer 
+## **NerDH Visualisierer** 
 ___________________________________________
 
-#### NerDH Visualisierer lokal mit streamlit 
+<br>
 
-Einfach die entsprechenden Anforderungen der requirements.txt erfüllen und folgendes im Terminal ausführen: 
+### **NerDH Visualisierer auf Huggingface**
+
+https://huggingface.co/spaces/easyh/NerDH_Visualisierer
+
+<br>
+___________________________________________
+
+<br>
+
+### **NerDH Visualisierer lokal mit streamlit** 
+
+Entwicklungsumgebung mit der [`requirements.txt`](https://github.com/easyh/NerDH/blob/main/requirements.txt) erstellen. Ins Verzeichnis `nerdh_visualisierer` navigieren und dann folgenden Befehl eingeben. 
 
     streamlit run app.py 
     
-Dafür muss man sich im Verzeichnis 'nerdh_visualisierer'
+Die App öffnet sich automatisch im Browser. 
 
-___________________________________________
-
-#### NerDH Visualisierer auf Huggingface
-
-https://huggingface.co/spaces/easyh/NerDH_Visualisierer
