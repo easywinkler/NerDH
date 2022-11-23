@@ -4,3 +4,7 @@ Ziel dieses Web-Tutorials ist es Interessierten grundlegende Kenntnisse in Bezug
 
 
 #### **[Zum NerDH Tutorial](https://easyh.github.io/NerDH/)**
+
+<br>
+
+Das Tutorial wurde mit statischen Websitegenerator [mkdocs](https://www.mkdocs.org/) und dem Theme [Material](https://squidfunk.github.io/mkdocs-material/) erstellt.
