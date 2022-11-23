@@ -1,6 +1,6 @@
 ## **NerDH Visualisierer** 
 
-### **NerDH Visualisierer auf Huggingface**
+### **NerDH Visualisierer im Browser (huggingface.co)**
 
 [https://huggingface.co/spaces/easyh/NerDH_Visualisierer](https://huggingface.co/spaces/easyh/NerDH_Visualisierer)
 
