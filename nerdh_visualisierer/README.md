@@ -6,7 +6,6 @@
 
 ___________________________________________
 
-<br>
 
 ### **NerDH Visualisierer lokal mit streamlit** 
 

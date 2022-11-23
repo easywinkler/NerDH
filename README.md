@@ -21,7 +21,6 @@ https://easyh.github.io/NerDH/
 
 ___________________________________________
 
-<br>
 
 ### **NerDH Visualisierer auf Huggingface**
 
