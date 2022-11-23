@@ -13,4 +13,4 @@ Im Ordner [`datensets`](https://github.com/easyh/NerDH/tree/main/data/datensets)
 <img src="../nerdh_tutorial/docs/img/datensets.svg" width="400"/>
 </div>
 
-Da der [NER Annotator for Spacy](https://tecoholic.github.io/ner-annotator/) die Daten in einem `JSON`-Format exportiert, müssen diese fürs Training noch in das `spacy`-Format konvertiert werden müssen. Dieser Schritt sowie das *Spliten* des Datensets wurd mit dem Notebook [`03_createDatasets_spacy.ipynb`](https://github.com/easyh/NerDH/blob/main/notebooks/03_createDatasets_spacy.ipynb) durchgeführt.
+Da der [NER Annotator for Spacy](https://tecoholic.github.io/ner-annotator/) die Daten in einem `JSON`-Format exportiert, müssen diese fürs Training noch in das `spacy`-Format konvertiert werden. Dieser Schritt sowie das *Spliten* des Datensets wurde mit dem Notebook [`03_createDatasets_spacy.ipynb`](https://github.com/easyh/NerDH/blob/main/notebooks/03_createDatasets_spacy.ipynb) durchgeführt.
