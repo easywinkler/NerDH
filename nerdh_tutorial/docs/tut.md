@@ -600,7 +600,7 @@ Beim maschinellen Lernen benötigen wir einen Trainingsdatensatz, um ein Modell 
 Die Aufteilung unsrer Daten sieht wie folgt aus. Den Datensatz [`taggedData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json) werden wir noch in **Trainingsdaten** und **Validierungsdaten** einteilen müssen.
 
 <figure markdown>
-  ![Datensetsverteilung](img/datensets.svg){ width="500" }
+  ![Datensetsverteilung](img/datenset.png){ width="500" }
   <figcaption style="font-size: 0.8em;">Aufteilung in Training-, Validierung- und Testdaten. </figcaption>
 </figure>
 
