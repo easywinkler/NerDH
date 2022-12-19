@@ -34,6 +34,10 @@ Der NerDH Visualisierer kann zum einen im **Browser** direkt besucht werden oder
 
     <br>
 
+    Falls der Visualisierer längere Zeit nicht benutzt wurde, muss sich dieser erst wieder zusammenbauen. Das kann einen Moment dauern, da hier die Sprackpakete erneut heruntegeladen werden müssen. An `Running` bzw. `Building` ist der aktuelle Status der App zu erkennen.
+
+    <br>
+
      <figure markdown>
     ![AppBrowser](img/app_browser.png){ width="800" }
     <figcaption style="font-size: 0.8em;">NerDH Visualisierer in Browser Ansicht.</figcaption>
