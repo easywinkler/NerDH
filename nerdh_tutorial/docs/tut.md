@@ -873,7 +873,7 @@ python -m spacy init fill-config ./base_config.cfg ./config.cfg
 Jetzt haben wir alles, um unser erstes Modell zu trainieren. Wir erstellen einen Ordner namens `output`, hier wird unser fertiges Modell dann abgelegt. Wir müssen nur den folgenden Befehl ausführen, etwas warten und schon haben wir ein trainiertes Modell.  Hinter `paths.train` setzen wir den Pfad zu unseren Trainingsdaten und hinter `paths.dev` unsere Valuierungsdaten
 
 ```
-!python -m spacy train config.cfg --output ./output --paths.train ./datensets/trainData.spacy --paths.dev ./datensets/valuationData.spacy
+python -m spacy train config.cfg --output ./output --paths.train ./datensets/trainData.spacy --paths.dev ./datensets/valuationData.spacy
 ```
 
 ??? code "Trainingsausgabe"

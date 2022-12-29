@@ -1239,7 +1239,7 @@ Jetzt müssen die Datensets im <code>JSON</code>-Format nurnoch ins <code>spaCy<
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a>python -m spacy init fill-config ./base_config.cfg ./config.cfg
 </code></pre></div>
 Jetzt haben wir alles, um unser erstes Modell zu trainieren. Wir erstellen einen Ordner namens <code>output</code>, hier wird unser fertiges Modell dann abgelegt. Wir müssen nur den folgenden Befehl ausführen, etwas warten und schon haben wir ein trainiertes Modell.  Hinter <code>paths.train</code> setzen wir den Pfad zu unseren Trainingsdaten und hinter <code>paths.dev</code> unsere Valuierungsdaten</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a>!python -m spacy train config.cfg --output ./output --paths.train ./datensets/trainData.spacy --paths.dev ./datensets/valuationData.spacy
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a>python -m spacy train config.cfg --output ./output --paths.train ./datensets/trainData.spacy --paths.dev ./datensets/valuationData.spacy
 </code></pre></div>
 <details class="code"><summary>Trainingsausgabe</summary><p>Die Ausgabe zeigt uns die Epochen, die Anzahl der Stichproben sowie einige Metriken für unser Modell. </p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a>ℹ Saving to output directory: output
