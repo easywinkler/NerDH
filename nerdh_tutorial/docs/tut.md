@@ -608,9 +608,9 @@ Die Aufteilung unsrer Daten sieht wie folgt aus. Den Datensatz [`taggedData.json
     
     | Datensatz | Anteil | Erklärung |
     | ---------- | -------- | ------ |
-    | **Traningsdaten** |  70% | Ein Trainingsdatensatz ist ein Datensatz mit Beispielen (oder auch Zielvariablen genannt), die für das Lernen der Muster und Zusammenhänge in den Daten verwendet wird. |
-    | **Validierungsdaten** | 20% | Ein Validierungsdatensatz ist ebenfalls ein Beispieldatensatz. Die Validierungsdaten werden für die Abstimmung der Hyperparameter (d.h. für künstliche Neuronale Netzwerke der Architektur) eines Modells verwendet. So wird vor allem eine Überanpassung des Modells auf die Trainingsdaten vermieden. |
-    | **Testdaten** | 10% | Die Testdaten sind von den Trainingsdaten unabhängig, sollten jedoch die gleiche Wahrscheinlichkeitsverteilung wie der Trainingsdatensatz aufweisen. Die Testdaten werden bei dem Training nicht genutzt d.h. der Algorithmus kennt die Daten nicht und kann diese nicht zum Lernen nutzen. Auch hier sind Beispiele bzw. Zielvariablen vorhanden, woran im Anschluss die Qualität des Modells gemessen werden kann. |
+    | **Traningsdaten** |  70% | Ein Trainingsdatensatz ist eine Sammlung von Beispielen, die verwendet werden, um einem Algorithmus beizubringen, Muster und Zusammenhänge in den Daten zu erkennen. Der Algorithmus passt seine Gewichte anhand der Trainingsdaten an, indem er aus ihnen lernt. Trainingsdaten werden für Klassifikations- und Regressionsprobleme benötigt, bei denen es darum geht, Vorhersagen für bestimmte Zielvariablen zu treffen. Es kann vorkommen, dass Algorithmen, die auf Trainingsdaten lernen, zu sehr auf die Muster in diesen Daten angepasst werden und somit nicht gut auf neue, noch nicht gesehene Daten anwendbar sind. Dies wird als "Überanpassung" oder "Overfitting" bezeichnet. Das bedeutet, dass der Algorithmus zu starke Regeln aus den Trainingsdaten lernt, die auf die Gesamtheit der Daten nicht gut anwendbar sind.|
+    | **Validierungsdaten** | 20% | Der Validierungsdatensatz ist eine Sammlung von Beispieldaten, die verwendet werden, um die Hyperparameter eines Modells anzupassen. Hyperparameter sind Einstellungen, die vor dem Training festgelegt werden und Einfluss auf das Lernverhalten des Modells haben. Beispiele für Hyperparameter bei künstlichen neuronalen Netzen sind die Anzahl der Neuronen in jeder Schicht oder die Lernrate. Durch die Verwendung von Validierungsdaten beim Training kann verhindert werden, dass das Modell zu sehr auf die Trainingsdaten angepasst wird und somit auf neue, noch nicht gesehene Daten nicht gut anwendbar ist.|
+    | **Testdaten** | 10% | Die Testdaten sind von den Trainingsdaten unabhängig und werden während des Trainingsprozesses nicht verwendet. Sie dienen dazu, das trainierte Modell zu bewerten und zu überprüfen, wie gut es auf neue, noch nicht gesehene Daten anwendbar ist. Die Testdaten sollten dieselbe Wahrscheinlichkeitsverteilung wie der Trainingsdatensatz aufweisen. Wenn das Modell gut auf die Testdaten anwendbar ist, kann es vermutlich auch auf andere, bisher ungesehene Daten angewendet werden. |
     
 
 Um jetzt unseren großen Datensatz [`taggedData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json) in zwei Datensets aufzuteilen, lesen wir diesen zunächts ein und speichern nur die Einträge von  `annotations` in der Variablen `TAGGED_DATA`, damit wir die Einträge zählen können. Danach ermitteln wir die Grenze (80:20), damit wir den urspünglichen Datensatz in kleinere Datensätze zu je 80% und 20%.
@@ -1063,9 +1063,9 @@ Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nic
 <br>
 
 
-[^1]: spaCy. Industrial-strength Natural Language Processing in Python. [https://spacy.io/](https://spacy.io/)
-[^2]: spaCy. Industrial-strength Natural Language Processing in Python. [https://spacy.io/usage](https://spacy.io/usage)
-[^3]: spaCy. Industrial-strength Natural Language Processing in Python.[https://spacy.io/models/de](https://spacy.io/models/de)
+[^1]: spaCy. Industrial-strength Natural Language Processing in Python. [https://spacy.io/](http://web.archive.org/web/20230102123431/https://spacy.io)
+[^2]: spaCy. Industrial-strength Natural Language Processing in Python. [https://spacy.io/usage](http://web.archive.org/web/20230102123639/https://spacy.io/usage)
+[^3]: spaCy. Industrial-strength Natural Language Processing in Python.[https://spacy.io/models/de](http://web.archive.org/web/20230102123719/https://spacy.io/models/de)
 [^4]: Schumacher, M. K. (2020). Named Entity Recognition und Reverse Engineering. Lebe lieber literarisch. [https://lebelieberliterarisch.de/
-named-entity-recognition-und-reverse-engineering/](https://lebelieberliterarisch.de/named-entity-recognition-und-reverse-engineering/)
-[^7]: datasolut GmbH. (2022, 19. November). Was sind Trainingsdaten im Machine Learning? - datasolut Wiki. [https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/](https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/)
+named-entity-recognition-und-reverse-engineering/](http://web.archive.org/web/20230102124132/https://lebelieberliterarisch.de/named-entity-recognition-und-reverse-engineering/)
+[^7]: datasolut GmbH. (2021). Was sind Trainingsdaten im Machine Learning? - datasolut Wiki. [https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/](http://web.archive.org/web/20230102124244/https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/)

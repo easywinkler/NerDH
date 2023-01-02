@@ -110,7 +110,7 @@ Der NerDH Visualisierer kann zum einen im **Browser** direkt besucht werden oder
 
 <br>
 
-[^1]: Streamlit. The fastest way to build and share data apps. (o. D.). [https://streamlit.io/](https://streamlit.io/)
-[^2]: Hugging Face. The AI community building the future. (o. D.). [https://huggingface.co/](https://huggingface.co/) 
+[^1]: Streamlit. The fastest way to build and share data apps. (o. D.). [https://streamlit.io/](http://web.archive.org/web/20221229080207/https://streamlit.io/)
+[^2]: Hugging Face. The AI community building the future. (o. D.). [https://huggingface.co/](http://web.archive.org/web/20230102125618/https://huggingface.co/) 
 
 
