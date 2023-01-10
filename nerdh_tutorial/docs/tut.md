@@ -7,17 +7,25 @@ Starten werden wir mit einer allgemeinen Einführung in `spaCy`, in welcher wir 
 Im zweiten Teil des Tutorials werden wir Schritt für Schritt lernen, wie man mit `spaCy` ein eigenes NER Modell trainiert. Als Trainingstext wird der Reisebericht [**München 1611**](https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}) aus der digitalen Edition [**Philipp Hainhofer**](https://hainhofer.hab.de/) verwendet. Als Testtext [**München 1603**](https://hainhofer.hab.de/reiseberichte/muenchen1603) aus der Edition.
 
 
-??? int "Interaktive Notebooks"
+??? int "Jupyter Notebooks"
 
-    In diesem Tutorial werden lediglich die Code Beispiele dargestellt. Für die interaktive Benutzung bieten sich folgende drei Möglichkeiten an:   
-    
-    - Jupyter Notebook auf [mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD)
+    In diesem Tutorial werden lediglich die Code Beispiele dargestellt. Für die eigene Benutzung bieten sich folgende drei Möglichkeiten an:   
 
     - [Github Repository Download](https://github.com/easyh/NerDH) 
+    
+    - Jupyter Notebook auf [mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD)
+    (durch die Verknüpfung des Github Repositorys sind die interaktiven Notebooks direkt im Browser zu verwenden.)
 
     -  Kopieren des Codes in ein eigenes Dokument (Kopiersymbol in der rechten oberen Ecke).
     
-    Empfohlen wird die Verwendung der Jupyter Notebooks auf [mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD). Durch die Verknüpfung des Github Repositorys sind die interaktiven Notebooks direkt im Browser zu verwenden.  
+
+    === ":fontawesome-brands-github: Github"
+
+        [:fontawesome-brands-github: easyh/NerDH](https://github.com/easyh/NerDH){ .md-button }
+
+            git clone https://github.com/easyh/NerDH.git
+
+        **Die Jupyter Notebooks sind im Ordner `notebooks` hinterlegt.**
 
     === ":fontawesome-solid-laptop-code: mybinder.org"
 
@@ -26,16 +34,10 @@ Im zweiten Teil des Tutorials werden wir Schritt für Schritt lernen, wie man mi
         **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
 
 
-    === ":fontawesome-brands-github: Github"
-
-        [:fontawesome-brands-github: easyh/NerDH](https://github.com/easyh/NerDH){ .md-button }
-
-            git clone https://github.com/easyh/NerDH.git
-
-        Die Jupyter Notebooks sind im Ordner `notebooks` hinterlegt.
+   
 
 <br>
-**Viel Spaß!**  :muscle: :nerd:
+**Viel Spaß!** 
 <br>
 
 <br>
@@ -51,25 +53,25 @@ Zunächst wird die Bibliothek `spaCy` von der theoretischen Seite vorgestellt. A
 
 `spaCy` ist ein leistungsstarkes Tool zur Verarbeitung natürlicher Sprache. Die NLP-Bibliothek für maschinelles Lernen wird seit 2016 von *Explosion AI* stetig weiterentwickelt und befindet sich mittlerweile in der dritten Version (`v.3.4`). Das ist auch die Version, mit der wir hier im Tutorial arbeiten werden. *Explosion AI* ist ein Berliner Team aus Informatikern und Computerlinguisten. 
 
-Die Software-Bibiliothek unterstützt [64 europäische Sprachen](https://spacy.io/usage/models) mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist `spaCy` auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 64 unterstützten Sprachen insgesamt bietet `spaCy` bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.[^1] 
+Die Software-Bibiliothek unterstützt [64 europäische Sprachen](https://spacy.io/usage/models) mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist `spaCy` auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 64 unterstützten insgesamt bietet `spaCy` bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.[^1] 
 
 ??? info "Leistungsumfang von spaCy"
     
     |             |                                                 |  |
     | --------------------- | -------------------------------------------------------------- | ---- |
     |  **Programming Language** | Python |
-    |  **Neural network methods** | Neuronale Netze sind eine Reihe von Algorithmen. Sie interpretieren sensorische Daten durch eine Art maschinelle Wahrnehmung, indem sie den rohen Input kennzeichnen oder in Gruppen zusammenfassen. Die Muster, die sie erkennen, sind numerisch und in Vektoren enthalten. | [:link:](https://spacy.io/usage/training)| 
-    |  **Integrated word vectors** | Die Ähnlichkeit von Wörtern wird durch den Vergleich von Wortvektoren oder Worteinbettungen, mehrdimensionalen Bedeutungsdarstellungen eines Wortes, ermittelt. Wortvektoren können mit einem Algorithmus wie word2vec erzeugt werden | [:link:](https://spacy.io/usage/linguistic-features#vectors-similarity)| 
-    |  **Multi-language support** | Unterstützt insgesamt 64 Sprachen und hat bereits trainierte Pipelines für 24 Sprachen.| [:link:](https://spacy.io/usage/models)| 
-    |  **Tokenization** | Bei der Tokenisierung wird ein Text in sinnvolle Segmente, so genannte Token, zerlegt. Die Eingabe für den Tokenizer ist ein Unicode-Text, und die Ausgabe ist ein Doc-Objekt. | [:link:](https://spacy.io/usage/linguistic-features#tokenization)| 
-    |  **Part-of-Speech-Tagging** | Darunter versteht man die Zuordnung von Wörtern und Satzzeichen eines Textes zu Wortarten (engl. *part of speech*). Hierzu wird sowohl die Definition des Wortes als auch der Kontext berücksichtigt. | [:link:](https://spacy.io/usage/linguistic-features#pos-tagging)| 
-    |  **Sentence segmentation** | Diese Aufgabe beinhaltet die Identifizierung von Satzgrenzen zwischen Wörtern in verschiedenen Sätzen.| [:link:](https://spacy.io/usage/linguistic-features#sbd)| 
-    |  **Lemmatization** | Lemmatisierung ist der Prozess der Gruppierung der gebeugten Formen eines Wortes, damit sie als ein einziges Element analysiert werden können, das durch das Lemma des Wortes oder die Wörterbuchform identifiziert wird| [:link:](https://spacy.io/usage/linguistic-features#lemmatization)| 
-    |  **Dependency Parsing** | Beim Dependency Parsing (DP) werden die Abhängigkeiten zwischen den Wörtern eines Satzes untersucht, um seine grammatische Struktur zu analysieren. Auf dieser Grundlage wird ein Satz in mehrere Komponenten zerlegt. Der Mechanismus basiert auf dem Konzept, dass es zwischen jeder sprachlichen Einheit eines Satzes eine direkte Verbindung gibt. Diese Verbindungen werden als Abhängigkeiten bezeichnet.| [:link:](https://spacy.io/usage/linguistic-features#dependency-parse)| 
-    |  **Named Entity Recognition** | spaCy kann verschiedene Arten von benannten Entitäten in einem Dokument erkennen, indem es das Modell um eine Vorhersage bittet. Da Modelle statistisch sind und stark von den Beispielen abhängen, mit denen sie trainiert wurden, funktioniert dies nicht immer perfekt und muss je nach Anwendungsfall möglicherweise später angepasst werden. | [:link:](https://spacy.io/usage/linguistic-features#named-entities)| 
-    |  **Named Entity Linking** | Um die benannten Entitäten in der "realen Welt" zu verankern, bietet spaCy Funktionen für das Entity Linking, bei dem eine textuelle Entität in einen eindeutigen Identifikator aus einer Wissensbasis (KB) aufgelöst wird. Es kann eine eigene KnowledgeBase erstellt und einen neuen EntityLinker mit dieser Wissensbasis trainiert werden. | [:link:](https://spacy.io/usage/linguistic-features#entity-linking)| 
+    |  **Neural network methods** | Neuronale Netze sind eine Reihe von Algorithmen. Sie interpretieren sensorische Daten durch eine Art maschinelle Wahrnehmung, indem sie den rohen Input kennzeichnen oder in Gruppen zusammenfassen. Die Muster, die sie erkennen, sind numerisch und in Vektoren enthalten. | [Link](https://spacy.io/usage/training)| 
+    |  **Integrated word vectors** | Die Ähnlichkeit von Wörtern wird durch den Vergleich von Wortvektoren oder Worteinbettungen, mehrdimensionalen Bedeutungsdarstellungen eines Wortes, ermittelt. Wortvektoren können mit einem Algorithmus wie word2vec erzeugt werden | [Link](https://spacy.io/usage/linguistic-features#vectors-similarity)| 
+    |  **Multi-language support** | Unterstützt insgesamt 64 Sprachen und hat bereits trainierte Pipelines für 24 Sprachen.| [Link](https://spacy.io/usage/models)| 
+    |  **Tokenization** | Bei der Tokenisierung wird ein Text in Segemente wie Wörter oder Satzzeichen, so genannte Token, zerlegt. Die Eingabe für den Tokenizer ist ein Unicode-Text, und die Ausgabe ist ein Doc-Objekt. | [Link](https://spacy.io/usage/linguistic-features#tokenization)| 
+    |  **Part-of-Speech-Tagging** | Darunter versteht man die Zuordnung von Wörtern und Satzzeichen eines Textes zu Wortarten (engl. *part of speech*). Hierzu wird sowohl die Definition des Wortes als auch der Kontext berücksichtigt. | [Link](https://spacy.io/usage/linguistic-features#pos-tagging)| 
+    |  **Sentence segmentation** | Diese Aufgabe beinhaltet die Identifizierung von Satzgrenzen zwischen Wörtern in verschiedenen Sätzen.| [Link](https://spacy.io/usage/linguistic-features#sbd)| 
+    |  **Lemmatization** | Lemmatisierung ist der Prozess der Gruppierung der gebeugten Formen eines Wortes, damit sie als ein einziges Element analysiert werden können, das durch das Lemma des Wortes oder die Wörterbuchform identifiziert wird| [Link](https://spacy.io/usage/linguistic-features#lemmatization)| 
+    |  **Dependency Parsing** | Beim Dependency Parsing (DP) werden die Abhängigkeiten zwischen den Wörtern eines Satzes untersucht, um seine grammatische Struktur zu analysieren. Auf dieser Grundlage wird ein Satz in mehrere Komponenten zerlegt. Der Mechanismus basiert auf dem Konzept, dass es zwischen jeder sprachlichen Einheit eines Satzes eine direkte Verbindung gibt. Diese Verbindungen werden als Abhängigkeiten bezeichnet.| [Link](https://spacy.io/usage/linguistic-features#dependency-parse)| 
+    |  **Named Entity Recognition** | spaCy kann verschiedene Arten von benannten Entitäten in einem Dokument erkennen, indem es das Modell um eine Vorhersage bittet. Da Modelle statistisch sind und stark von den Beispielen abhängen, mit denen sie trainiert wurden, funktioniert dies nicht immer perfekt und muss je nach Anwendungsfall möglicherweise später angepasst werden. | [Link](https://spacy.io/usage/linguistic-features#named-entities)| 
+    |  **Named Entity Linking** | Um die benannten Entitäten in der "realen Welt" zu verankern, bietet spaCy Funktionen für das Entity Linking, bei dem eine textuelle Entität in einen eindeutigen Identifikator aus einer Wissensbasis (KB) aufgelöst wird. Es kann eine eigene KnowledgeBase erstellt und einen neuen EntityLinker mit dieser Wissensbasis trainiert werden. | [Link](https://spacy.io/usage/linguistic-features#entity-linking)| 
 
-Wie wir sehen, stellt Named Entity Recognition nur ein Bruchteil des Leistungsumfangs von `spaCy` dar. Daher ist ein Blick  in die Dokumentation für weiterführende Informationen sehr empfehlenswert: [https://spacy.io/usage](https://spacy.io/usage). Ebenfalls zu empfehlen ist das [Tutorial von `spaCy`](https://course.spacy.io/de), welches den vollen Leistumgsumfang berücksichtigt.
+Wie wir sehen, stellt Named Entity Recognition nur ein Bruchteil des Leistungsumfangs von `spaCy` dar. Daher ist ein Blick in die [spaCy Dokumentation](https://spacy.io/usage) für weiterführende Informationen sehr empfehlenswert. Ebenfalls zu empfehlen ist das [Tutorial von `spaCy`](https://course.spacy.io/de), welches den vollen Leistumgsumfang berücksichtigt.
 
 
 
@@ -126,7 +128,7 @@ Mit folgendem Befehl können wir uns unsere `spaCy`-Version sowie die bereits in
 ##
 ## **2. Erste Schritte mit spaCy**
 
-Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung beginnen, lernen wir zunächts ein paar grundlegende Objekte und Funktionen von spacy kennen. Bis auf den ersten Codeteil sind die anderen NLP-Funktionen für unsere NER-Aufgabe nicht wichtig, sollen aber dennoch kurz vorgestellt werden, da sie wichtige Grundlagen für Textanalysen sind.
+Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung beginnen, lernen wir zunächts ein paar grundlegende Objekte und Funktionen von `spaCy` kennen. Bis auf den ersten Codeteil sind die anderen NLP-Funktionen für unsere NER-Aufgabe nicht wichtig, sollen aber dennoch kurz vorgestellt werden, da sie wichtige Grundlagen für Textanalysen sind.
 
 === "Code"
    
@@ -139,7 +141,7 @@ Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung begi
 
     #Als nächstes müssen wir ein Modellobjekt laden. 
     #Hierfür verwenden wir die Funktion spacy.load(). 
-    #Diese nimmt ein Argument entgegen, nämlich das Modell, dass wir laden möchten.
+    #Diese nimmt ein Argument entgegen, nämlich das Modell, das wir laden möchten.
     #Wir werden das kleine deutsche Modell verwenden.
     nlp = spacy.load("de_core_news_sm")
 
@@ -192,7 +194,7 @@ Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung begi
         studiert VERB
         an ADP
         der DET
-        niversität NOUN
+        Universität NOUN
         Trier PROPN
         . PUNCT
         Aufgewachsen VERB
@@ -206,6 +208,20 @@ Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung begi
         Tom PROPN
         . PUNCT
         ```  
+    ??? question "Erläuterung der POS-Tags"
+
+        | POS-Tag            |      Erläuterung | 
+        | ---------------- | --------- | 
+        | PROPN |  Substantiv  (Name einer Person) | 
+        | NOUN   |    Substantiv    | 
+        | VERB |      Verben | 
+        | ADJ   |     Adjektiv  | 
+        | ADV   |    Adverb | 
+        | ADP   |     Prä-/Adpositionen   | 
+        | DET   |    Begleiter    | 
+        | AUX   |     Hilfsverb   | 
+        | PUNCT   |    Interpunktion    | 
+        | CCONJ |  Konjunktion   | 
 
 ??? code "Substantive und Substantiv-Bausteine extrahieren"
 
@@ -428,22 +444,20 @@ Hier können wir jetzt noch eigene Anpassungen wie die Auswahl der Entitäten, a
 
 
 
-!!! int "Interaktive Notebooks"
+!!! int "Jupyter Notebooks"
 
     Der Code zu diesem Kapitel befindet sich hier: `notebooks/01_firstSteps_spacy.ipynb`.
+
+    
+    === ":fontawesome-brands-github: Github"
+
+        [Hier geht es zum Notebook auf Github](https://github.com/easyh/NerDH/blob/main/notebooks/01_firstSteps_spacy.ipynb){ .md-button }
 
     === ":fontawesome-solid-laptop-code: mybinder.org"
 
         [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
 
          **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
-
-
-    === ":fontawesome-brands-github: Github"
-
-        [Hier geht es zum Notebook auf Github](https://github.com/easyh/NerDH/blob/main/notebooks/01_firstSteps_spacy.ipynb){ .md-button }
-
-
 
 
 <br>
@@ -455,7 +469,7 @@ Hier können wir jetzt noch eigene Anpassungen wie die Auswahl der Entitäten, a
 ##
 ## **3. Eigenes Modell trainieren mit spaCy**
 
-Je nach Anwendungsfall macht es wenig Sinn nur mit dem Standardmodell zu arbeiten. Wesshalb es besser ist, ein neues Modell zu trainieren bzw. auf ein bestehendes aufzubauen. Besonders bei historischen Texten entstehen Probleme und Schwierigkeiten aufgrund ihrer Heterogenität. 
+Je nach Anwendungsfall macht es wenig Sinn nur mit dem Standardmodell zu arbeiten. Weshalb es besser ist, ein neues Modell zu trainieren bzw. auf ein bestehendes aufzubauen. Besonders bei historischen Texten entstehen Probleme und Schwierigkeiten aufgrund ihrer Heterogenität. 
 
 !!! ex "NER mit fnhd. Text"
     Folgendes Beispiel zeigt, wie das kleine `spaCy` Sprachmodell mit einem Satz aus dem frühneuhochdeutschen abschneidet. Der Satz ist aus unserem Traningstext [**München 1611**](https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}) von Philipp Hainhofer.
@@ -516,25 +530,25 @@ Im Laufe dieses Kapitels werden wir lernen, wie das Training eines eigenen Model
 
 
 ### **3.1 Preprocessing**
-Bevor wir mit dem Trainings- & dem anschließenden Evaluierungsprozess starten, müssen wir zunächst einen Goldstandard erstellen und diesen dann in Trainings-, Validierungs- & Testdaten aufteilen. Dieser Schritt gehört zum sogennanten **Preprocessing** des maschinellen Lernens. 
+Bevor wir mit dem Trainings- und dem anschließenden Evaluierungsprozess starten, müssen wir zunächst einen Goldstandard erstellen und diesen dann in Trainings-, Validierungs- & Testdaten aufteilen. Dieser Schritt gehört zum sogennanten **Preprocessing** des maschinellen Lernens. 
 
 Vor der Annotation des Goldstandards, sollten wir unsere beiden Texte allerdings noch etwas kennenlernen und vorbereiten. Auf die nähere Ausführung soll an dieser Stelle verzichtet werden, allerdings ist alles wichtige zu diesem Schritt im Notebook `02_preprocessingText.ipynb` festgehalten.
 
-!!! int "Interaktive Notebooks"
+!!! int "Jupyter Notebooks"
 
     Der Code zu diesem Kapitel befindet sich hier: `notebooks/02_preprocessingText.ipynb`.
-
-    === ":fontawesome-solid-laptop-code: mybinder.org"
-
-        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
-
-         **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
 
 
     === ":fontawesome-brands-github: Github"
 
         [Hier geht es zum Notebook auf Github](https://github.com/easyh/NerDH/blob/main/notebooks/02_preprocessingText.ipynb){ .md-button }
 
+
+    === ":fontawesome-solid-laptop-code: mybinder.org"
+
+        [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
+
+         **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
 <br>
 
 #### **3.1.1 Annotation eines Goldstandards**
@@ -591,11 +605,11 @@ Der Goldstandard für den Traningstext befindet sich [**hier :fontawesome-brands
 
 #### **3.1.2 Training-, Validierung- und Testdaten**
 
-Beim maschinellen Lernen benötigen wir einen Trainingsdatensatz, um ein Modell richtig zu trainieren und einen Testdatensatz, um das Modell zu bewerten.  Der Datensatz [`taggedData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json) umfasst den komplett annotierten Text [**München 1611**](https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}). Bei **unüberwachten Lernmethoden** wird dieser Datensatz in der Regel in mindestens drei verschiedene Datensätze unterteilt: **Training-, Validierung- und Testdaten**. In unserem Fall übernehmen die Trainingsdaten ([`testData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json)) bei uns die annotierten Daten aus dem Text [**München 1603**](https://hainhofer.hab.de/reiseberichte/muenchen1603).
+Beim maschinellen Lernen benötigen wir einen Trainingsdatensatz, um ein Modell richtig zu trainieren und einen Testdatensatz, um das Modell zu bewerten.  Der Datensatz [`taggedData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json) umfasst den komplett annotierten Text [**München 1611**](https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}). Bei **überwachten Lernmethoden** wird dieser Datensatz in der Regel in mindestens drei verschiedene Datensätze unterteilt: **Training-, Validierung- und Testdaten**. In unserem Fall übernehmen die Trainingsdaten ([`testData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json)) bei uns die annotierten Daten aus dem Text [**München 1603**](https://hainhofer.hab.de/reiseberichte/muenchen1603).
 
 
-??? info "Unüberwachtes und Überwachtes Lernen"
-    Bei **unüberwachten Lernmethode**  brauchen wir keine Beispiele, da hier direkt mit den Eingabedaten trainiert wird. Der Algorithmus ermittelt hier von selbst Muster und Zusammenhänge. Dieser Prozesss funktioniert mit minalen menschlichem Aufwand. In unserem Fall arbeiten wir allerdings mit der  **überwachten Lernmethode**, bei der Beispieldaten in Form eines annotierten Goldtstandards notwendig sind, damit der Algoritmus lernen kann. 
+??? info "Überwachtes Lernen"
+    In unserem Fall arbeiten wir mit der  **überwachten Lernmethode**, bei der Beispieldaten in Form eines annotierten Goldtstandards notwendig sind, damit der Algoritmus lernen kann.  Bei **unüberwachten Lernmethode** hingegen bräuchten wir keine Beispiele, da hier direkt mit den Eingabedaten trainiert wird und der Algorithmus hier von selbst Muster und Zusammenhänge lernen würde. 
 
 Die Aufteilung unsrer Daten sieht wie folgt aus. Den Datensatz [`taggedData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json) werden wir noch in **Trainingsdaten** und **Validierungsdaten** einteilen müssen.
 
@@ -684,8 +698,11 @@ Jetzt müssen die Datensets im `JSON`-Format nurnoch ins `spaCy`-Format konverti
     from spacy.tokens import DocBin
     from tqdm import tqdm
 
-    nlp = spacy.load("de_core_news_md") # load a new spacy model
-    db = DocBin() # create a DocBin object
+    #neues spacy Model laden
+    nlp = spacy.load("de_core_news_md") 
+
+    #DocBin Objekt erstellen
+    db = DocBin() 
     ```
 
 Jetzt müssen wir für jedes Datenset nur noch folgenden Code ausführen, welcher uns vom [NER-Annotator](https://tecoholic.github.io/ner-annotator/) vorgegeben wird, damit die Datensets im `spaCy`-Datenformat sind. 
@@ -707,7 +724,8 @@ Jetzt müssen wir für jedes Datenset nur noch folgenden Code ausführen, welche
     doc.ents = ents 
     db.add(doc)
 
-    db.to_disk("../data/datasets/trainData.spacy") # save the docbin object
+    #Docbin Objekt speichern
+    db.to_disk("../data/datasets/trainData.spacy")
     ```
 === "Validierungsdaten"
     ```py
@@ -726,7 +744,8 @@ Jetzt müssen wir für jedes Datenset nur noch folgenden Code ausführen, welche
     doc.ents = ents 
     db.add(doc)
 
-    db.to_disk("../data/datasets/valuationData.spacy") # save the docbin object
+    #Docbin Objekt speichern
+    db.to_disk("../data/datasets/valuationData.spacy") 
     ```
 === "Testdaten"
     ```py
@@ -745,27 +764,28 @@ Jetzt müssen wir für jedes Datenset nur noch folgenden Code ausführen, welche
     doc.ents = ents 
     db.add(doc)
 
-    db.to_disk("../data/datasets/testData.spacy") # save the docbin object
+    #Docbin Objekt speichern
+    db.to_disk("../data/datasets/testData.spacy") 
     ```
 Damit ist das Preprocessing abgeschlossen und wir können mit dem Training des Modells beginnen.
 
 
 <br>
 
-!!! int "Interaktive Notebooks"
+!!! int "Jupyter Notebooks"
 
     Der Code zu diesem Kapitel befindet sich hier: `notebooks/03_createDatasets_spacy.ipynb`.
+
+
+    === ":fontawesome-brands-github: Github"
+
+        [Hier geht es zum Notebook auf Github](https://github.com/easyh/NerDH/blob/main/notebooks/03_createDatasets_spacy.ipynb){ .md-button }
 
     === ":fontawesome-solid-laptop-code: mybinder.org"
 
         [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
 
          **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
-
-
-    === ":fontawesome-brands-github: Github"
-
-        [Hier geht es zum Notebook auf Github](https://github.com/easyh/NerDH/blob/main/notebooks/03_createDatasets_spacy.ipynb){ .md-button }
 
 <br>
 
@@ -987,20 +1007,20 @@ pip install https://huggingface.co/easyh/de_fnhd_nerdh/resolve/main/de_fnhd_nerd
 
 <br>
 
-!!! int "Interaktive Notebooks"
+!!! int "Jupyter Notebooks"
 
     Der Code zu diesem Kapitel befindet sich hier: `notebooks/04_trainEvaluateModel_spacy.ipynb`.
+
+
+    === ":fontawesome-brands-github: Github"
+
+        [Hier geht es zum Notebook auf Github](https://github.com/easyh/NerDH/blob/main/notebooks/04_trainEvaluateModel_spacy.ipynb){ .md-button }
 
     === ":fontawesome-solid-laptop-code: mybinder.org"
 
         [Hier geht es zum Jupyter Notebook auf mybinder.org](https://mybinder.org/v2/gh/easyh/NerDH/HEAD){ .md-button }
 
          **Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.**
-
-
-    === ":fontawesome-brands-github: Github"
-
-        [Hier geht es zum Notebook auf Github](https://github.com/easyh/NerDH/blob/main/notebooks/04_trainEvaluateModel_spacy.ipynb){ .md-button }
 
 <br>
 
@@ -1034,7 +1054,7 @@ ORT            95.94   94.26   95.09
 OBJEKT         94.44   81.79   87.66
 ORGANISATION   95.59   82.28   88.44
 ```
-Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nicht der Fall sein, dann würden wir einfach unseren Trainingsprozess mit kleinen Veränderungen nochmal erneut starten. Nicht aufgeben! :muscle::nerd:
+Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nicht der Fall sein, dann würden wir einfach unseren Trainingsprozess mit kleinen Veränderungen nochmal erneut starten. Allerdings bedeutet der Wert nur, dass das selbst erstellte Modell `de_fnhd_nerdh` besonders gut mit Texten von **Philipp Hainhofer** funktioniert (F-Score 0.92), da es mit diesen trainiert wurden. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. 
 
 
 <br>

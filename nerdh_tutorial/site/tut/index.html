@@ -288,37 +288,37 @@
 <p>In dem Tutorial werden wir das Natural Language Processing (NLP) Tool <code>spaCy</code> näher kennenlernen. Auch wenn <code>spaCy</code> im NLP Bereich mehr zu bieten hat als nur  Named Entity Recogniton (NER), wird darauf der Fokus des Tutorials liegen. </p>
 <p>Starten werden wir mit einer allgemeinen Einführung in <code>spaCy</code>, in welcher wir die grundlegenden Funktionen für Textanalyseverfahren wie NER kennenlernen werden. </p>
 <p>Im zweiten Teil des Tutorials werden wir Schritt für Schritt lernen, wie man mit <code>spaCy</code> ein eigenes NER Modell trainiert. Als Trainingstext wird der Reisebericht <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}"><strong>München 1611</strong></a> aus der digitalen Edition <a href="https://hainhofer.hab.de/"><strong>Philipp Hainhofer</strong></a> verwendet. Als Testtext <a href="https://hainhofer.hab.de/reiseberichte/muenchen1603"><strong>München 1603</strong></a> aus der Edition.</p>
-<details class="int"><summary>Interaktive Notebooks</summary><p>In diesem Tutorial werden lediglich die Code Beispiele dargestellt. Für die interaktive Benutzung bieten sich folgende drei Möglichkeiten an:   </p>
+<details class="int"><summary>Jupyter Notebooks</summary><p>In diesem Tutorial werden lediglich die Code Beispiele dargestellt. Für die eigene Benutzung bieten sich folgende drei Möglichkeiten an:   </p>
 <ul>
 <li>
-<p>Jupyter Notebook auf <a href="https://mybinder.org/v2/gh/easyh/NerDH/HEAD">mybinder.org</a></p>
+<p><a href="https://github.com/easyh/NerDH">Github Repository Download</a> </p>
 </li>
 <li>
-<p><a href="https://github.com/easyh/NerDH">Github Repository Download</a> </p>
+<p>Jupyter Notebook auf <a href="https://mybinder.org/v2/gh/easyh/NerDH/HEAD">mybinder.org</a>
+(durch die Verknüpfung des Github Repositorys sind die interaktiven Notebooks direkt im Browser zu verwenden.)</p>
 </li>
 <li>
 <p>Kopieren des Codes in ein eigenes Dokument (Kopiersymbol in der rechten oberen Ecke).</p>
 </li>
 </ul>
-<p>Empfohlen wird die Verwendung der Jupyter Notebooks auf <a href="https://mybinder.org/v2/gh/easyh/NerDH/HEAD">mybinder.org</a>. Durch die Verknüpfung des Github Repositorys sind die interaktiven Notebooks direkt im Browser zu verwenden.  </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label><label for="__tabbed_1_2"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label><label for="__tabbed_1_2"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
-<p><a class="md-button" href="https://mybinder.org/v2/gh/easyh/NerDH/HEAD">Hier geht es zu allen Jupyter Notebooks auf mybinder.org</a></p>
-<p><strong>Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.</strong></p>
-</div>
 <div class="tabbed-block">
 <p><a class="md-button" href="https://github.com/easyh/NerDH"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> easyh/NerDH</a></p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/easyh/NerDH.git
 </code></pre></div>
-<p>Die Jupyter Notebooks sind im Ordner <code>notebooks</code> hinterlegt.</p>
+<p><strong>Die Jupyter Notebooks sind im Ordner <code>notebooks</code> hinterlegt.</strong></p>
+</div>
+<div class="tabbed-block">
+<p><a class="md-button" href="https://mybinder.org/v2/gh/easyh/NerDH/HEAD">Hier geht es zu allen Jupyter Notebooks auf mybinder.org</a></p>
+<p><strong>Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.</strong></p>
 </div>
 </div>
 </input></input></div>
 </details>
 <p><br/>
-<strong>Viel Spaß!</strong> <img alt="💪" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg" title=":muscle:"> <img alt="🤓" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f913.svg" title=":nerd:">
-<br/></img></img></p>
+<strong>Viel Spaß!</strong>
+<br/></p>
 <p><br/></p>
 <hr/>
 <h2 id="_1"></h2>
@@ -326,7 +326,7 @@
 <p>Zunächst wird die Bibliothek <code>spaCy</code> von der theoretischen Seite vorgestellt. Anschließend werden wir die Schritte zur Installation von <code>spaCy</code> und zum Herunterladen der vortrainierten Sprachmodelle durchgehen. </p>
 <h3 id="11-was-ist-spacy"><strong>1.1 Was ist spaCy?</strong></h3>
 <p><code>spaCy</code> ist ein leistungsstarkes Tool zur Verarbeitung natürlicher Sprache. Die NLP-Bibliothek für maschinelles Lernen wird seit 2016 von <em>Explosion AI</em> stetig weiterentwickelt und befindet sich mittlerweile in der dritten Version (<code>v.3.4</code>). Das ist auch die Version, mit der wir hier im Tutorial arbeiten werden. <em>Explosion AI</em> ist ein Berliner Team aus Informatikern und Computerlinguisten. </p>
-<p>Die Software-Bibiliothek unterstützt <a href="https://spacy.io/usage/models">64 europäische Sprachen</a> mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist <code>spaCy</code> auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 64 unterstützten Sprachen insgesamt bietet <code>spaCy</code> bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> </p>
+<p>Die Software-Bibiliothek unterstützt <a href="https://spacy.io/usage/models">64 europäische Sprachen</a> mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist <code>spaCy</code> auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 64 unterstützten insgesamt bietet <code>spaCy</code> bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> </p>
 <details class="info"><summary>Leistungsumfang von spaCy</summary><table>
 <thead>
 <tr>
@@ -344,57 +344,57 @@
 <tr>
 <td><strong>Neural network methods</strong></td>
 <td>Neuronale Netze sind eine Reihe von Algorithmen. Sie interpretieren sensorische Daten durch eine Art maschinelle Wahrnehmung, indem sie den rohen Input kennzeichnen oder in Gruppen zusammenfassen. Die Muster, die sie erkennen, sind numerisch und in Vektoren enthalten.</td>
-<td><a href="https://spacy.io/usage/training"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td><a href="https://spacy.io/usage/training">Link</a></td>
 </tr>
 <tr>
 <td><strong>Integrated word vectors</strong></td>
 <td>Die Ähnlichkeit von Wörtern wird durch den Vergleich von Wortvektoren oder Worteinbettungen, mehrdimensionalen Bedeutungsdarstellungen eines Wortes, ermittelt. Wortvektoren können mit einem Algorithmus wie word2vec erzeugt werden</td>
-<td><a href="https://spacy.io/usage/linguistic-features#vectors-similarity"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td><a href="https://spacy.io/usage/linguistic-features#vectors-similarity">Link</a></td>
 </tr>
 <tr>
 <td><strong>Multi-language support</strong></td>
 <td>Unterstützt insgesamt 64 Sprachen und hat bereits trainierte Pipelines für 24 Sprachen.</td>
-<td><a href="https://spacy.io/usage/models"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td><a href="https://spacy.io/usage/models">Link</a></td>
 </tr>
 <tr>
 <td><strong>Tokenization</strong></td>
-<td>Bei der Tokenisierung wird ein Text in sinnvolle Segmente, so genannte Token, zerlegt. Die Eingabe für den Tokenizer ist ein Unicode-Text, und die Ausgabe ist ein Doc-Objekt.</td>
-<td><a href="https://spacy.io/usage/linguistic-features#tokenization"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td>Bei der Tokenisierung wird ein Text in Segemente wie Wörter oder Satzzeichen, so genannte Token, zerlegt. Die Eingabe für den Tokenizer ist ein Unicode-Text, und die Ausgabe ist ein Doc-Objekt.</td>
+<td><a href="https://spacy.io/usage/linguistic-features#tokenization">Link</a></td>
 </tr>
 <tr>
 <td><strong>Part-of-Speech-Tagging</strong></td>
 <td>Darunter versteht man die Zuordnung von Wörtern und Satzzeichen eines Textes zu Wortarten (engl. <em>part of speech</em>). Hierzu wird sowohl die Definition des Wortes als auch der Kontext berücksichtigt.</td>
-<td><a href="https://spacy.io/usage/linguistic-features#pos-tagging"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td><a href="https://spacy.io/usage/linguistic-features#pos-tagging">Link</a></td>
 </tr>
 <tr>
 <td><strong>Sentence segmentation</strong></td>
 <td>Diese Aufgabe beinhaltet die Identifizierung von Satzgrenzen zwischen Wörtern in verschiedenen Sätzen.</td>
-<td><a href="https://spacy.io/usage/linguistic-features#sbd"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td><a href="https://spacy.io/usage/linguistic-features#sbd">Link</a></td>
 </tr>
 <tr>
 <td><strong>Lemmatization</strong></td>
 <td>Lemmatisierung ist der Prozess der Gruppierung der gebeugten Formen eines Wortes, damit sie als ein einziges Element analysiert werden können, das durch das Lemma des Wortes oder die Wörterbuchform identifiziert wird</td>
-<td><a href="https://spacy.io/usage/linguistic-features#lemmatization"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td><a href="https://spacy.io/usage/linguistic-features#lemmatization">Link</a></td>
 </tr>
 <tr>
 <td><strong>Dependency Parsing</strong></td>
 <td>Beim Dependency Parsing (DP) werden die Abhängigkeiten zwischen den Wörtern eines Satzes untersucht, um seine grammatische Struktur zu analysieren. Auf dieser Grundlage wird ein Satz in mehrere Komponenten zerlegt. Der Mechanismus basiert auf dem Konzept, dass es zwischen jeder sprachlichen Einheit eines Satzes eine direkte Verbindung gibt. Diese Verbindungen werden als Abhängigkeiten bezeichnet.</td>
-<td><a href="https://spacy.io/usage/linguistic-features#dependency-parse"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td><a href="https://spacy.io/usage/linguistic-features#dependency-parse">Link</a></td>
 </tr>
 <tr>
 <td><strong>Named Entity Recognition</strong></td>
 <td>spaCy kann verschiedene Arten von benannten Entitäten in einem Dokument erkennen, indem es das Modell um eine Vorhersage bittet. Da Modelle statistisch sind und stark von den Beispielen abhängen, mit denen sie trainiert wurden, funktioniert dies nicht immer perfekt und muss je nach Anwendungsfall möglicherweise später angepasst werden.</td>
-<td><a href="https://spacy.io/usage/linguistic-features#named-entities"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td><a href="https://spacy.io/usage/linguistic-features#named-entities">Link</a></td>
 </tr>
 <tr>
 <td><strong>Named Entity Linking</strong></td>
 <td>Um die benannten Entitäten in der "realen Welt" zu verankern, bietet spaCy Funktionen für das Entity Linking, bei dem eine textuelle Entität in einen eindeutigen Identifikator aus einer Wissensbasis (KB) aufgelöst wird. Es kann eine eigene KnowledgeBase erstellt und einen neuen EntityLinker mit dieser Wissensbasis trainiert werden.</td>
-<td><a href="https://spacy.io/usage/linguistic-features#entity-linking"><img alt="🔗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f517.svg" title=":link:"/></a></td>
+<td><a href="https://spacy.io/usage/linguistic-features#entity-linking">Link</a></td>
 </tr>
 </tbody>
 </table>
 </details>
-<p>Wie wir sehen, stellt Named Entity Recognition nur ein Bruchteil des Leistungsumfangs von <code>spaCy</code> dar. Daher ist ein Blick  in die Dokumentation für weiterführende Informationen sehr empfehlenswert: <a href="https://spacy.io/usage">https://spacy.io/usage</a>. Ebenfalls zu empfehlen ist das <a href="https://course.spacy.io/de">Tutorial von <code>spaCy</code></a>, welches den vollen Leistumgsumfang berücksichtigt.</p>
+<p>Wie wir sehen, stellt Named Entity Recognition nur ein Bruchteil des Leistungsumfangs von <code>spaCy</code> dar. Daher ist ein Blick in die <a href="https://spacy.io/usage">spaCy Dokumentation</a> für weiterführende Informationen sehr empfehlenswert. Ebenfalls zu empfehlen ist das <a href="https://course.spacy.io/de">Tutorial von <code>spaCy</code></a>, welches den vollen Leistumgsumfang berücksichtigt.</p>
 <h3 id="12-installation-spacy"><strong>1.2 Installation spaCy</strong></h3>
 <p>Um <code>spaCy</code> zu installieren, muss nur Folgendes im Terminal eingeben werden<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <div class="highlight"><pre><span></span><code>pip install spacy
@@ -466,7 +466,7 @@
 <hr/>
 <h2 id="_2"></h2>
 <h2 id="2-erste-schritte-mit-spacy"><strong>2. Erste Schritte mit spaCy</strong></h2>
-<p>Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung beginnen, lernen wir zunächts ein paar grundlegende Objekte und Funktionen von spacy kennen. Bis auf den ersten Codeteil sind die anderen NLP-Funktionen für unsere NER-Aufgabe nicht wichtig, sollen aber dennoch kurz vorgestellt werden, da sie wichtige Grundlagen für Textanalysen sind.</p>
+<p>Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung beginnen, lernen wir zunächts ein paar grundlegende Objekte und Funktionen von <code>spaCy</code> kennen. Bis auf den ersten Codeteil sind die anderen NLP-Funktionen für unsere NER-Aufgabe nicht wichtig, sollen aber dennoch kurz vorgestellt werden, da sie wichtige Grundlagen für Textanalysen sind.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Code</label><label for="__tabbed_2_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -478,7 +478,7 @@
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1">#Als nächstes müssen wir ein Modellobjekt laden. </span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="c1">#Hierfür verwenden wir die Funktion spacy.load(). </span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1">#Diese nimmt ein Argument entgegen, nämlich das Modell, dass wir laden möchten.</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1">#Diese nimmt ein Argument entgegen, nämlich das Modell, das wir laden möchten.</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1">#Wir werden das kleine deutsche Modell verwenden.</span>
 <a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"de_core_news_sm"</span><span class="p">)</span>
 <a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
@@ -529,7 +529,7 @@
 <a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>studiert VERB
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>an ADP
 <a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>der DET
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>niversität NOUN
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>Universität NOUN
 <a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>Trier PROPN
 <a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a>. PUNCT
 <a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a>Aufgewachsen VERB
@@ -546,6 +546,57 @@
 </div>
 </div>
 </div>
+<details class="question"><summary>Erläuterung der POS-Tags</summary><table>
+<thead>
+<tr>
+<th>POS-Tag</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROPN</td>
+<td>Substantiv  (Name einer Person)</td>
+</tr>
+<tr>
+<td>NOUN</td>
+<td>Substantiv</td>
+</tr>
+<tr>
+<td>VERB</td>
+<td>Verben</td>
+</tr>
+<tr>
+<td>ADJ</td>
+<td>Adjektiv</td>
+</tr>
+<tr>
+<td>ADV</td>
+<td>Adverb</td>
+</tr>
+<tr>
+<td>ADP</td>
+<td>Prä-/Adpositionen</td>
+</tr>
+<tr>
+<td>DET</td>
+<td>Begleiter</td>
+</tr>
+<tr>
+<td>AUX</td>
+<td>Hilfsverb</td>
+</tr>
+<tr>
+<td>PUNCT</td>
+<td>Interpunktion</td>
+</tr>
+<tr>
+<td>CCONJ</td>
+<td>Konjunktion</td>
+</tr>
+</tbody>
+</table>
+</details>
 </details>
 <details class="code"><summary>Substantive und Substantiv-Bausteine extrahieren</summary><div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Code</label><label for="__tabbed_5_2">Output</label></div>
 <div class="tabbed-content">
@@ -761,16 +812,16 @@ mit ihrem Bruder
 </div>
 <p><br/></p>
 <div class="admonition int">
-<p class="admonition-title">Interaktive Notebooks</p>
+<p class="admonition-title">Jupyter Notebooks</p>
 <p>Der Code zu diesem Kapitel befindet sich hier: <code>notebooks/01_firstSteps_spacy.ipynb</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label><label for="__tabbed_13_2"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio"/><input id="__tabbed_13_2" name="__tabbed_13" type="radio"/><div class="tabbed-labels"><label for="__tabbed_13_1"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label><label for="__tabbed_13_2"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="md-button" href="https://github.com/easyh/NerDH/blob/main/notebooks/01_firstSteps_spacy.ipynb">Hier geht es zum Notebook auf Github</a></p>
+</div>
 <div class="tabbed-block">
 <p><a class="md-button" href="https://mybinder.org/v2/gh/easyh/NerDH/HEAD">Hier geht es zum Jupyter Notebook auf mybinder.org</a></p>
 <p><strong>Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.</strong></p>
-</div>
-<div class="tabbed-block">
-<p><a class="md-button" href="https://github.com/easyh/NerDH/blob/main/notebooks/01_firstSteps_spacy.ipynb">Hier geht es zum Notebook auf Github</a></p>
 </div>
 </div>
 </div>
@@ -779,7 +830,7 @@ mit ihrem Bruder
 <hr/>
 <h2 id="_3"></h2>
 <h2 id="3-eigenes-modell-trainieren-mit-spacy"><strong>3. Eigenes Modell trainieren mit spaCy</strong></h2>
-<p>Je nach Anwendungsfall macht es wenig Sinn nur mit dem Standardmodell zu arbeiten. Wesshalb es besser ist, ein neues Modell zu trainieren bzw. auf ein bestehendes aufzubauen. Besonders bei historischen Texten entstehen Probleme und Schwierigkeiten aufgrund ihrer Heterogenität. </p>
+<p>Je nach Anwendungsfall macht es wenig Sinn nur mit dem Standardmodell zu arbeiten. Weshalb es besser ist, ein neues Modell zu trainieren bzw. auf ein bestehendes aufzubauen. Besonders bei historischen Texten entstehen Probleme und Schwierigkeiten aufgrund ihrer Heterogenität. </p>
 <div class="admonition ex">
 <p class="admonition-title">NER mit fnhd. Text</p>
 <p>Folgendes Beispiel zeigt, wie das kleine <code>spaCy</code> Sprachmodell mit einem Satz aus dem frühneuhochdeutschen abschneidet. Der Satz ist aus unserem Traningstext <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}"><strong>München 1611</strong></a> von Philipp Hainhofer.</p>
@@ -851,19 +902,19 @@ mit ihrem Bruder
 <figcaption style="font-size: 0.8em;">Workflow: Training eines eigenen NER Modells</figcaption>
 </figure>
 <h3 id="31-preprocessing"><strong>3.1 Preprocessing</strong></h3>
-<p>Bevor wir mit dem Trainings- &amp; dem anschließenden Evaluierungsprozess starten, müssen wir zunächst einen Goldstandard erstellen und diesen dann in Trainings-, Validierungs- &amp; Testdaten aufteilen. Dieser Schritt gehört zum sogennanten <strong>Preprocessing</strong> des maschinellen Lernens. </p>
+<p>Bevor wir mit dem Trainings- und dem anschließenden Evaluierungsprozess starten, müssen wir zunächst einen Goldstandard erstellen und diesen dann in Trainings-, Validierungs- &amp; Testdaten aufteilen. Dieser Schritt gehört zum sogennanten <strong>Preprocessing</strong> des maschinellen Lernens. </p>
 <p>Vor der Annotation des Goldstandards, sollten wir unsere beiden Texte allerdings noch etwas kennenlernen und vorbereiten. Auf die nähere Ausführung soll an dieser Stelle verzichtet werden, allerdings ist alles wichtige zu diesem Schritt im Notebook <code>02_preprocessingText.ipynb</code> festgehalten.</p>
 <div class="admonition int">
-<p class="admonition-title">Interaktive Notebooks</p>
+<p class="admonition-title">Jupyter Notebooks</p>
 <p>Der Code zu diesem Kapitel befindet sich hier: <code>notebooks/02_preprocessingText.ipynb</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio"/><input id="__tabbed_15_2" name="__tabbed_15" type="radio"/><div class="tabbed-labels"><label for="__tabbed_15_1"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label><label for="__tabbed_15_2"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio"/><input id="__tabbed_15_2" name="__tabbed_15" type="radio"/><div class="tabbed-labels"><label for="__tabbed_15_1"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label><label for="__tabbed_15_2"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="md-button" href="https://github.com/easyh/NerDH/blob/main/notebooks/02_preprocessingText.ipynb">Hier geht es zum Notebook auf Github</a></p>
+</div>
 <div class="tabbed-block">
 <p><a class="md-button" href="https://mybinder.org/v2/gh/easyh/NerDH/HEAD">Hier geht es zum Jupyter Notebook auf mybinder.org</a></p>
 <p><strong>Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.</strong></p>
-</div>
-<div class="tabbed-block">
-<p><a class="md-button" href="https://github.com/easyh/NerDH/blob/main/notebooks/02_preprocessingText.ipynb">Hier geht es zum Notebook auf Github</a></p>
 </div>
 </div>
 </div>
@@ -955,8 +1006,8 @@ mit ihrem Bruder
 <p>Der Goldstandard für den Traningstext befindet sich <a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><strong>hier <span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span></strong></a> (<code>data/datensets/taggedData.json</code>).</p>
 <p><br/></p>
 <h4 id="312-training-validierung-und-testdaten"><strong>3.1.2 Training-, Validierung- und Testdaten</strong></h4>
-<p>Beim maschinellen Lernen benötigen wir einen Trainingsdatensatz, um ein Modell richtig zu trainieren und einen Testdatensatz, um das Modell zu bewerten.  Der Datensatz <a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>taggedData.json</code></a> umfasst den komplett annotierten Text <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}"><strong>München 1611</strong></a>. Bei <strong>unüberwachten Lernmethoden</strong> wird dieser Datensatz in der Regel in mindestens drei verschiedene Datensätze unterteilt: <strong>Training-, Validierung- und Testdaten</strong>. In unserem Fall übernehmen die Trainingsdaten (<a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>testData.json</code></a>) bei uns die annotierten Daten aus dem Text <a href="https://hainhofer.hab.de/reiseberichte/muenchen1603"><strong>München 1603</strong></a>.</p>
-<details class="info"><summary>Unüberwachtes und Überwachtes Lernen</summary><p>Bei <strong>unüberwachten Lernmethode</strong>  brauchen wir keine Beispiele, da hier direkt mit den Eingabedaten trainiert wird. Der Algorithmus ermittelt hier von selbst Muster und Zusammenhänge. Dieser Prozesss funktioniert mit minalen menschlichem Aufwand. In unserem Fall arbeiten wir allerdings mit der  <strong>überwachten Lernmethode</strong>, bei der Beispieldaten in Form eines annotierten Goldtstandards notwendig sind, damit der Algoritmus lernen kann. </p>
+<p>Beim maschinellen Lernen benötigen wir einen Trainingsdatensatz, um ein Modell richtig zu trainieren und einen Testdatensatz, um das Modell zu bewerten.  Der Datensatz <a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>taggedData.json</code></a> umfasst den komplett annotierten Text <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}"><strong>München 1611</strong></a>. Bei <strong>überwachten Lernmethoden</strong> wird dieser Datensatz in der Regel in mindestens drei verschiedene Datensätze unterteilt: <strong>Training-, Validierung- und Testdaten</strong>. In unserem Fall übernehmen die Trainingsdaten (<a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>testData.json</code></a>) bei uns die annotierten Daten aus dem Text <a href="https://hainhofer.hab.de/reiseberichte/muenchen1603"><strong>München 1603</strong></a>.</p>
+<details class="info"><summary>Überwachtes Lernen</summary><p>In unserem Fall arbeiten wir mit der  <strong>überwachten Lernmethode</strong>, bei der Beispieldaten in Form eines annotierten Goldtstandards notwendig sind, damit der Algoritmus lernen kann.  Bei <strong>unüberwachten Lernmethode</strong> hingegen bräuchten wir keine Beispiele, da hier direkt mit den Eingabedaten trainiert wird und der Algorithmus hier von selbst Muster und Zusammenhänge lernen würde. </p>
 </details>
 <p>Die Aufteilung unsrer Daten sieht wie folgt aus. Den Datensatz <a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>taggedData.json</code></a> werden wir noch in <strong>Trainingsdaten</strong> und <strong>Validierungsdaten</strong> einteilen müssen.</p>
 <figure>
@@ -1062,8 +1113,11 @@ Jetzt müssen die Datensets im <code>JSON</code>-Format nurnoch ins <code>spaCy<
 <a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kn">from</span> <span class="nn">spacy.tokens</span> <span class="kn">import</span> <span class="n">DocBin</span>
 <a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a>
-<a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"de_core_news_md"</span><span class="p">)</span> <span class="c1"># load a new spacy model</span>
-<a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="n">db</span> <span class="o">=</span> <span class="n">DocBin</span><span class="p">()</span> <span class="c1"># create a DocBin object</span>
+<a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="c1">#neues spacy Model laden</span>
+<a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"de_core_news_md"</span><span class="p">)</span> 
+<a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a>
+<a href="#__codelineno-33-8" id="__codelineno-33-8" name="__codelineno-33-8"></a><span class="c1">#DocBin Objekt erstellen</span>
+<a href="#__codelineno-33-9" id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="n">db</span> <span class="o">=</span> <span class="n">DocBin</span><span class="p">()</span> 
 </code></pre></div>
 </div>
 </div>
@@ -1087,7 +1141,8 @@ Jetzt müssen die Datensets im <code>JSON</code>-Format nurnoch ins <code>spaCy<
 <a href="#__codelineno-34-13" id="__codelineno-34-13" name="__codelineno-34-13"></a><span class="n">doc</span><span class="o">.</span><span class="n">ents</span> <span class="o">=</span> <span class="n">ents</span> 
 <a href="#__codelineno-34-14" id="__codelineno-34-14" name="__codelineno-34-14"></a><span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
 <a href="#__codelineno-34-15" id="__codelineno-34-15" name="__codelineno-34-15"></a>
-<a href="#__codelineno-34-16" id="__codelineno-34-16" name="__codelineno-34-16"></a><span class="n">db</span><span class="o">.</span><span class="n">to_disk</span><span class="p">(</span><span class="s2">"../data/datasets/trainData.spacy"</span><span class="p">)</span> <span class="c1"># save the docbin object</span>
+<a href="#__codelineno-34-16" id="__codelineno-34-16" name="__codelineno-34-16"></a><span class="c1">#Docbin Objekt speichern</span>
+<a href="#__codelineno-34-17" id="__codelineno-34-17" name="__codelineno-34-17"></a><span class="n">db</span><span class="o">.</span><span class="n">to_disk</span><span class="p">(</span><span class="s2">"../data/datasets/trainData.spacy"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1106,7 +1161,8 @@ Jetzt müssen die Datensets im <code>JSON</code>-Format nurnoch ins <code>spaCy<
 <a href="#__codelineno-35-13" id="__codelineno-35-13" name="__codelineno-35-13"></a><span class="n">doc</span><span class="o">.</span><span class="n">ents</span> <span class="o">=</span> <span class="n">ents</span> 
 <a href="#__codelineno-35-14" id="__codelineno-35-14" name="__codelineno-35-14"></a><span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
 <a href="#__codelineno-35-15" id="__codelineno-35-15" name="__codelineno-35-15"></a>
-<a href="#__codelineno-35-16" id="__codelineno-35-16" name="__codelineno-35-16"></a><span class="n">db</span><span class="o">.</span><span class="n">to_disk</span><span class="p">(</span><span class="s2">"../data/datasets/valuationData.spacy"</span><span class="p">)</span> <span class="c1"># save the docbin object</span>
+<a href="#__codelineno-35-16" id="__codelineno-35-16" name="__codelineno-35-16"></a><span class="c1">#Docbin Objekt speichern</span>
+<a href="#__codelineno-35-17" id="__codelineno-35-17" name="__codelineno-35-17"></a><span class="n">db</span><span class="o">.</span><span class="n">to_disk</span><span class="p">(</span><span class="s2">"../data/datasets/valuationData.spacy"</span><span class="p">)</span> 
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1125,7 +1181,8 @@ Jetzt müssen die Datensets im <code>JSON</code>-Format nurnoch ins <code>spaCy<
 <a href="#__codelineno-36-13" id="__codelineno-36-13" name="__codelineno-36-13"></a><span class="n">doc</span><span class="o">.</span><span class="n">ents</span> <span class="o">=</span> <span class="n">ents</span> 
 <a href="#__codelineno-36-14" id="__codelineno-36-14" name="__codelineno-36-14"></a><span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
 <a href="#__codelineno-36-15" id="__codelineno-36-15" name="__codelineno-36-15"></a>
-<a href="#__codelineno-36-16" id="__codelineno-36-16" name="__codelineno-36-16"></a><span class="n">db</span><span class="o">.</span><span class="n">to_disk</span><span class="p">(</span><span class="s2">"../data/datasets/testData.spacy"</span><span class="p">)</span> <span class="c1"># save the docbin object</span>
+<a href="#__codelineno-36-16" id="__codelineno-36-16" name="__codelineno-36-16"></a><span class="c1">#Docbin Objekt speichern</span>
+<a href="#__codelineno-36-17" id="__codelineno-36-17" name="__codelineno-36-17"></a><span class="n">db</span><span class="o">.</span><span class="n">to_disk</span><span class="p">(</span><span class="s2">"../data/datasets/testData.spacy"</span><span class="p">)</span> 
 </code></pre></div>
 </div>
 </div>
@@ -1133,16 +1190,16 @@ Jetzt müssen die Datensets im <code>JSON</code>-Format nurnoch ins <code>spaCy<
 <p>Damit ist das Preprocessing abgeschlossen und wir können mit dem Training des Modells beginnen.</p>
 <p><br/></p>
 <div class="admonition int">
-<p class="admonition-title">Interaktive Notebooks</p>
+<p class="admonition-title">Jupyter Notebooks</p>
 <p>Der Code zu diesem Kapitel befindet sich hier: <code>notebooks/03_createDatasets_spacy.ipynb</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="21:2"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio"/><input id="__tabbed_21_2" name="__tabbed_21" type="radio"/><div class="tabbed-labels"><label for="__tabbed_21_1"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label><label for="__tabbed_21_2"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:2"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio"/><input id="__tabbed_21_2" name="__tabbed_21" type="radio"/><div class="tabbed-labels"><label for="__tabbed_21_1"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label><label for="__tabbed_21_2"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="md-button" href="https://github.com/easyh/NerDH/blob/main/notebooks/03_createDatasets_spacy.ipynb">Hier geht es zum Notebook auf Github</a></p>
+</div>
 <div class="tabbed-block">
 <p><a class="md-button" href="https://mybinder.org/v2/gh/easyh/NerDH/HEAD">Hier geht es zum Jupyter Notebook auf mybinder.org</a></p>
 <p><strong>Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.</strong></p>
-</div>
-<div class="tabbed-block">
-<p><a class="md-button" href="https://github.com/easyh/NerDH/blob/main/notebooks/03_createDatasets_spacy.ipynb">Hier geht es zum Notebook auf Github</a></p>
 </div>
 </div>
 </div>
@@ -1324,16 +1381,16 @@ Der Befehl wird dann zwei Dinge ausgeben: </p>
 </code></pre></div>
 <p><br/></p>
 <div class="admonition int">
-<p class="admonition-title">Interaktive Notebooks</p>
+<p class="admonition-title">Jupyter Notebooks</p>
 <p>Der Code zu diesem Kapitel befindet sich hier: <code>notebooks/04_trainEvaluateModel_spacy.ipynb</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio"/><input id="__tabbed_22_2" name="__tabbed_22" type="radio"/><div class="tabbed-labels"><label for="__tabbed_22_1"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label><label for="__tabbed_22_2"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio"/><input id="__tabbed_22_2" name="__tabbed_22" type="radio"/><div class="tabbed-labels"><label for="__tabbed_22_1"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> Github</label><label for="__tabbed_22_2"><span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg></span> mybinder.org</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="md-button" href="https://github.com/easyh/NerDH/blob/main/notebooks/04_trainEvaluateModel_spacy.ipynb">Hier geht es zum Notebook auf Github</a></p>
+</div>
 <div class="tabbed-block">
 <p><a class="md-button" href="https://mybinder.org/v2/gh/easyh/NerDH/HEAD">Hier geht es zum Jupyter Notebook auf mybinder.org</a></p>
 <p><strong>Das Laden des Workspaces wird einen kurzen Moment in Anspruch nehmen.</strong></p>
-</div>
-<div class="tabbed-block">
-<p><a class="md-button" href="https://github.com/easyh/NerDH/blob/main/notebooks/04_trainEvaluateModel_spacy.ipynb">Hier geht es zum Notebook auf Github</a></p>
 </div>
 </div>
 </div>
@@ -1364,7 +1421,7 @@ Der Befehl wird dann zwei Dinge ausgeben: </p>
 <a href="#__codelineno-51-18" id="__codelineno-51-18" name="__codelineno-51-18"></a>OBJEKT         94.44   81.79   87.66
 <a href="#__codelineno-51-19" id="__codelineno-51-19" name="__codelineno-51-19"></a>ORGANISATION   95.59   82.28   88.44
 </code></pre></div>
-Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nicht der Fall sein, dann würden wir einfach unseren Trainingsprozess mit kleinen Veränderungen nochmal erneut starten. Nicht aufgeben! <img alt="💪" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg" title=":muscle:"/><img alt="🤓" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f913.svg" title=":nerd:"/></p>
+Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nicht der Fall sein, dann würden wir einfach unseren Trainingsprozess mit kleinen Veränderungen nochmal erneut starten. Allerdings bedeutet der Wert nur, dass das selbst erstellte Modell <code>de_fnhd_nerdh</code> besonders gut mit Texten von <strong>Philipp Hainhofer</strong> funktioniert (F-Score 0.92), da es mit diesen trainiert wurden. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. </p>
 <p><br/></p>
 <div class="admonition int">
 <p class="admonition-title">Interaktive Notebooks</p>

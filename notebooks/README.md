@@ -6,4 +6,4 @@ Um die vier Notebooks interaktiv im Browser verwenden zu können, wurde ein MyBi
 
 ---
 
-Die Konfigurationsdatei [`base_config.cfg`](https://github.com/easyh/NerDH/blob/main/notebooks/base_config.cfg) ist für unseren Trainingsprozess mit `spaCy` wichtig ([siehe Tutorial 3.3 Training](https://easyh.github.io/NerDH/tut/#33-training)).
+Die Konfigurationsdatei [`base_config.cfg`](https://github.com/easyh/NerDH/blob/main/notebooks/base_config.cfg) ist für den Trainingsprozess mit `spaCy` wichtig ([siehe Tutorial 3.3 Training](https://easyh.github.io/NerDH/tut/#33-training)).

@@ -16,7 +16,7 @@ Der zu analysierende Text kann einfach ins Textfeld reinkopiert werden oder aber
 
 Der NerDH Visualisierer kann zum einen im **Browser** direkt besucht werden oder aber **lokal** auf dem Computer.
 
-**Viel Spaß damit!** :computer: :speech_balloon:
+**Viel Spaß damit!** 
 <br>
 <br>
 

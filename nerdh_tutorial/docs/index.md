@@ -14,7 +14,7 @@ Der praktische Teil wird dabei neben einer Einführung in `spaCy` den Trainingsp
 
 <br>
 <br>
-**Viel Spaß und Erfolg mit dem Tutorial!**  :muscle: :nerd:
+**Viel Spaß und Erfolg mit dem Tutorial!** 
 <br>
 
 <br>
@@ -61,7 +61,10 @@ Named Entity Recognition funktioniert besonders gut mit Zeitungsdaten - einfach 
 
 Allerdings haben sich die Entwickler von NER-Modellen  beim Training haupsächlich auf moderne und englischsprachige Texte konzentriert. Besonders bei historischen Texten schneiden NER-Modelle nicht gut ab. Für die Digital Humanities ist es daher oft sehr herausfordernd mit aktuellen NER-Tools zu arbeiten, da man in den meisten Fällen nicht mit standardisierten und modernen Sprachen arbeitet. Meist - wie auch in diesem Tutorial - arbeitet man mit seltenen oder alten Sprachen. Bei einem solchen Textkorpus führen standardisierte NER-Modelle zu hohen Fehlerquoten. 
 
-Herausfordernd ist dabei vor allem die Heterogenität der historischen Dokumente. Denn innerhalb eines Korpus oder sogar eines Dokumentes können wir verschiedene Sprachen (z.B. Deutsch, Latein, Französisch), eine uneinheitliche Schreibweise und Fehler in der Transkription durch Schreiber bzw. Texterkennungssoftware wie OCR vorfinden. Das folgende Bild stammt aus dem Annotationsprozess des **Goldstandards** für das Training mit dem frühhochneudeutschen Text und soll einen kleinen Einblick auf die uneinheitliche Schreibweise zeigen:  
+Herausfordernd ist dabei vor allem die Heterogenität der historischen Dokumente. Denn innerhalb eines Korpus
+oder sogar eines Dokumentes sind verschiedene Sprachen (z.B. Deutsch, Latein, Französisch), eine 
+uneinheitliche Schreibweise und Fehler in der Transkription durch Schreiber bzw. Texterkennungssoftware wie 
+OCR vorfinden. Das folgende Bild stammt aus dem Annotationsprozess des **Goldstandards** für das Training mit dem frühhochneudeutschen Text und soll einen kleinen Einblick auf die uneinheitliche Schreibweise zeigen:  
 
 ??? Goldstandard question  
 
@@ -88,35 +91,42 @@ Der Named Entity Recognition Prozess lässt sich in zwei Schritte aufteilen:[^5]
 1. **Extraktion von Entitäten:** In diesem Schritt scannt das NER-Modell die Daten und findet die Wörter, die als Entität behandelt werden können.  Ein NER-Modell ist in der Lage, die benannte Entität im Modell auf der Grundlage der ihm bekannten benannten Entitäten zu finden. 
 2. **Klassifizierung von Entitäten:** Hier werden die Entitäten in vordefinierte Klassen kategorisiert, die benannte Entität `Trier` würde beispielsweise als `ORT` kategorisiert werden. 
 
-Die meisten NER-Tools basieren auf Machine-Learning Algorithmen. Hier wird vorher eine Reihe von Merkmalen (Features) definiert, um eine möglichst präzise Erkennung möglich zu machen. Zum Beispiel können Wortlisten berücksichtigt werden, die alle Namen von Personen, Orten und Organisationen verzeichnet, die vorkommen könnten. Zusätzlich können auch Worte mit einbezogen werden, die sich entweder vor oder nach der benannten Entität befinden. Weitere Merkmale könnten auch häufig vorher genannte Wörter sein, sowie zum Beispiel bei Orten das Wort `in`. Ein anderes erlernbares Muster könnte das Darstellungsformat bei Daten sein (z.B. 01.01.2023 oder 1. Januar 2023). Eine wichtige Rolle spielen auch Merkmale wie Groß- und Kleinschreibung sowie Positionen im Satz. Sämtliche Tools die es gibt, unterscheiden sich u.a. genau in diesem Punkt, der Anzahl der verschiedenen Merkmale.[^6] 
+Die meisten NER-Tools basieren auf Machine-Learning Algorithmen. Hier wird vorher eine Reihe von Merkmalen (Features) definiert, um eine möglichst präzise Erkennung möglich zu machen. Zum Beispiel können Wortlisten berücksichtigt werden, die alle Namen von Personen, Orten und Organisationen verzeichnet, die vorkommen könnten. Zusätzlich können auch Wörter mit einbezogen werden, die sich entweder vor oder nach der benannten Entität befinden. Weitere Merkmale könnten auch häufig vorher genannte Wörter sein, sowie zum Beispiel bei Orten das Wort `in`. Ein anderes erlernbares Muster könnte das Darstellungsformat bei Daten sein (z.B. 01.01.2023 oder 1. Januar 2023). Eine wichtige Rolle spielen auch Merkmale wie Groß- und Kleinschreibung sowie Positionen im Satz. Sämtliche Tools die es gibt, unterscheiden sich u.a. genau in diesem Punkt, der Anzahl der verschiedenen Merkmale.[^6] 
 
-Mit Hilfe dieser im Tool vordefinierten Merkmale findet dann der Machine Learning Prozess statt. Der Lernprozess des NER-Tools besteht darin, dass diese Merkmale mit einem manuell annotierten Text (ein Teil des Goldstandards) abgeglichen werden, dem sogenannten Trainingskorpus. Das Ergebnis dieses Abgleichs ist dann das NER-Modell. Da Entitäten meist unterschiedliche Bedeutungen tragen können, führt nur die Kombination verschiedener Merkmale zu guten Ergebnissen. Das Tool errechnet anhand der Feature-Kombinationen und der Trainingsdaten, welche Zuordnung in welchem Kontext wahrscheinlicher ist.  
+Mit Hilfe dieser im Tool vordefinierten Merkmale findet dann der überwachte Machine Learning Prozess statt. Der Lernprozess des NER-Tools besteht darin, dass diese Merkmale mit einem manuell annotierten Text (ein Teil des Goldstandards) abgeglichen werden, dem sogenannten Trainingskorpus. Das Ergebnis dieses Abgleichs ist dann das NER-Modell. Da Entitäten meist unterschiedliche Bedeutungen tragen können, führt nur die Kombination verschiedener Merkmale zu guten Ergebnissen. Das Tool errechnet anhand der Feature-Kombinationen und der Trainingsdaten, welche Zuordnung in welchem Kontext wahrscheinlicher ist.  
 
 !!! info "Named Entity Linking & Beziehungsextraktion"
 
     Der Standardprozess kann allerdings noch um zwei weitere Schritte erweitert werden, die bei NER eine wichtige Rolle spielen:[^7] 
     
     1.  **Disambiguation/Linking:** Hier wird den gefundenen Entitäten eine eindeutige Referenz wie z.B. ein Wikidata-Eintrag hinzufügt. In unserem Beispiel `Trier` als Entität `ORT`  würde der entsprechende Wikidata-Eintrag von Trier [`Q3138`](https://www.wikidata.org/wiki/Q3138) verlinkt werden.
+
+    ??? question "Wikidata-Eintrag"
+
+        Wikidata ist eine globale Wissensdatenbank, wo es für jeden Eintrag einen persistenten Identifikator (QID) gibt. 
+        Für die Stadt Trier wäre der persistente Identifikator [`Q3138`](https://www.wikidata.org/wiki/Q3138). Hierdurch kann 
+        eine Entität eindeutig identifiziert und verlinkt werden.
    
-    2.   **Beziehungsexktraktion:** In diesem Schritt können Beziehungen zwischen den benannten Entitäten hergestellt werden. 	
+    1.   **Beziehungsexktraktion:** In diesem Schritt können Beziehungen zwischen den benannten Entitäten hergestellt werden. 
+    In einem Text werden möglicherweise Ortsnamen erkannt und als Named Entities markiert. Mit Beziehungserkennung kann dann untersucht werden, welche Beziehungen zwischen diesen Ortsnamen bestehen. Im Beispieltext `Trier ist eine Stadt in Deutschland und liegt in der Nähe der Grenze zu Luxemburg.` würden `Trier`, `Deutschland` und `Luxemburg` als Named Entities markiert. Durch die Beziehungserkennung könnte erkannt werden das `Trier`eine Stadt in `Deutschland` ist und `Deutschland` und `Luxemburg` Nachbarländer sind.
 
 ## **5. Übersicht über NER Tools**
 
 
-Es gibt eine Vielzahl von vorhandenen NER-Tools. Meist wurden diese mit großen Korpora aus modernen journalistischen Texten traniniert. Speziell für die DH ist es daher wichtig auf die Anwendungs- und Trainingsmöglichkeiten der Tools zu achten. Da wir im Tutorial nur mit dem Tool `spaCy` arbeiten werden, soll die folgende Tabelle einen Überblick über Tools bieten, die ebenfalls in den Digital Humanities zum Einsatz kommen. 
+Es gibt eine Vielzahl von vorhandenen NER-Tools. Meist wurden diese mit großen Korpora aus modernen journalistischen Texten trainiert. Speziell für die DH ist es daher wichtig, auf die Anwendungs- und Trainingsmöglichkeiten der Tools zu achten. Da wir im Tutorial nur mit dem Tool `spaCy` arbeiten werden, soll die folgende Tabelle einen Überblick über Tools bieten, die ebenfalls in den Digital Humanities zum Einsatz kommen. 
 
 <br>
 
 | Tool               | Beschreibung                                                   | Link |
 | ------------------ | -------------------------------------------------------------- | ---- |
-| `spaCy`            | Spacy ist ein leistungsstarkes Tool für die Verarbeitung natürlicher Sprache, das zur Verarbeitung großer Datenmengen eingesetzt wird. Mit Unterstützung für mehr als 64 Sprachen und 63 trainierten Pipelines für 19 Sprachen ist es ein praktisches Tool für NLP. Das Trainieren einer eigenen Pipeline ermöglicht die Anwendung auf spezifische Texte. |[:link:](https://spacy.io/)| 
-| `NLTK`             | Das NLTK (Natural Language Toolkit) ist eine Reihe von Bibliotheken, die für NLP verwendet werden. Es wird häufig in der Forschung und für Bildungszwecke verwendet. Es ist in Python geschrieben und hat Zugang zu mehr als 50 Textkorpora in 7 Sprachen. |[:link:](https://www.nltk.org/)| 
-| `Stanford NER` |   Stanford NER ist eins der bekanntesten NER Tools unter Geisteswissenschaftlern, da es mehrere vortrainierte Modelle in verschiedenen Sprachen und eine Möglichkeit für die Erstellung von eigenen Modellen bietet.  |[:link:](https://nlp.stanford.edu/software/CRF-NER.html#About)|  
-| `HER`              | Das HER-Tool (Humanities Entity Recognizer) wurde speziell für die  Digital Humanities entwickelt. Es bietet eine Whitebox-Lösung für den robusten Umgang mit verschiedenen Arten von Entitäten, verschiedenen Sprachen, Stilen und Domänen sowie unterschiedlichen Strukturierungsebenen in Texten.      |[:link:](https://github.com/alexerdmann/HER/)| 
-| `WebLicht`         |   WebLicht ist eine webbasierte Anwendung für automatische Annotation von Textkorpora, welche sowohl verschiedene Services für die Verarbeitung von Daten anbietet als auch eine anwenderfreundliche grafische Oberfläche für die Verkettung von verschiedenen linguistischen Anwendungen. WebLicht bietet auch mehrere Pipelines für deutschsprachige NER an.     |[:link:](https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/Main_Page)| 
-| `Flair`            | Flair ist eine leistungsstarke NLP-Bibliothek in einem PyTorch-Framework, welches es einfach macht eigene Modelle zu trainieren und mit neuen Ansätzen zu experimentieren, die Flair-Einbettungen und -Klassen verwenden.     |[:link:](https://github.com/flairNLP/flair)| 
-| `TAGME`            | TAGME ist ein leistungsfähiges Werkzeug, das in der Lage ist in einem unstrukturierten Text Entitäten zu identifizieren und sie auf schnelle und effektive Weise mit einer entsprechenden Wikipedia-Seite zu verknüpfen. Dieser Annotationsprozess hat Auswirkungen, die weit über die Anreicherung des Textes mit erklärenden Links hinausgehen, da er die Kontextualisierung und in gewisser Weise auch das Verständnis des Textes betrifft (Named Entity Linking)    |[:link:](https://tagme.d4science.org/tagme/)| 
-| `DBPedia`            | DPPedia ist ein Tool zur automatischen Annotation von DBpedia-Ressourcen in Texten und bietet eine Lösung für die Verknüpfung unstrukturierter Informationsquellen mit der Linked Open Data Cloud durch DBpedia (Named Entity Linking).   |[:link:](https://www.dbpedia-spotlight.org/)| 
+| `spaCy`            | Spacy ist ein leistungsstarkes Tool für die Verarbeitung natürlicher Sprache, das zur Verarbeitung großer Datenmengen eingesetzt wird. Mit Unterstützung für mehr als 64 Sprachen und 63 trainierten Pipelines für 19 Sprachen, ist es ein praktisches Tool für NLP. Das Trainieren einer eigenen Pipeline ermöglicht die Anwendung auf spezifische Texte. |[Link](https://spacy.io/)| 
+| `NLTK`             | Das NLTK (Natural Language Toolkit) ist eine Reihe von Bibliotheken, die für NLP verwendet werden. Es wird häufig in der Forschung und für Bildungszwecke verwendet. Es ist in Python geschrieben und hat Zugang zu mehr als 50 Textkorpora in 7 Sprachen. |[Link](https://www.nltk.org/)| 
+| `Stanford NER` |   Stanford NER ist eins der bekanntesten NER Tools unter Geisteswissenschaftlern, da es mehrere vortrainierte Modelle in verschiedenen Sprachen besitzt und eine Möglichkeit für die Erstellung von eigenen Modellen bietet.  |[Link](https://nlp.stanford.edu/software/CRF-NER.html#About)|  
+| `HER`              | Das HER-Tool (Humanities Entity Recognizer) wurde speziell für die  Digital Humanities entwickelt. Es bietet eine Whitebox-Lösung für den robusten Umgang mit verschiedenen Arten von Entitäten, verschiedenen Sprachen, Stilen und Domänen sowie unterschiedlichen Strukturierungsebenen in Texten an.      |[Link](https://github.com/alexerdmann/HER/)| 
+| `WebLicht`         |   WebLicht ist eine webbasierte Anwendung für automatische Annotation von Textkorpora, welche sowohl verschiedene Services für die Verarbeitung von Daten anbietet, als auch eine anwenderfreundliche grafische Oberfläche für die Verkettung von verschiedenen linguistischen Anwendungen. WebLicht bietet auch mehrere Pipelines für deutschsprachige NER an.     |[Link](https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/Main_Page)| 
+| `Flair`            | Flair ist eine leistungsstarke NLP-Bibliothek in einem PyTorch-Framework, welches es einfach macht, eigene Modelle zu trainieren und mit neuen Ansätzen zu experimentieren, die Flair-Einbettungen und -Klassen verwenden.     |[Link](https://github.com/flairNLP/flair)| 
+| `TAGME`            | TAGME ist ein leistungsfähiges Werkzeug, das in der Lage ist, in einem unstrukturierten Text Entitäten zu identifizieren und sie auf schnelle und effektive Weise mit einer entsprechenden Wikipedia-Seite zu verknüpfen (Named Entity Linking).   |[Link](https://tagme.d4science.org/tagme/)| 
+| `DBPedia`            | DPPedia ist ein Tool zur automatischen Annotation von DBpedia-Ressourcen in Texten und bietet eine Lösung für die Verknüpfung unstrukturierter Informationsquellen mit der Linked Open Data Cloud durch DBpedia (Named Entity Linking).   |[Link](https://www.dbpedia-spotlight.org/)| 
 
 
 
