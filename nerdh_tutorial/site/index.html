@@ -289,17 +289,17 @@ OCR vorfinden. Das folgende Bild stammt aus dem Annotationsprozess des <strong>G
 <div class="admonition info">
 <p class="admonition-title">Named Entity Linking &amp; Beziehungsextraktion</p>
 <p>Der Standardprozess kann allerdings noch um zwei weitere Schritte erweitert werden, die bei NER eine wichtige Rolle spielen:<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> </p>
-<ol>
+<ul>
 <li><strong>Disambiguation/Linking:</strong> Hier wird den gefundenen Entitäten eine eindeutige Referenz wie z.B. ein Wikidata-Eintrag hinzufügt. In unserem Beispiel <code>Trier</code> als Entität <code>ORT</code>  würde der entsprechende Wikidata-Eintrag von Trier <a href="https://www.wikidata.org/wiki/Q3138"><code>Q3138</code></a> verlinkt werden.</li>
-</ol>
+</ul>
 <details class="question"><summary>Wikidata-Eintrag</summary><p>Wikidata ist eine globale Wissensdatenbank, wo es für jeden Eintrag einen persistenten Identifikator (QID) gibt. 
 Für die Stadt Trier wäre der persistente Identifikator <a href="https://www.wikidata.org/wiki/Q3138"><code>Q3138</code></a>. Hierdurch kann 
 eine Entität eindeutig identifiziert und verlinkt werden.</p>
 </details>
-<ol>
+<ul>
 <li><strong>Beziehungsexktraktion:</strong> In diesem Schritt können Beziehungen zwischen den benannten Entitäten hergestellt werden. 
-In einem Text werden möglicherweise Ortsnamen erkannt und als Named Entities markiert. Mit Beziehungserkennung kann dann untersucht werden, welche Beziehungen zwischen diesen Ortsnamen bestehen. Im Beispieltext <code>Trier ist eine Stadt in Deutschland und liegt in der Nähe der Grenze zu Luxemburg.</code> würden <code>Trier</code>, <code>Deutschland</code> und <code>Luxemburg</code> als Named Entities markiert. Durch die Beziehungserkennung könnte erkannt werden das <code>Trier</code>eine Stadt in <code>Deutschland</code> ist und <code>Deutschland</code> und <code>Luxemburg</code> Nachbarländer sind.</li>
-</ol>
+In einem Text werden möglicherweise Ortsnamen erkannt und als Named Entities markiert. Mit Beziehungserkennung kann dann untersucht werden, welche Beziehungen zwischen diesen Ortsnamen bestehen. Im Beispieltext <code>Trier ist eine Stadt in Deutschland und liegt in der Nähe der Grenze zu Luxemburg.</code> würden <code>Trier</code>, <code>Deutschland</code> und <code>Luxemburg</code> als Named Entities markiert. Durch die Beziehungserkennung könnte erkannt werden das <code>Trier</code> eine Stadt in <code>Deutschland</code> ist und <code>Deutschland</code> und <code>Luxemburg</code> Nachbarländer sind.</li>
+</ul>
 </div>
 <h2 id="5-ubersicht-uber-ner-tools"><strong>5. Übersicht über NER Tools</strong></h2>
 <p>Es gibt eine Vielzahl von vorhandenen NER-Tools. Meist wurden diese mit großen Korpora aus modernen journalistischen Texten trainiert. Speziell für die DH ist es daher wichtig, auf die Anwendungs- und Trainingsmöglichkeiten der Tools zu achten. Da wir im Tutorial nur mit dem Tool <code>spaCy</code> arbeiten werden, soll die folgende Tabelle einen Überblick über Tools bieten, die ebenfalls in den Digital Humanities zum Einsatz kommen. </p>

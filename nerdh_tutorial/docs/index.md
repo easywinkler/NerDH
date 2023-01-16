@@ -99,7 +99,7 @@ Mit Hilfe dieser im Tool vordefinierten Merkmale findet dann der überwachte Mac
 
     Der Standardprozess kann allerdings noch um zwei weitere Schritte erweitert werden, die bei NER eine wichtige Rolle spielen:[^7] 
     
-    1.  **Disambiguation/Linking:** Hier wird den gefundenen Entitäten eine eindeutige Referenz wie z.B. ein Wikidata-Eintrag hinzufügt. In unserem Beispiel `Trier` als Entität `ORT`  würde der entsprechende Wikidata-Eintrag von Trier [`Q3138`](https://www.wikidata.org/wiki/Q3138) verlinkt werden.
+    -  **Disambiguation/Linking:** Hier wird den gefundenen Entitäten eine eindeutige Referenz wie z.B. ein Wikidata-Eintrag hinzufügt. In unserem Beispiel `Trier` als Entität `ORT`  würde der entsprechende Wikidata-Eintrag von Trier [`Q3138`](https://www.wikidata.org/wiki/Q3138) verlinkt werden.
 
     ??? question "Wikidata-Eintrag"
 
@@ -107,8 +107,8 @@ Mit Hilfe dieser im Tool vordefinierten Merkmale findet dann der überwachte Mac
         Für die Stadt Trier wäre der persistente Identifikator [`Q3138`](https://www.wikidata.org/wiki/Q3138). Hierdurch kann 
         eine Entität eindeutig identifiziert und verlinkt werden.
    
-    1.   **Beziehungsexktraktion:** In diesem Schritt können Beziehungen zwischen den benannten Entitäten hergestellt werden. 
-    In einem Text werden möglicherweise Ortsnamen erkannt und als Named Entities markiert. Mit Beziehungserkennung kann dann untersucht werden, welche Beziehungen zwischen diesen Ortsnamen bestehen. Im Beispieltext `Trier ist eine Stadt in Deutschland und liegt in der Nähe der Grenze zu Luxemburg.` würden `Trier`, `Deutschland` und `Luxemburg` als Named Entities markiert. Durch die Beziehungserkennung könnte erkannt werden das `Trier`eine Stadt in `Deutschland` ist und `Deutschland` und `Luxemburg` Nachbarländer sind.
+    -  **Beziehungsexktraktion:** In diesem Schritt können Beziehungen zwischen den benannten Entitäten hergestellt werden. 
+    In einem Text werden möglicherweise Ortsnamen erkannt und als Named Entities markiert. Mit Beziehungserkennung kann dann untersucht werden, welche Beziehungen zwischen diesen Ortsnamen bestehen. Im Beispieltext `Trier ist eine Stadt in Deutschland und liegt in der Nähe der Grenze zu Luxemburg.` würden `Trier`, `Deutschland` und `Luxemburg` als Named Entities markiert. Durch die Beziehungserkennung könnte erkannt werden das `Trier` eine Stadt in `Deutschland` ist und `Deutschland` und `Luxemburg` Nachbarländer sind.
 
 ## **5. Übersicht über NER Tools**
 
