@@ -1,4 +1,4 @@
-# **NER Tutorial mit spaCy**
+# **NER Tutorial mit spay**
 
 In dem Tutorial werden wir das Natural Language Processing (NLP) Tool `spaCy` näher kennenlernen. Auch wenn `spaCy` im NLP Bereich mehr zu bieten hat als nur  Named Entity Recogniton (NER), wird darauf der Fokus des Tutorials liegen. 
 
