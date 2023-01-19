@@ -569,7 +569,11 @@ TRAIN_DATA = ["TEXT AS A STRING",{"entities:"[(START,END,LABEL)]}]
 
 Es gibt zahlreiche Auszeichnungstools, die für Anwendungen des maschinellen Lernens entwickelt wurden und bei der Annotation von Texten helfen. Darunter auch einige, welche die Daten direkt in das entsprechende Trainingsformat für `spaCy` bringen. Dafür wurde speziell [`prodigy`](https://prodi.gy/)  entwickelt, was allerdings kostenpflichtig ist. Aber es gibt auch einige Open-Source-Programme, die eine gute Alternative darstellen. 
 
-Wir haben unseren Goldstandard mit dem [NER-Annotator](https://tecoholic.github.io/ner-annotator/) erstellt. Hier kann ein Text im `TXT`-Format importiert, annotiert und dann anschließend im `JSON`-Format exportiert werden. Die `JSON`-Datei enthält dann die annotierten Daten, die in dem für `spaCy` geeigneten Format vorliegen. Allerdings müssen die `JSON`-Dateien für den Trainingsprozess nochmal in `.spacy`-Dateien umgewandelt werden. Der [NER-Annotator](https://tecoholic.github.io/ner-annotator/) stellt hier Code zur Verfügung (näheres dazu im nächsten Kapitel zur Erstellung der Datensets).  
+Wir haben unseren Goldstandard mit dem [NER-Annotator](https://tecoholic.github.io/ner-annotator/) erstellt. Hier kann ein Text im `TXT`-Format importiert, annotiert und dann anschließend im `JSON`-Format exportiert werden. Die `JSON`-Datei enthält dann die annotierten Daten, die in dem für `spaCy` geeigneten Format vorliegen. Allerdings müssen die `JSON`-Dateien für den Trainingsprozess nochmal in `.spacy`-Dateien umgewandelt werden. 
+Der Codeteil, in welchem die Daten zunächst in ein `doc` und dann in ein `docBin` Objekt konvertiert werden,
+stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir das angepasste Codeschnipsel von Lim (2021).[^8]
+
+Der [NER-Annotator](https://tecoholic.github.io/ner-annotator/) stellt hier Code zur Verfügung (näheres dazu im nächsten Kapitel zur Erstellung der Datensets).  
 
 Das folgende Bild zeigt, wie die Annotation erfolgt. In der oberen Zeile können die Entitäten Kategorien festgelegt werden. Ist eine Kategorie mit einem Haken markiert (hier `ORT`) kann im Text damit die entsprechende Entität markiert werden. So arbeiten wir uns Stück für Stück durch unseren Text, bis wir fertig sind. Enthält ein Satz keine Entitäten, dann überspringen (`skip`) wir diesen. In unserer Datei sind später nur Sätze enthalten, die Entitäten enthalten.
 
@@ -624,7 +628,7 @@ Die Aufteilung unsrer Daten sieht wie folgt aus. Den Datensatz [`taggedData.json
     | ---------- | -------- | ------ |
     | **Traningsdaten** |  70% | Ein Trainingsdatensatz ist eine Sammlung von Beispielen, die verwendet werden, um einem Algorithmus beizubringen, Muster und Zusammenhänge in den Daten zu erkennen. Der Algorithmus passt seine Gewichte anhand der Trainingsdaten an, indem er aus ihnen lernt. Trainingsdaten werden für Klassifikations- und Regressionsprobleme benötigt, bei denen es darum geht, Vorhersagen für bestimmte Zielvariablen zu treffen. Es kann vorkommen, dass Algorithmen, die auf Trainingsdaten lernen, zu sehr auf die Muster in diesen Daten angepasst werden und somit nicht gut auf neue, noch nicht gesehene Daten anwendbar sind. Dies wird als "Überanpassung" oder "Overfitting" bezeichnet. Das bedeutet, dass der Algorithmus zu starke Regeln aus den Trainingsdaten lernt, die auf die Gesamtheit der Daten nicht gut anwendbar sind.|
     | **Validierungsdaten** | 20% | Der Validierungsdatensatz ist eine Sammlung von Beispieldaten, die verwendet werden, um die Hyperparameter eines Modells anzupassen. Hyperparameter sind Einstellungen, die vor dem Training festgelegt werden und Einfluss auf das Lernverhalten des Modells haben. Beispiele für Hyperparameter bei künstlichen neuronalen Netzen sind die Anzahl der Neuronen in jeder Schicht oder die Lernrate. Durch die Verwendung von Validierungsdaten beim Training kann verhindert werden, dass das Modell zu sehr auf die Trainingsdaten angepasst wird und somit auf neue, noch nicht gesehene Daten nicht gut anwendbar ist.|
-    | **Testdaten** | 10% | Die Testdaten sind von den Trainingsdaten unabhängig und werden während des Trainingsprozesses nicht verwendet. Sie dienen dazu, das trainierte Modell zu bewerten und zu überprüfen, wie gut es auf neue, noch nicht gesehene Daten anwendbar ist. Die Testdaten sollten dieselbe Wahrscheinlichkeitsverteilung wie der Trainingsdatensatz aufweisen. Wenn das Modell gut auf die Testdaten anwendbar ist, kann es vermutlich auch auf andere, bisher ungesehene Daten angewendet werden. |
+    | **Testdaten** | 10% | Die Testdaten sind von den Trainingsdaten unabhängig und werden während des Trainingsprozesses nicht verwendet. Sie dienen dazu, das trainierte Modell zu bewerten und zu überprüfen, wie gut es auf neue, noch nicht gesehene Daten anwendbar ist. Die Testdaten sollten dieselbe Wahrscheinlichkeitsverteilung wie der Trainingsdatensatz aufweisen. Wenn das Modell gut auf die Testdaten anwendbar ist, kann es vermutlich auch auf andere, bisher ungesehene Daten angewendet werden.|
     
 
 Um jetzt unseren großen Datensatz [`taggedData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json) in zwei Datensets aufzuteilen, lesen wir diesen zunächts ein und speichern nur die Einträge von  `annotations` in der Variablen `TAGGED_DATA`, damit wir die Einträge zählen können. Danach ermitteln wir die Grenze (80:20), damit wir den urspünglichen Datensatz in kleinere Datensätze zu je 80% und 20%.
@@ -705,7 +709,8 @@ Jetzt müssen die Datensets im `JSON`-Format nurnoch ins `spaCy`-Format konverti
     db = DocBin() 
     ```
 
-Jetzt müssen wir für jedes Datenset nur noch folgenden Code ausführen, welcher uns vom [NER-Annotator](https://tecoholic.github.io/ner-annotator/) vorgegeben wird, damit die Datensets im `spaCy`-Datenformat sind. 
+Jetzt müssen wir für jedes Datenset nur noch folgenden Code ausführen, damit die Datensets im `spaCy`-Datenformat sind. 
+Der Code ist von Lim(2021).[^8]
 
 === "Traningsdaten"
     ```py
@@ -1088,4 +1093,5 @@ Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nic
 [^3]: spaCy. Industrial-strength Natural Language Processing in Python.[https://spacy.io/models/de](http://web.archive.org/web/20230102123719/https://spacy.io/models/de)
 [^4]: Schumacher, M. K. (2020). Named Entity Recognition und Reverse Engineering. Lebe lieber literarisch. [https://lebelieberliterarisch.de/
 named-entity-recognition-und-reverse-engineering/](http://web.archive.org/web/20230102124132/https://lebelieberliterarisch.de/named-entity-recognition-und-reverse-engineering/)
-[^7]: datasolut GmbH. (2021). Was sind Trainingsdaten im Machine Learning? - datasolut Wiki. [https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/](http://web.archive.org/web/20230102124244/https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/)
+[^7]: datasolut GmbH. (2021). Was sind Trainingsdaten im Machine Learning? datasolut Wiki. [https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/](http://web.archive.org/web/20230102124244/https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/)
+[^8]: Lim, Z. (2021). Using spacy 3.0 to build a custom NER model. Towards Data Science. [https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7](https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7)
