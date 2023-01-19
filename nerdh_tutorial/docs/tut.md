@@ -573,7 +573,6 @@ Wir haben unseren Goldstandard mit dem [NER-Annotator](https://tecoholic.github.
 Der Codeteil, in welchem die Daten zunächst in ein `doc` und dann in ein `docBin` Objekt konvertiert werden,
 stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir das angepasste Codeschnipsel von [hier](https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7).
 
-Der [NER-Annotator](https://tecoholic.github.io/ner-annotator/) stellt hier Code zur Verfügung (näheres dazu im nächsten Kapitel zur Erstellung der Datensets).  
 
 Das folgende Bild zeigt, wie die Annotation erfolgt. In der oberen Zeile können die Entitäten Kategorien festgelegt werden. Ist eine Kategorie mit einem Haken markiert (hier `ORT`) kann im Text damit die entsprechende Entität markiert werden. So arbeiten wir uns Stück für Stück durch unseren Text, bis wir fertig sind. Enthält ein Satz keine Entitäten, dann überspringen (`skip`) wir diesen. In unserer Datei sind später nur Sätze enthalten, die Entitäten enthalten.
 
