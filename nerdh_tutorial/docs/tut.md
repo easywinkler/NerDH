@@ -1,4 +1,4 @@
-# **NER Tutorial mit spay**
+# **NER Tutorial mit spaCy**
 
 In dem Tutorial werden wir das Natural Language Processing (NLP) Tool `spaCy` näher kennenlernen. Auch wenn `spaCy` im NLP Bereich mehr zu bieten hat als nur  Named Entity Recogniton (NER), wird darauf der Fokus des Tutorials liegen. 
 
@@ -571,7 +571,7 @@ Es gibt zahlreiche Auszeichnungstools, die für Anwendungen des maschinellen Ler
 
 Wir haben unseren Goldstandard mit dem [NER-Annotator](https://tecoholic.github.io/ner-annotator/) erstellt. Hier kann ein Text im `TXT`-Format importiert, annotiert und dann anschließend im `JSON`-Format exportiert werden. Die `JSON`-Datei enthält dann die annotierten Daten, die in dem für `spaCy` geeigneten Format vorliegen. Allerdings müssen die `JSON`-Dateien für den Trainingsprozess nochmal in `.spacy`-Dateien umgewandelt werden. 
 Der Codeteil, in welchem die Daten zunächst in ein `doc` und dann in ein `docBin` Objekt konvertiert werden,
-stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir das angepasste Codeschnipsel von Lim (2021).[^8]
+stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir das angepasste Codeschnipsel von [hier](https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7).
 
 Der [NER-Annotator](https://tecoholic.github.io/ner-annotator/) stellt hier Code zur Verfügung (näheres dazu im nächsten Kapitel zur Erstellung der Datensets).  
 
@@ -710,7 +710,7 @@ Jetzt müssen die Datensets im `JSON`-Format nurnoch ins `spaCy`-Format konverti
     ```
 
 Jetzt müssen wir für jedes Datenset nur noch folgenden Code ausführen, damit die Datensets im `spaCy`-Datenformat sind. 
-Der Code ist von Lim(2021).[^8]
+Der Code ist von [hier](https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7).
 
 === "Traningsdaten"
     ```py
@@ -1094,4 +1094,3 @@ Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nic
 [^4]: Schumacher, M. K. (2020). Named Entity Recognition und Reverse Engineering. Lebe lieber literarisch. [https://lebelieberliterarisch.de/
 named-entity-recognition-und-reverse-engineering/](http://web.archive.org/web/20230102124132/https://lebelieberliterarisch.de/named-entity-recognition-und-reverse-engineering/)
 [^7]: datasolut GmbH. (2021). Was sind Trainingsdaten im Machine Learning? datasolut Wiki. [https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/](http://web.archive.org/web/20230102124244/https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/)
-[^8]: Lim, Z. (2021). Using spacy 3.0 to build a custom NER model. Towards Data Science. [https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7](https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7)
