@@ -325,8 +325,8 @@
 <h2 id="1-einfuhrung-in-spacy"><strong>1. Einführung in spaCy</strong></h2>
 <p>Zunächst wird die Bibliothek <code>spaCy</code> von der theoretischen Seite vorgestellt. Anschließend werden wir die Schritte zur Installation von <code>spaCy</code> und zum Herunterladen der vortrainierten Sprachmodelle durchgehen. </p>
 <h3 id="11-was-ist-spacy"><strong>1.1 Was ist spaCy?</strong></h3>
-<p><code>spaCy</code> ist ein leistungsstarkes Tool zur Verarbeitung natürlicher Sprache. Die NLP-Bibliothek für maschinelles Lernen wird seit 2016 von <em>Explosion AI</em> stetig weiterentwickelt und befindet sich mittlerweile in der dritten Version (<code>v.3.4</code>). Das ist auch die Version, mit der wir hier im Tutorial arbeiten werden. <em>Explosion AI</em> ist ein Berliner Team aus Informatikern und Computerlinguisten. </p>
-<p>Die Software-Bibiliothek unterstützt <a href="https://spacy.io/usage/models">64 europäische Sprachen</a> mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist <code>spaCy</code> auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 64 unterstützten insgesamt bietet <code>spaCy</code> bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> </p>
+<p><code>spaCy</code> ist ein leistungsstarkes Tool zur Verarbeitung natürlicher Sprache. Die NLP-Bibliothek für maschinelles Lernen wird seit 2016 von <em>Explosion AI</em> stetig weiterentwickelt und befindet sich mittlerweile in der dritten Version (<code>v.3.4.1</code>). Das ist auch die Version, mit der wir hier im Tutorial arbeiten werden. <em>Explosion AI</em> ist ein Berliner Team aus Informatikern und Computerlinguisten. </p>
+<p>Die Software-Bibiliothek unterstützt <a href="https://spacy.io/usage/models">70 europäische Sprachen</a> mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist <code>spaCy</code> auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 70 unterstützten insgesamt bietet <code>spaCy</code> bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> </p>
 <details class="info"><summary>Leistungsumfang von spaCy</summary><table>
 <thead>
 <tr>
@@ -858,7 +858,7 @@ mit ihrem Bruder
 <p>Wie wir sehen wurden nur zwei Entitäten richtig erkannt: <code>Christoff Froschhammer</code> als <code>PERSON</code> und <code>Saltzburg</code> als <code>ORT</code>. <code>Vlingingen</code>, sowie <code>Welß</code> und <code>Steÿrmarck</code> wurden nicht richtig oder garnicht als <code>ORT</code> erkannt. Zudem hat das Modell Entitäten erkannt, die eigentlich keine Entitäten sind: <code>Anno</code> und <code>Aines mörder</code>.</p>
 </div>
 <p>Vor dem Training eines eigenen NER-Modells ist es wichtig, folgende drei Fragen zu klären: </p>
-<details class="question"><summary>Was sind meine Daten?</summary><p>Unsere Daten entstammen der digitalen Edition <a href="https://hainhofer.hab.de/"><strong>Philipp Hainhofer</strong></a>. Hier haben wir uns für den Reisebericht <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}"><strong>München 1611</strong></a> als Trainingstext und <a href="https://hainhofer.hab.de/reiseberichte/muenchen1603"><strong>München 1603</strong></a> als Testtext entschieden. Die Texte der Edition stehen in <code>TEI-XML</code>, <code>PDF</code> sowie <code>TXT</code> zum Download verfügbar. Wir verwenden die Daten im  <code>TXT</code>-Format, denn einige Studien haben gezeigt, dass eine umfangreiche XML-Annotation, die dem NER-Prozess vorausgeht, die Leistung beeinträchtigen kann. NER-Systeme sollten daher idealerweise angewendet werden, bevor ein Korpus mit Standards wie TEI annotiert wird. In dieser Reihenfolge können die NER-Ergebnisse dann auch bei der TEI-Codierung sehr hilfreich sein. </p>
+<details class="question"><summary>Was sind die Daten?</summary><p>Unsere Daten entstammen der digitalen Edition <a href="https://hainhofer.hab.de/"><strong>Philipp Hainhofer</strong></a>. Hier haben wir uns für den Reisebericht <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}"><strong>München 1611</strong></a> als Trainingstext und <a href="https://hainhofer.hab.de/reiseberichte/muenchen1603"><strong>München 1603</strong></a> als Testtext entschieden. Die Texte der Edition stehen in <code>TEI-XML</code>, <code>PDF</code> sowie <code>TXT</code> zum Download verfügbar. Wir verwenden die Daten im  <code>TXT</code>-Format, denn einige Studien haben gezeigt, dass eine umfangreiche XML-Annotation, die dem NER-Prozess vorausgeht, die Leistung beeinträchtigen kann. NER-Systeme sollten daher idealerweise angewendet werden, bevor ein Korpus mit Standards wie TEI annotiert wird. In dieser Reihenfolge können die NER-Ergebnisse dann auch bei der TEI-Codierung sehr hilfreich sein. </p>
 </details>
 <details class="question"><summary>Welche Entitäten möchte ich auswählen?</summary><p>Hier geht es darum, die relevanten Kategorien und Entitäten auszuwählen. Dafür ist es wichtig zu wissen, welche und wie viele NE-Katogorien man für die jeweiligen Texte verwenden will.</p>
 <p>In unserem Modell werden wir die folgenden Entitäten trainieren: </p>
@@ -884,11 +884,11 @@ mit ihrem Bruder
 </tr>
 <tr>
 <td><code>OBJEKT</code></td>
-<td>Architektur, Gebäude, Kunst, etc.</td>
+<td>Architektur, Gebäude, Kunst, Werke etc.</td>
 </tr>
 <tr>
 <td><code>ZEIT</code></td>
-<td>Bücher mit eindeutigem Namen (z.B. Das Alte Testament)</td>
+<td>Datum, Monat, Jahr, Uhrzeit etc.</td>
 </tr>
 </tbody>
 </table>
