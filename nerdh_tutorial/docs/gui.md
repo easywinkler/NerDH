@@ -33,7 +33,7 @@ Der NerDH Visualisierer kann zum einen im **Browser** direkt besucht werden oder
     [Hier geht es zum NerDH Visualisierer auf Hugging Face](https://huggingface.co/spaces/easyh/NerDH_Visualisierer){ .md-button }
 
 
-    Falls der Visualisierer längere Zeit nicht benutzt wurde, muss sich dieser erst wieder zusammenbauen. Das kann einen Moment dauern, da hier die Sprackpakete erneut heruntegeladen werden müssen. An `Running` bzw. `Building` ist der aktuelle Status der App zu erkennen.
+    Falls der Visualisierer längere Zeit nicht benutzt wurde, muss sich dieser erst wieder zusammenbauen. Das kann einen Moment dauern, da hier die Sprackpakete erneut heruntegeladen werden müssen. An `Running`, `Building` und `Stopped` ist der aktuelle Status der App zu erkennen. Nachdem `Restart Space` gedrückt wurde, sollte die Seite nach einer kurzen Zeit nochmal neu aktualisiert werden.
 
     <br>
 

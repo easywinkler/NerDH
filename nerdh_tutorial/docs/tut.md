@@ -51,9 +51,9 @@ Zunächst wird die Bibliothek `spaCy` von der theoretischen Seite vorgestellt. A
 
 ### **1.1 Was ist spaCy?**
 
-`spaCy` ist ein leistungsstarkes Tool zur Verarbeitung natürlicher Sprache. Die NLP-Bibliothek für maschinelles Lernen wird seit 2016 von *Explosion AI* stetig weiterentwickelt und befindet sich mittlerweile in der dritten Version (`v.3.4`). Das ist auch die Version, mit der wir hier im Tutorial arbeiten werden. *Explosion AI* ist ein Berliner Team aus Informatikern und Computerlinguisten. 
+`spaCy` ist ein leistungsstarkes Tool zur Verarbeitung natürlicher Sprache. Die NLP-Bibliothek für maschinelles Lernen wird seit 2016 von *Explosion AI* stetig weiterentwickelt und befindet sich mittlerweile in der dritten Version (`v.3.4.1`). Das ist auch die Version, mit der wir hier im Tutorial arbeiten werden. *Explosion AI* ist ein Berliner Team aus Informatikern und Computerlinguisten. 
 
-Die Software-Bibiliothek unterstützt [64 europäische Sprachen](https://spacy.io/usage/models) mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist `spaCy` auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 64 unterstützten insgesamt bietet `spaCy` bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.[^1] 
+Die Software-Bibiliothek unterstützt [70 europäische Sprachen](https://spacy.io/usage/models) mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist `spaCy` auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 70 unterstützten insgesamt bietet `spaCy` bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.[^1] 
 
 ??? info "Leistungsumfang von spaCy"
     
@@ -500,7 +500,7 @@ Je nach Anwendungsfall macht es wenig Sinn nur mit dem Standardmodell zu arbeite
 
 Vor dem Training eines eigenen NER-Modells ist es wichtig, folgende drei Fragen zu klären: 
 
-??? question "Was sind meine Daten?"
+??? question "Was sind die Daten?"
     Unsere Daten entstammen der digitalen Edition [**Philipp Hainhofer**](https://hainhofer.hab.de/). Hier haben wir uns für den Reisebericht [**München 1611**](https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}) als Trainingstext und [**München 1603**](https://hainhofer.hab.de/reiseberichte/muenchen1603) als Testtext entschieden. Die Texte der Edition stehen in `TEI-XML`, `PDF` sowie `TXT` zum Download verfügbar. Wir verwenden die Daten im  `TXT`-Format, denn einige Studien haben gezeigt, dass eine umfangreiche XML-Annotation, die dem NER-Prozess vorausgeht, die Leistung beeinträchtigen kann. NER-Systeme sollten daher idealerweise angewendet werden, bevor ein Korpus mit Standards wie TEI annotiert wird. In dieser Reihenfolge können die NER-Ergebnisse dann auch bei der TEI-Codierung sehr hilfreich sein. 
 
 ??? question "Welche Entitäten möchte ich auswählen?"
@@ -513,8 +513,8 @@ Vor dem Training eines eigenen NER-Modells ist es wichtig, folgende drei Fragen 
     |  `PERSON`       | Einzelperson oder Familie                                | 
     |  `ORT`       | Geographische Einheit, d. h. Länder, Städte, Staaten, Flüsse                                  | 
     |  `ORGANISATION`       | Institutionen,(Ordens-)Gemeinschaften, Verbindungen, etc.                                 | 
-    |  `OBJEKT`       |  Architektur, Gebäude, Kunst, etc.                                    |
-    |  `ZEIT`       |  Bücher mit eindeutigem Namen (z.B. Das Alte Testament)                                    | 
+    |  `OBJEKT`       |  Architektur, Gebäude, Kunst, Werke etc.                                    |
+    |  `ZEIT`       |  Datum, Monat, Jahr, Uhrzeit etc.                                    | 
 
 
 ??? question "Wie möchte ich diese Entitäten kennzeichen?"
