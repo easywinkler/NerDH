@@ -933,7 +933,7 @@ mit ihrem Bruder
 <p>Es gibt zahlreiche Auszeichnungstools, die für Anwendungen des maschinellen Lernens entwickelt wurden und bei der Annotation von Texten helfen. Darunter auch einige, welche die Daten direkt in das entsprechende Trainingsformat für <code>spaCy</code> bringen. Dafür wurde speziell <a href="https://prodi.gy/"><code>prodigy</code></a>  entwickelt, was allerdings kostenpflichtig ist. Aber es gibt auch einige Open-Source-Programme, die eine gute Alternative darstellen. </p>
 <p>Wir haben unseren Goldstandard mit dem <a href="https://tecoholic.github.io/ner-annotator/">NER-Annotator</a> erstellt. Hier kann ein Text im <code>TXT</code>-Format importiert, annotiert und dann anschließend im <code>JSON</code>-Format exportiert werden. Die <code>JSON</code>-Datei enthält dann die annotierten Daten, die in dem für <code>spaCy</code> geeigneten Format vorliegen. Allerdings müssen die <code>JSON</code>-Dateien für den Trainingsprozess nochmal in <code>.spacy</code>-Dateien umgewandelt werden. 
 Der Codeteil, in welchem die Daten zunächst in ein <code>doc</code> und dann in ein <code>docBin</code> Objekt konvertiert werden,
-stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir das angepasste Codeschnipsel von Lim (2021).<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">6</a></sup></p>
+stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir das angepasste Codeschnipsel von <a href="https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7">hier</a>.</p>
 <p>Der <a href="https://tecoholic.github.io/ner-annotator/">NER-Annotator</a> stellt hier Code zur Verfügung (näheres dazu im nächsten Kapitel zur Erstellung der Datensets).  </p>
 <p>Das folgende Bild zeigt, wie die Annotation erfolgt. In der oberen Zeile können die Entitäten Kategorien festgelegt werden. Ist eine Kategorie mit einem Haken markiert (hier <code>ORT</code>) kann im Text damit die entsprechende Entität markiert werden. So arbeiten wir uns Stück für Stück durch unseren Text, bis wir fertig sind. Enthält ein Satz keine Entitäten, dann überspringen (<code>skip</code>) wir diesen. In unserer Datei sind später nur Sätze enthalten, die Entitäten enthalten.</p>
 <figure>
@@ -1126,7 +1126,7 @@ Jetzt müssen die Datensets im <code>JSON</code>-Format nurnoch ins <code>spaCy<
 </div>
 </div>
 <p>Jetzt müssen wir für jedes Datenset nur noch folgenden Code ausführen, damit die Datensets im <code>spaCy</code>-Datenformat sind. 
-Der Code ist von Lim(2021).<sup id="fnref2:8"><a class="footnote-ref" href="#fn:8">6</a></sup></p>
+Der Code ist von <a href="https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7">hier</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="20:3"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio"/><input id="__tabbed_20_2" name="__tabbed_20" type="radio"/><input id="__tabbed_20_3" name="__tabbed_20" type="radio"/><div class="tabbed-labels"><label for="__tabbed_20_1">Traningsdaten</label><label for="__tabbed_20_2">Validierungsdaten</label><label for="__tabbed_20_3">Testdaten</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1462,9 +1462,6 @@ named-entity-recognition-und-reverse-engineering/</a> <a class="footnote-backre
 </li>
 <li id="fn:7">
 <p>datasolut GmbH. (2021). Was sind Trainingsdaten im Machine Learning? datasolut Wiki. <a href="http://web.archive.org/web/20230102124244/https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/">https://datasolut.com/wiki/trainingsdaten-und-testdaten-machine-learning/</a> <a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 5 in the text">↩</a></p>
-</li>
-<li id="fn:8">
-<p>Lim, Z. (2021). Using spacy 3.0 to build a custom NER model. Towards Data Science. <a href="https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7">https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7</a> <a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 6 in the text">↩</a><a class="footnote-backref" href="#fnref2:8" title="Jump back to footnote 6 in the text">↩</a></p>
 </li>
 </ol>
 </div>
