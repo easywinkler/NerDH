@@ -1033,7 +1033,7 @@ pip install https://huggingface.co/easyh/de_fnhd_nerdh/resolve/main/de_fnhd_nerd
 Der nächste logische Schritt ist jetzt natürlich die Evaluation unseres Modells. Hierfür benötigen wir unsere Testdaten. Das Modell wird dann anhand von **F-Score**, **Precision** und **Recall** bewertet. `spaCy` hat hierfür einen einfachen Terminalbefehl. 
 
 ```
-python -m spacy evaluate de_fnhd_nerdh ./data/datensets/trainData.spacy
+python -m spacy evaluate de_fnhd_nerdh ./data/datensets/testData.spacy
 ```
 
 Das Output sollte dann in etwa so aussehen: 
