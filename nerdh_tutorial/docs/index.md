@@ -1,7 +1,7 @@
 # **NER Tutorial am Beispiel deutscher historischer Texte**
 
 
-Das NerDH-Tutorial ist im Rahmen einer Masterarbeit an der Universität Trier im Wintersemester 2022/23 entstanden. Das Thema der Arbeit war **Named Entity Recognition: Einsatz und Verwendung der Technologie in den Digital Humanities**. Daraus leitet sich auch der Name des Tutorials ab: *NER* steht für die Abkürzung von Named Entity Recognition und *DH* für Digital Humanities. Im praktischen Teil der Arbeit wurde mit dem NER-Tool `spaCy` ein eigenes Modell für frühneuhochdeutsche Texte trainiert. 
+Das NerDH-Tutorial ist im Rahmen einer Masterarbeit an der Universität Trier im Wintersemester 2022/23 entstanden. Das Thema der Arbeit war **Named Entity Recognition: Theorie und Anwendung der Technologie in den Digital Humanities am Beispiel historischer Texte**. Daraus leitet sich auch der Name des Tutorials ab: *NER* steht für die Abkürzung von Named Entity Recognition und *DH* für Digital Humanities. Im praktischen Teil der Arbeit wurde mit dem NER-Tool `spaCy` ein eigenes Modell für frühneuhochdeutsche Texte trainiert. 
 
 ??? Frühneuhochdeutsch question
 
