@@ -5,7 +5,7 @@ repo_name: easyh/NerDH
 nav:
    - Named Entity Recognition: index.md
    - NER Tutorial mit Spacy: tut.md
-   - NerDH-Visualisierer: gui.md
+   - NerDH Visualisierer: gui.md
 extra_css:
   - stylesheets/extra.css
 
