@@ -191,7 +191,7 @@
 <p>Neben dem selbst trainierten <code>de_fnhd_nerdh</code> Modell, wurden dem Visualisierer auch die drei deutschen <code>spaCy</code> Sprachpakete implementiert. Somit kann ein Text mit vier verschiedenen NER-Modellen getestet und auf seine unterschiedlichen Ergebnisse hin verglichen werden. Zusätzlich gibt es über jedes Modell Informationen und eine Übersicht über die Named Entities Typen. </p>
 <div class="admonition info">
 <p class="admonition-title">Das Modell <code>de_fnhd_nerdh</code></p>
-<p>Es sollte klar sein, dass das selbst erstellte Modell <code>de_fnhd_nerdh</code> besonders gut mit Texten von <strong>Philipp Hainhofer</strong> funktioniert (F-Score 0.92), da es mit diesen trainiert wurden. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. </p>
+<p>Es sollte klar sein, dass das selbst erstellte Modell <code>de_fnhd_nerdh</code> besonders gut mit Texten von <strong>Philipp Hainhofer</strong> funktioniert (F-Score 0.92), da es mit diesen trainiert wurde. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. </p>
 </div>
 <p>Der zu analysierende Text kann einfach ins Textfeld reinkopiert werden oder aber - sofern im .txt-Format vorliegend - hochgeladen werden. Der NER-Prozess startet sobald der Text erfolgreich eingelesen wurde. Mittels der <code>displacy</code>-Funktion von <code>spaCy</code> werden die Named Entities visuell übersichtlich dargestellt. Abgerundet wird der NerDH Visualisierer durch die Download-Funktion der NER-Ergebnisse. </p>
 <p>Der NerDH Visualisierer kann zum einen im <strong>Browser</strong> direkt besucht werden oder aber <strong>lokal</strong> auf dem Computer.</p>
@@ -205,7 +205,7 @@
 <details class="question"><summary>Hugging Face</summary><p>Hugging Face ist eine Community- und Data-Science-Plattform, auf welcher Open-Source Projekte wie Machine-Learning Modelle, Datensets oder Web-App-Anwendungen frei publiziert werden können. Der Aufbau dazu ist ähnlich zu einem Github Repository. Streamlit Projekte können hier in sogenannten <strong>Spaces</strong> hochgeladen werden.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> </p>
 </details>
 <p><a class="md-button" href="https://huggingface.co/spaces/easyh/NerDH_Visualisierer">Hier geht es zum NerDH Visualisierer auf Hugging Face</a></p>
-<p>Falls der Visualisierer längere Zeit nicht benutzt wurde, muss sich dieser erst wieder zusammenbauen. Das kann einen Moment dauern, da hier die Sprackpakete erneut heruntegeladen werden müssen. An <code>Running</code>, <code>Building</code> und <code>Stopped</code> ist der aktuelle Status der App zu erkennen. Nachdem <code>Restart Space</code> gedrückt wurde, sollte die Seite nach einer kurzen Zeit nochmal neu aktualisiert werden.</p>
+<p>Falls der Visualisierer längere Zeit nicht benutzt wurde, muss sich dieser erst wieder zusammenbauen. Das kann einen Moment dauern, da hier die Sprackpakete erneut heruntergeladen werden müssen. An <code>Running</code>, <code>Building</code> und <code>Stopped</code> ist der aktuelle Status der App zu erkennen. Nachdem <code>Restart Space</code> gedrückt wurde, sollte die Seite nach einer kurzen Zeit nochmal neu aktualisiert werden.</p>
 <p><br/></p>
 <p><figure markdown="">
 <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../img/app_browser.png"><img alt="AppBrowser" src="../img/app_browser.png" width="800"/></a>
@@ -216,7 +216,7 @@
 <p>Um die App lokal zu verwenden, muss das Github-Repository <a href="https://github.com/easyh/NerDH"><span class="twemoji"><svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span> easyh/NerDH</a> heruntergeladen werden.</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/easyh/NerDH.git
 </code></pre></div>
-<p>Dann müssen - sofern noch nicht im Tutorial gemacht -die entsprechenden Python-Pakete und die Sprachmodelle der <code>requirements.txt</code> lokal auf der Maschine installiert werden. </p>
+<p>Dann müssen - sofern noch nicht im Tutorial erfolgt -die entsprechenden Python-Pakete und die Sprachmodelle der <code>requirements.txt</code> lokal auf der Maschine installiert werden. </p>
 <details class="note"><summary>Python Pakete und NER-Sprachmodelle installieren</summary><p>Befehle nacheinander ausführen:</p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">pip</span> <span class="n">install</span> <span class="n">streamlit</span> 
 </code></pre></div>
@@ -241,10 +241,10 @@
 </p>
 </div>
 </details>
-<p>Jetzt muss nurnoch in den entsprechenden Ordner navigiert werden. </p>
+<p>Jetzt muss nur noch in den entsprechenden Ordner navigiert werden. </p>
 <div class="highlight"><pre><span></span><code>cd nerdh_visualisierer
 </code></pre></div>
-<p>Danach muss nurnoch folgender Befehl einmal ausgeführt werden. </p>
+<p>Danach muss nur noch folgender Befehl einmal ausgeführt werden. </p>
 <div class="highlight"><pre><span></span><code>streamlit run app.py
 </code></pre></div>
 <p>Die App wird sich automatisch im Browser unter <code>localhost</code> öffnen. Das kann einen kleinen Moment dauern. Das Ganze sollte dann in etwa so aussehen: </p>

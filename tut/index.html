@@ -326,7 +326,7 @@
 <p>Zunächst wird die Bibliothek <code>spaCy</code> von der theoretischen Seite vorgestellt. Anschließend werden wir die Schritte zur Installation von <code>spaCy</code> und zum Herunterladen der vortrainierten Sprachmodelle durchgehen. </p>
 <h3 id="11-was-ist-spacy"><strong>1.1 Was ist spaCy?</strong></h3>
 <p><code>spaCy</code> ist ein leistungsstarkes Tool zur Verarbeitung natürlicher Sprache. Die NLP-Bibliothek für maschinelles Lernen wird seit 2016 von <em>Explosion AI</em> stetig weiterentwickelt und befindet sich mittlerweile in der dritten Version (<code>v.3.4.1</code>). Das ist auch die Version, mit der wir hier im Tutorial arbeiten werden. <em>Explosion AI</em> ist ein Berliner Team aus Informatikern und Computerlinguisten. </p>
-<p>Die Software-Bibiliothek unterstützt <a href="https://spacy.io/usage/models">70 europäische Sprachen</a> mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist <code>spaCy</code> auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 70 unterstützten insgesamt bietet <code>spaCy</code> bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> </p>
+<p>Die Software-Bibiliothek unterstützt <a href="https://spacy.io/usage/models">70 europäische Sprachen</a> mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist <code>spaCy</code> auch in der Lage, benutzerdefinierte Modelle auf domänenspezifische Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 70 unterstützten Sprachen bietet <code>spaCy</code> bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> </p>
 <details class="info"><summary>Leistungsumfang von spaCy</summary><table>
 <thead>
 <tr>
@@ -394,9 +394,9 @@
 </tbody>
 </table>
 </details>
-<p>Wie wir sehen, stellt Named Entity Recognition nur ein Bruchteil des Leistungsumfangs von <code>spaCy</code> dar. Daher ist ein Blick in die <a href="https://spacy.io/usage">spaCy Dokumentation</a> für weiterführende Informationen sehr empfehlenswert. Ebenfalls zu empfehlen ist das <a href="https://course.spacy.io/de">Tutorial von <code>spaCy</code></a>, welches den vollen Leistumgsumfang berücksichtigt.</p>
+<p>Wie wir sehen, stellt Named Entity Recognition nur ein Bruchteil des Leistungsumfangs von <code>spaCy</code> dar. Daher ist ein Blick in die <a href="https://spacy.io/usage">spaCy Dokumentation</a> für weiterführende Informationen sehr empfehlenswert. Ebenfalls zu empfehlen ist das <a href="https://course.spacy.io/de">Tutorial von <code>spaCy</code></a>, welches den vollen Leistungsumfang berücksichtigt.</p>
 <h3 id="12-installation-spacy"><strong>1.2 Installation spaCy</strong></h3>
-<p>Um <code>spaCy</code> zu installieren, muss nur Folgendes im Terminal eingeben werden<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p>Um <code>spaCy</code> zu installieren, muss lediglich folgender Befehl im Terminal eingeben werden<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <div class="highlight"><pre><span></span><code>pip install spacy
 </code></pre></div>
 <p>Wenn <code>spaCy</code> vorher noch nie verwendet wurde, müssen die Modelle/Pipelines noch heruntergeladen werden, damit wir mit diesen arbeiten können. Da wir NER mit deutschen Texten machen möchten, sind für uns erstmal nur die deutschen Sprachmodelle von <code>spaCy</code> interessant. </p>
@@ -466,7 +466,7 @@
 <hr/>
 <h2 id="_2"></h2>
 <h2 id="2-erste-schritte-mit-spacy"><strong>2. Erste Schritte mit spaCy</strong></h2>
-<p>Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung beginnen, lernen wir zunächts ein paar grundlegende Objekte und Funktionen von <code>spaCy</code> kennen. Bis auf den ersten Codeteil sind die anderen NLP-Funktionen für unsere NER-Aufgabe nicht wichtig, sollen aber dennoch kurz vorgestellt werden, da sie wichtige Grundlagen für Textanalysen sind.</p>
+<p>Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung beginnen, lernen wir zunächst ein paar grundlegende Objekte und Funktionen von <code>spaCy</code> kennen. Bis auf den ersten Codeteil sind die anderen NLP-Funktionen für unsere NER-Aufgabe nicht wichtig, sollen aber dennoch kurz vorgestellt werden, da sie wichtige Grundlagen für Textanalysen sind.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Code</label><label for="__tabbed_2_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -620,7 +620,7 @@
 <details class="code"><summary>Verben extrahieren</summary><div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Code</label><label for="__tabbed_6_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1">#Verben sind im POS-TAg als "VERB" oder "AUX" definiert, daher iterieren wir für über alle POS-TAGS, die übereinstimmen.</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1">#Verben sind im POS-TAg als "VERB" oder "AUX" definiert, daher iterieren wir über alle POS-TAGS, die übereinstimmen.</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">verbs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"VERB"</span><span class="p">,</span> <span class="s2">"AUX"</span><span class="p">]</span>
 <a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>    <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="ow">in</span> <span class="n">verbs</span><span class="p">:</span>
@@ -673,7 +673,7 @@
 </div>
 </details>
 <h3 id="21-entitaten-erkennen"><strong>2.1 Entitäten erkennen</strong></h3>
-<p>Der Code um Named Entities in einem Dokument zu erkennen ist ähnlich simpel wie der Code der anderen Funktionen. Wir iterieren erneut über unser <code>doc-Objekt</code> mit der Funktion <code>.ents</code>. </p>
+<p>Der Code, um Named Entities in einem Dokument zu erkennen ist ähnlich simpel wie der Code der anderen Funktionen. Wir iterieren erneut über unser <code>doc-Objekt</code> mit der Funktion <code>.ents</code>. </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">Code</label><label for="__tabbed_8_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -692,7 +692,7 @@
 </div>
 </div>
 <p>Wie wir sehen, hat das kleine Sprachmodell hier sehr gute Arbeit geleistet. Alle vorkommenden Named Entities wurden richtig erkannt. Sogar die zwei Wörter <code>Universität</code> und  <code>Trier</code> wurden als <code>ORGANISATION</code> verstanden und nicht nur als <code>ORT</code>. Dieses Phänomen wird auch als <strong>Nested Entities</strong> bezeichnet, weil in einer Entität gleich mehrere stecken können.</p>
-<p>Um beispielsweise nur die benannten Entitäten zu extrahieren, die beispielsweise als PERSON identifiziert wurden, können wir eine einfache if-Anweisung in den Mix einfügen.</p>
+<p>Um beispielsweise nur die benannten Entitäten zu extrahieren, die als PERSON identifiziert wurden, können wir eine einfache if-Bedingung in den Mix einfügen.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">Code</label><label for="__tabbed_9_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -727,7 +727,7 @@
 </div>
 </div>
 <h3 id="22-ner-visualisieren"><strong>2.2 NER visualisieren</strong></h3>
-<p><code>spaCy</code> hat eine eingebaute Funktion zur Visualisierung der Entitäten namens <code>displacy</code>. Der schnellste Weg, ein <code>doc-Objekt</code> zu visualisieren ist <code>displacy.serve</code>. Dadurch wird ein einfacher Webserver gestartet und das Ergebnis kann im Browser betrachtet werden. Da wir innerhalb eines Jupyter Notebooks arbeiten, verwenden wir die Funktion <code>displacy.render</code>. Zunächst müssen wir dazu noch <code>displacy</code> importieren.</p>
+<p><code>spaCy</code> hat eine eingebaute Funktion zur Visualisierung der Entitäten namens <code>displacy</code>. Der schnellste Weg, ein <code>doc-Objekt</code> zu visualisieren ist <code>displacy.serve</code>. Dadurch wird ein einfacher Webserver gestartet und das Ergebnis kann im Browser betrachtet werden. Da wir innerhalb eines Jupyter Notebooks arbeiten, verwenden wir die Funktion <code>displacy.render</code>. Dazu müssen wir zunächst noch <code>displacy</code> importieren.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">Code</label><label for="__tabbed_11_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -770,7 +770,7 @@ mit ihrem Bruder
 </div>
 </div>
 </div>
-<p>Hier können wir jetzt noch eigene Anpassungen wie die Auswahl der Entitäten, als auch die Farbe ausführen. Die individuellen Farben geben wir für alle vier Entitätstypen an, allerdings wollen wir uns hier nur die Personen (<code>PER</code>) und Orte (<code>LOC</code>) ausgeben lassen.    </p>
+<p>Hier können wir jetzt noch eigene Anpassungen wie die Auswahl der Entitäten oder auch die Farbe ausführen. Die individuellen Farben geben wir für alle vier Entitätstypen an, allerdings wollen wir uns hier nur die Personen (<code>PER</code>) und Orte (<code>LOC</code>) ausgeben lassen.    </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">Code</label><label for="__tabbed_12_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -830,7 +830,7 @@ mit ihrem Bruder
 <hr/>
 <h2 id="_3"></h2>
 <h2 id="3-eigenes-modell-trainieren-mit-spacy"><strong>3. Eigenes Modell trainieren mit spaCy</strong></h2>
-<p>Je nach Anwendungsfall macht es wenig Sinn nur mit dem Standardmodell zu arbeiten. Weshalb es besser ist, ein neues Modell zu trainieren bzw. auf ein bestehendes aufzubauen. Besonders bei historischen Texten entstehen Probleme und Schwierigkeiten aufgrund ihrer Heterogenität. </p>
+<p>Je nach Anwendungsfall ergibt es wenig Sinn nur mit dem Standardmodell zu arbeiten, weshalb es besser ist, ein neues Modell zu trainieren bzw. auf ein bestehendes aufzubauen. Besonders bei historischen Texten entstehen Probleme und Schwierigkeiten aufgrund ihrer Heterogenität. </p>
 <div class="admonition ex">
 <p class="admonition-title">NER mit fnhd. Text</p>
 <p>Folgendes Beispiel zeigt, wie das kleine <code>spaCy</code> Sprachmodell mit einem Satz aus dem frühneuhochdeutschen abschneidet. Der Satz ist aus unserem Traningstext <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}"><strong>München 1611</strong></a> von Philipp Hainhofer.</p>
@@ -893,7 +893,7 @@ mit ihrem Bruder
 </tbody>
 </table>
 </details>
-<details class="question"><summary>Wie möchte ich diese Entitäten kennzeichen?</summary><p>Hier geht es darum, wie die Entitäten annotiert werden. Dabei sollte sich auf eine einheitliche Annotationskonvention beschränkt werden. Das Ergebnis sollte am ein Ende ein Goldstandard sein, anhand dessen später das NER-Modell bewertet wird, indem die per Hand angefertigen Annotationen mit der Ausgabe des NER-Systems verglichen werden. </p>
+<details class="question"><summary>Wie möchte ich diese Entitäten kennzeichen?</summary><p>Hier geht es darum, wie die Entitäten annotiert werden. Dabei sollte sich auf eine einheitliche Annotationskonvention beschränkt werden. Das Ergebnis sollte am Ende ein Goldstandard sein, anhand dessen später das NER-Modell bewertet wird, indem die per Hand angefertigen Annotationen mit der Ausgabe des NER-Systems verglichen werden. </p>
 </details>
 <p>Im Laufe dieses Kapitels werden wir lernen, wie das Training eines eigenen Modells mit <code>spaCy</code> umgesetzt wird. Unser Workflow für das Training eines eigenen NER-Modells sieht wie folgt aus: </p>
 <figure>
@@ -903,7 +903,7 @@ mit ihrem Bruder
 </figure>
 <h3 id="31-preprocessing"><strong>3.1 Preprocessing</strong></h3>
 <p>Bevor wir mit dem Trainings- und dem anschließenden Evaluierungsprozess starten, müssen wir zunächst einen Goldstandard erstellen und diesen dann in Trainings-, Validierungs- &amp; Testdaten aufteilen. Dieser Schritt gehört zum sogennanten <strong>Preprocessing</strong> des maschinellen Lernens. </p>
-<p>Vor der Annotation des Goldstandards, sollten wir unsere beiden Texte allerdings noch etwas kennenlernen und vorbereiten. Auf die nähere Ausführung soll an dieser Stelle verzichtet werden, allerdings ist alles wichtige zu diesem Schritt im Notebook <code>02_preprocessingText.ipynb</code> festgehalten.</p>
+<p>Vor der Annotation des Goldstandards, sollten wir unsere beiden Texte allerdings noch etwas kennenlernen und vorbereiten. Auf die nähere Ausführung soll an dieser Stelle verzichtet werden, allerdings ist alles Wichtige zu diesem Schritt im Notebook <code>02_preprocessingText.ipynb</code> festgehalten.</p>
 <div class="admonition int">
 <p class="admonition-title">Jupyter Notebooks</p>
 <p>Der Code zu diesem Kapitel befindet sich hier: <code>notebooks/02_preprocessingText.ipynb</code>.</p>
@@ -947,7 +947,7 @@ stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir d
 <a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="s2">            in Steÿrmarck gerichtet worden, vnd auß dem stifft Saltzburg gebürtig gewesen."</span><span class="p">,</span><span class="w"></span>
 <a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="w">        </span><span class="p">{</span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="mi">33</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="s2">"PERSON"</span><span class="p">],[</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="s2">"ORT"</span><span class="p">],[</span><span class="mi">165</span><span class="p">,</span><span class="mi">174</span><span class="p">,</span><span class="s2">"ZEIT"</span><span class="p">],[</span><span class="mi">178</span><span class="p">,</span><span class="mi">182</span><span class="p">,</span><span class="s2">"ORT"</span><span class="p">],[</span><span class="mi">186</span><span class="p">,</span><span class="mi">196</span><span class="p">,</span><span class="s2">"ORT"</span><span class="p">],[</span><span class="mi">234</span><span class="p">,</span><span class="mi">243</span><span class="p">,</span><span class="s2">"ORT"</span><span class="p">]]}]]}</span><span class="w"></span>
 </code></pre></div>
-<p>Der Prozess des Annotieren kann je nach Länge des Textes sehr aufwändig und anstrengend sein. Bei sehr langen Texten bietet es sich an, den Text in einzelene Dateien zu unterteilen, um dann in Etappen die Annotation durchzuführen. Am Ende können die einzelnen <code>JSON</code>-Dateien, dann wieder zu einer Datei zusammengefügt werden, die dann den finalen Goldstandard darstellt. </p>
+<p>Der Prozess des Annotierens kann je nach Länge des Textes sehr aufwändig und anstrengend sein. Bei sehr langen Texten bietet es sich an, den Text in einzelne Dateien zu unterteilen, um dann in Etappen die Annotation durchzuführen. Am Ende können die einzelnen <code>JSON</code>-Dateien dann wieder zu einer Datei zusammengefügt werden, die dann den finalen Goldstandard darstellt. </p>
 <div class="admonition info">
 <p class="admonition-title">Die folgende Tabelle soll einen kurzen Überblick über den Trainingstext  <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611"><strong>München 1611</strong></a> und den Testtext <a href="https://hainhofer.hab.de/reiseberichte/muenchen1603"><strong>München 1603</strong></a> und dessen annotierten Enititäten geben.</p>
 <table>
@@ -1009,7 +1009,7 @@ stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir d
 <p><br/></p>
 <h4 id="312-training-validierung-und-testdaten"><strong>3.1.2 Training-, Validierung- und Testdaten</strong></h4>
 <p>Beim maschinellen Lernen benötigen wir einen Trainingsdatensatz, um ein Modell richtig zu trainieren und einen Testdatensatz, um das Modell zu bewerten.  Der Datensatz <a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>taggedData.json</code></a> umfasst den komplett annotierten Text <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}"><strong>München 1611</strong></a>. Bei <strong>überwachten Lernmethoden</strong> wird dieser Datensatz in der Regel in mindestens drei verschiedene Datensätze unterteilt: <strong>Training-, Validierung- und Testdaten</strong>. In unserem Fall übernehmen die Trainingsdaten (<a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>testData.json</code></a>) bei uns die annotierten Daten aus dem Text <a href="https://hainhofer.hab.de/reiseberichte/muenchen1603"><strong>München 1603</strong></a>.</p>
-<details class="info"><summary>Überwachtes Lernen</summary><p>In unserem Fall arbeiten wir mit der  <strong>überwachten Lernmethode</strong>, bei der Beispieldaten in Form eines annotierten Goldtstandards notwendig sind, damit der Algoritmus lernen kann.  Bei <strong>unüberwachten Lernmethode</strong> hingegen bräuchten wir keine Beispiele, da hier direkt mit den Eingabedaten trainiert wird und der Algorithmus hier von selbst Muster und Zusammenhänge lernen würde. </p>
+<details class="info"><summary>Überwachtes Lernen</summary><p>In unserem Fall arbeiten wir mit der  <strong>überwachten Lernmethode</strong>, bei der Beispieldaten in Form eines annotierten Goldstandards notwendig sind, damit der Algorithmus lernen kann.  Bei der <strong>unüberwachten Lernmethode</strong> hingegen bräuchten wir keine Beispiele, da hier direkt mit den Eingabedaten trainiert wird und der Algorithmus hier von selbst Muster und Zusammenhänge lernen würde. </p>
 </details>
 <p>Die Aufteilung unsrer Daten sieht wie folgt aus. Den Datensatz <a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>taggedData.json</code></a> werden wir noch in <strong>Trainingsdaten</strong> und <strong>Validierungsdaten</strong> einteilen müssen.</p>
 <figure>
@@ -1044,7 +1044,7 @@ stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir d
 </tbody>
 </table>
 </details>
-<p>Um jetzt unseren großen Datensatz <a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>taggedData.json</code></a> in zwei Datensets aufzuteilen, lesen wir diesen zunächts ein und speichern nur die Einträge von  <code>annotations</code> in der Variablen <code>TAGGED_DATA</code>, damit wir die Einträge zählen können. Danach ermitteln wir die Grenze (80:20), damit wir den urspünglichen Datensatz in kleinere Datensätze zu je 80% und 20%.</p>
+<p>Um jetzt unseren großen Datensatz <a href="https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json"><code>taggedData.json</code></a> in zwei Datensets aufzuteilen, lesen wir diesen zunächst ein und speichern nur die Einträge von  <code>annotations</code> in der Variablen <code>TAGGED_DATA</code>, damit wir die Einträge zählen können. Danach ermitteln wir die Grenze (80:20), damit wir den urspünglichen Datensatz in kleinere Datensätze zu je 80% und 20% aufteilen können.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio"/><input id="__tabbed_16_2" name="__tabbed_16" type="radio"/><div class="tabbed-labels"><label for="__tabbed_16_1">Code</label><label for="__tabbed_16_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1063,7 +1063,7 @@ stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir d
 </div>
 </div>
 </div>
-<p>Bevor wir den Datensatz an der ermittelten Grenzen in die zwei Datensets aufteilen, mischen wir die Einträge noch einmal durch, damit die Verteilung zufällig ist. Hier lassen wir uns dann jeweils die Länge ausgeben, um das Ergebnis zu überprüfen. Zusätzlich lassen wir uns auch noch die Größe des Testdatensatz ausgeben, um zu überprüfen, ob die 70:20:10 Verteilung ungefähr hinhaut.</p>
+<p>Bevor wir den Datensatz an der ermittelten Grenzen in die zwei Datensets aufteilen, mischen wir die Einträge noch einmal durch, damit die Verteilung zufällig ist. Hier lassen wir uns dann jeweils die Länge ausgeben, um das Ergebnis zu überprüfen. Zusätzlich lassen wir uns auch noch die Größe des Testdatensatz ausgeben, um zu überprüfen, ob die 70:20:10 Verteilung gewährleistet ist.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio"/><input id="__tabbed_17_2" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="__tabbed_17_1">Code</label><label for="__tabbed_17_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1103,11 +1103,11 @@ stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir d
 </div>
 </div>
 </div>
-<p>Da wir weiter oben nur die Einträge aus annotations der JSON-Datei übernommen haben, müssen wir jetzt noch einmal manuell bei <code>trainData.json</code> sowie <code>validationData.json</code> die <code>classes</code> hinzufügen, damit unsere Kategorien für die Entitäten nicht verloren gehen. Dazu setzen wir an den Anfang des Dokuments folgendes und ans Ende eine <code>}</code> um das Dokument zu schließen.</p>
+<p>Da wir weiter oben nur die Einträge aus der Klasse <code>annotations</code> der JSON-Datei übernommen haben, müssen wir jetzt noch einmal manuell bei <code>trainData.json</code> sowie <code>validationData.json</code> die <code>classes</code> hinzufügen, damit unsere Kategorien für die Entitäten nicht verloren gehen. Dazu setzen wir an den Anfang des Dokuments folgendes und ans Ende eine <code>}</code> um das Dokument zu schließen.</p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="p">{</span><span class="nt">"classes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PERSON"</span><span class="p">,</span><span class="s2">"ORT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ORGANISATION"</span><span class="p">,</span><span class="s2">"OBJEKT"</span><span class="p">,</span><span class="s2">"ZEIT"</span><span class="p">],</span><span class="w"></span>
 <a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="w">    </span><span class="nt">"annotations"</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-Jetzt müssen die Datensets im <code>JSON</code>-Format nurnoch ins <code>spaCy</code>-Format konvertiert werden. Dafür importieren wir zunächst die ensprechenden Bibliotheken und das mittlere Sprachmodell von <code>spaCy</code>.</p>
+Jetzt müssen die Datensets im <code>JSON</code>-Format nur noch ins <code>spaCy</code>-Format konvertiert werden. Dafür importieren wir zunächst die ensprechenden Bibliotheken und das mittlere Sprachmodell von <code>spaCy</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="19:1"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio"/><div class="tabbed-labels"><label for="__tabbed_19_1">Code</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1209,7 +1209,7 @@ Der Code ist von <a href="https://web.archive.org/web/20230119162746/https://tow
 </div>
 <p><br/></p>
 <h3 id="33-training"><strong>3.3 Training</strong></h3>
-<p>Da wir jetzt alle unsere Daten haben, ist es an der Zeit unser  Modell zu trainieren. In <code>spaCy</code> können wir die Architektur unserer Netzes sowie die Hyperparamter für unser Modell weitgehend steuern. Dies geschieht in der <code>config.cfg</code> Datei. Diese Konfigurationsdatei wird <code>spaCy</code> während dem Trainingsprozess übergeben, damit das System weiß, was und wie es trainieren soll. Um die <code>config.cfg</code> Datei zu erstellen, können wir die <a href="https://spacy.io/usage/training#quickstart">praktische GUI von <code>spaCy</code></a> selbst benutzen.</p>
+<p>Da wir jetzt alle unsere Daten haben, ist es an der Zeit unser  Modell zu trainieren. In <code>spaCy</code> können wir die Architektur unseres Netzes sowie die Hyperparamter für unser Modell weitgehend steuern. Dies geschieht in der <code>config.cfg</code> Datei. Diese Konfigurationsdatei wird <code>spaCy</code> während dem Trainingsprozess übergeben, damit das System weiß, was und wie es trainieren soll. Um die <code>config.cfg</code> Datei zu erstellen, können wir die <a href="https://spacy.io/usage/training#quickstart">praktische GUI von <code>spaCy</code></a> selbst benutzen.</p>
 <p>Für unsere Zwecke wählen wir <code>German</code>, <code>ner</code> und <code>CPU</code>(GPU ist etwas komplexer). Jenachdem ob wir ohne Wortvektoren oder mit ihnen trainieren wollen, wählen wir <code>efficiency</code> oder <code>accuracy</code>. In unserem Beispiel haben wir mit <code>accuracy</code>, also mit Wortvektoren trainiert. Hier werden dann die Vektoren des großen deutschen Modell <code>de_core_news_lg</code> übernommen (das können wir natürlich auch mit dem kleinen bzw. mittleren Modell machen). Diese Datei speichern wir zunächst als <code>base_config.cfg</code> ab. Die <code>base_config.cfg</code>-Datei befindet sich ebenfalls auf Github im Ordner <code>notebooks</code> oder kann hier einfach kopiert werden. </p>
 <details class="code"><summary><code>base_config.cfg</code></summary><div class="highlight"><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="k">[paths]</span><span class="w"></span>
 <a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="na">train</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">null</span><span class="w"></span>
@@ -1341,7 +1341,7 @@ Jetzt haben wir alles, um unser erstes Modell zu trainieren. Wir erstellen einen
 <a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">output</span><span class="o">/</span><span class="n">model</span><span class="o">-</span><span class="n">best</span><span class="p">)</span>
 </code></pre></div>
 Im Github Repositry gibt es keinen <code>output</code>-Ordner mit einem Modell, da das trainierte Modell zu groß ist. Allerdings gibt es von <code>spaCy</code> die Möglichkeit ein Modell in ein Python Package zu packen, dass dann wie jedes andere Package mit <code>pip install</code>installiert werden kann. </p>
-<details class="note"><summary>Modell als Python Package verpacken</summary><p>Dafür müssen wir uns einmal in das innere unseres Modells klicken und in der <code>meta.json</code>-Datei noch kleine Änderungen machen.  Bei <code>name</code> vergeben wir dem Modell einen Namen, mit dem wir es laden möchten. Zusätzlich geben wir noch eine <code>version</code> an: Da es unser erstes Modell ist setzen wir die Version auf <code>0.0.1</code>. Natürlich können wir hier auch noch mehr Informationen wie z.B. <code>description</code>, <code>author</code> oder <code>email</code>angeben. </p>
+<details class="note"><summary>Modell als Python Package verpacken</summary><p>Dafür müssen wir uns einmal in das Innere unseres Modells klicken und in der <code>meta.json</code>-Datei noch kleine Änderungen vornehmen.  Bei <code>name</code> vergeben wir dem Modell einen Namen, mit dem wir es laden möchten. Zusätzlich geben wir noch eine <code>version</code> an: Da es unser erstes Modell ist setzen wir die Version auf <code>0.0.1</code>. Natürlich können wir hier auch noch mehr Informationen wie z.B. <code>description</code>, <code>author</code> oder <code>email</code>angeben. </p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="p">{</span><span class="w"></span>
 <a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="nt">"lang"</span><span class="p">:</span><span class="s2">"de"</span><span class="p">,</span><span class="w"></span>
 <a href="#__codelineno-42-3" id="__codelineno-42-3" name="__codelineno-42-3"></a><span class="nt">"name"</span><span class="p">:</span><span class="s2">"de_fnhd_nerdh"</span><span class="p">,</span><span class="w"></span>
@@ -1355,7 +1355,7 @@ Im Github Repositry gibt es keinen <code>output</code>-Ordner mit einem Modell, 
 <p>Dann erstellen wir einen Ordner <code>package</code>, hier wird unser verpacktes Modell gespeichert, und geben folgenden Terminalbefehl ein: </p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a>python -m spacy package ./output/model-best ./package --build wheel
 </code></pre></div>
-Lokal können wir unser Modell jetzt installieren einfach wie folgt installieren. Wir müssen uns hierfür allerdings im Verzeichnis <code>dist</code> befinden oder dorthin navigieren: </p>
+Lokal können wir unser Modell jetzt installieren wie folgt installieren. Wir müssen uns hierfür allerdings im Verzeichnis <code>dist</code> befinden oder dorthin navigieren: </p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a>pip install package/de_fnhd_nerdh-0.0.1/dist/de_fnhd_nerdh-0.0.1-py3-none-any.whl
 </code></pre></div>
 Jetzt können wir unser selbst erstelltes Modell wie die <code>spaCy</code> Modelle benutzen. </p>
@@ -1366,7 +1366,7 @@ Jetzt können wir unser selbst erstelltes Modell wie die <code>spaCy</code> Mode
 <details class="note"><summary>Modellpackage veröffentlichen</summary><p>Mithilfe von <a href="https://github.com/explosion/spacy-huggingface-hub"><code>spacy-huggingface-hub</code></a> können wir unser verpacktes Modell veröffentlichen und anderen Usern anbieten. Dazu müssen wir uns vorher einen Account auf <a href="https://huggingface.co/">huggingface.co</a> erstellen und das Package installieren. </p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a>pip install spacy-huggingface-hub
 </code></pre></div>
-Jetzt können wir uns über den Terminal in <a href="https://huggingface.co/">huggingface.co</a> einloggen, damit unser Package unserem Profil zugeordnet wird. Hier werden wir nach einem Token gefragt, den wir <a href="https://huggingface.co/settings/tokens">hier</a> abrufen können. </p>
+Jetzt können wir uns über das Terminal in <a href="https://huggingface.co/">huggingface.co</a> einloggen, damit unser Package unserem Profil zugeordnet wird. Hier werden wir nach einem Token gefragt, den wir <a href="https://huggingface.co/settings/tokens">hier</a> abrufen können. </p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a>huggingface-cli login
 </code></pre></div>
 Mit folgendem Befehl pushen wir unser Projekt auf <a href="https://huggingface.co/">huggingface.co</a>. </p>
@@ -1379,7 +1379,7 @@ Der Befehl wird dann zwei Dinge ausgeben: </p>
 </ul>
 </details>
 </details>
-<p>Das Modell, welches hier im Tutorial erstellt wurde kann mit diesem Befehl als Python Package installiert werden.</p>
+<p>Das Modell, welches hier im Tutorial erstellt wurde, kann mit diesem Befehl als Python Package installiert werden.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-49-1" id="__codelineno-49-1" name="__codelineno-49-1"></a>pip install https://huggingface.co/easyh/de_fnhd_nerdh/resolve/main/de_fnhd_nerdh-any-py3-none-any.whl
 </code></pre></div>
 <p><br/></p>
@@ -1403,7 +1403,7 @@ Der Befehl wird dann zwei Dinge ausgeben: </p>
 <p>Der nächste logische Schritt ist jetzt natürlich die Evaluation unseres Modells. Hierfür benötigen wir unsere Testdaten. Das Modell wird dann anhand von <strong>F-Score</strong>, <strong>Precision</strong> und <strong>Recall</strong> bewertet. <code>spaCy</code> hat hierfür einen einfachen Terminalbefehl. </p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a>python -m spacy evaluate de_fnhd_nerdh ./data/datensets/testData.spacy
 </code></pre></div>
-<p>Das Output sollte dann in etwa so aussehen: 
+<p>Der Output sollte dann in etwa so aussehen: 
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a>ℹ Using CPU
 <a href="#__codelineno-51-2" id="__codelineno-51-2" name="__codelineno-51-2"></a>
 <a href="#__codelineno-51-3" id="__codelineno-51-3" name="__codelineno-51-3"></a>================================== Results ==================================
@@ -1424,7 +1424,7 @@ Der Befehl wird dann zwei Dinge ausgeben: </p>
 <a href="#__codelineno-51-18" id="__codelineno-51-18" name="__codelineno-51-18"></a>OBJEKT         94.44   81.79   87.66
 <a href="#__codelineno-51-19" id="__codelineno-51-19" name="__codelineno-51-19"></a>ORGANISATION   95.59   82.28   88.44
 </code></pre></div>
-Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nicht der Fall sein, dann würden wir einfach unseren Trainingsprozess mit kleinen Veränderungen nochmal erneut starten. Allerdings bedeutet der Wert nur, dass das selbst erstellte Modell <code>de_fnhd_nerdh</code> besonders gut mit Texten von <strong>Philipp Hainhofer</strong> funktioniert (F-Score 0.92), da es mit diesen trainiert wurden. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. </p>
+Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nicht der Fall sein, dann würden wir einfach unseren Trainingsprozess mit kleinen Veränderungen erneut starten. Allerdings bedeutet der Wert nur, dass das selbst erstellte Modell <code>de_fnhd_nerdh</code> besonders gut mit Texten von <strong>Philipp Hainhofer</strong> funktioniert (F-Score 0.92), da es mit diesen trainiert wurde. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. </p>
 <p><br/></p>
 <div class="admonition int">
 <p class="admonition-title">Interaktive Notebooks</p>
