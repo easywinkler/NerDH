@@ -53,22 +53,22 @@ Der praktische Teil wird dabei neben einer Einführung in `spaCy` den Trainingsp
 
 Der Einsatz von NER bedeutet eine enorme Zeitersparnis gegenüber der manuellen Annotation von Named Entities in Texten. NER ist nützlich, um Schlüsselinformationen aus Texten zu extrahieren. 
 
-Zum Beispiel könnte NER genutzt werden, um die am häufigsten vorkommenden Figuren in einem Roman zu identifzieren oder ein Netz von Figuren zu erstellen. NER könnte aber auch verwendet werden, um die in Texten erwähnten geografischen Orte zu identifizieren, was der erste Schritt für die Kartierung von Orten wäre. Damit macht NER vor allem bei der Analyse von großen Textmengen Sinn, um Daten für weitere Analyseschritte zu erhalten. 
+Zum Beispiel könnte NER genutzt werden, um die am häufigsten vorkommenden Figuren in einem Roman zu identifizieren oder ein Netz von Figuren zu erstellen. NER könnte aber auch verwendet werden, um die in Texten erwähnten geografischen Orte zu identifizieren, was der erste Schritt für die Kartierung von Orten wäre. Damit ergibt NER vor allem bei der Analyse von großen Textmengen Sinn, um Daten für weitere Analyseschritte zu erhalten. 
 
 ## **3. NER in den Digital Humanities**
 
 Named Entity Recognition funktioniert besonders gut mit Zeitungsdaten - einfach aus dem Grund, weil die Systeme vor allem mit solchen Daten trainiert wurden. Allerdings wird NER auch in vielen anderen spezifischen Bereichen angewandt. Für die Digital Humanities wurden NER-Systeme besonders durch die massive Anzahl an digitalisierten historischen Dokumenten interessant.
 
-Allerdings haben sich die Entwickler von NER-Modellen  beim Training haupsächlich auf moderne und englischsprachige Texte konzentriert. Besonders bei historischen Texten schneiden NER-Modelle nicht gut ab. Für die Digital Humanities ist es daher oft sehr herausfordernd mit aktuellen NER-Tools zu arbeiten, da man in den meisten Fällen nicht mit standardisierten und modernen Sprachen arbeitet. Meist - wie auch in diesem Tutorial - arbeitet man mit seltenen oder alten Sprachen. Bei einem solchen Textkorpus führen standardisierte NER-Modelle zu hohen Fehlerquoten. 
+Allerdings haben sich die Entwickler von NER-Modellen  beim Training hauptsächlich auf moderne und englischsprachige Texte konzentriert. Besonders bei historischen Texten schneiden NER-Modelle nicht gut ab. Für die Digital Humanities ist es daher oft sehr herausfordernd mit aktuellen NER-Tools zu arbeiten, da man in den meisten Fällen nicht mit standardisierten und modernen Sprachen arbeitet. Meist - wie auch in diesem Tutorial - arbeitet man mit seltenen oder alten Sprachen. Bei einem solchen Textkorpus führen standardisierte NER-Modelle zu hohen Fehlerquoten. 
 
 Herausfordernd ist dabei vor allem die Heterogenität der historischen Dokumente. Denn innerhalb eines Korpus
 oder sogar eines Dokumentes sind verschiedene Sprachen (z.B. Deutsch, Latein, Französisch), eine 
 uneinheitliche Schreibweise und Fehler in der Transkription durch Schreiber bzw. Texterkennungssoftware wie 
-OCR vorfinden. Das folgende Bild stammt aus dem Annotationsprozess des **Goldstandards** für das Training mit dem frühhochneudeutschen Text und soll einen kleinen Einblick auf die uneinheitliche Schreibweise zeigen:  
+OCR vorfinden. Das folgende Bild stammt aus dem Annotationsprozess des **Goldstandards** für das Training mit dem frühneuhochdeutschen Text und soll einen kleinen Einblick auf die uneinheitliche Schreibweise zeigen:  
 
 ??? Goldstandard question  
 
-    Ein Goldstandard ist die finale Version der annotierten Daten, die für den Trainingsprozess verwendet werden. Je besser und genauer die Auszeichnungen für den Goldstandard gemacht werden, desto besser ist das Trainingsergebnis.
+    Ein Goldstandard ist die finale Version der annotierten Daten, die für den Trainingsprozess verwendet werden. Je besser und genauer die Auszeichnungen für den Goldstandard vorgenommen werden, desto besser ist das Trainingsergebnis.
 
 <figure markdown>
   ![Annotation Goldtstandard](img/history_example.png){ width="800" }
@@ -79,7 +79,7 @@ OCR vorfinden. Das folgende Bild stammt aus dem Annotationsprozess des **Goldsta
 
 Wir sehen, dass hier besonders die Ortsnamen eine untypische Schreibweise im Vergleich zu deren heutiger aufweisen. Ebenso erkennen wir den Mix der verschiedenen Sprachen, da hier `Anno` verwendet wird, was lateinisch ist und `im Jahr` bedeutet. All diese Faktoren können die Genauigkeit von NER stark beeinflussen. 
 
-Das Problem ist in den Digital Humanities bekannt. Vereinzelt wurden daher bereits auch schon experimentell Modelle und Untersuchungen mit deutschen historischen Texte trainiert und gemacht.[^2][^3][^4]
+Das Problem ist in den Digital Humanities bekannt. Vereinzelt wurden daher auch schon experimentell Modelle und Untersuchungen mit deutschen historischen Texte trainiert und durchgeführt.[^2][^3][^4]
 
 Genau das werden wir auch wir im [praktischen Teil](tut.md) des Tutorials angehen. 
 
@@ -91,7 +91,7 @@ Der Named Entity Recognition Prozess lässt sich in zwei Schritte aufteilen:[^5]
 1. **Extraktion von Entitäten:** In diesem Schritt scannt das NER-Modell die Daten und findet die Wörter, die als Entität behandelt werden können.  Ein NER-Modell ist in der Lage, die benannte Entität im Modell auf der Grundlage der ihm bekannten benannten Entitäten zu finden. 
 2. **Klassifizierung von Entitäten:** Hier werden die Entitäten in vordefinierte Klassen kategorisiert, die benannte Entität `Trier` würde beispielsweise als `ORT` kategorisiert werden. 
 
-Die meisten NER-Tools basieren auf Machine-Learning Algorithmen. Hier wird vorher eine Reihe von Merkmalen (Features) definiert, um eine möglichst präzise Erkennung möglich zu machen. Zum Beispiel können Wortlisten berücksichtigt werden, die alle Namen von Personen, Orten und Organisationen verzeichnet, die vorkommen könnten. Zusätzlich können auch Wörter mit einbezogen werden, die sich entweder vor oder nach der benannten Entität befinden. Weitere Merkmale könnten auch häufig vorher genannte Wörter sein, sowie zum Beispiel bei Orten das Wort `in`. Ein anderes erlernbares Muster könnte das Darstellungsformat bei Daten sein (z.B. 01.01.2023 oder 1. Januar 2023). Eine wichtige Rolle spielen auch Merkmale wie Groß- und Kleinschreibung sowie Positionen im Satz. Sämtliche Tools die es gibt, unterscheiden sich u.a. genau in diesem Punkt, der Anzahl der verschiedenen Merkmale.[^6] 
+Die meisten NER-Tools basieren auf Machine-Learning Algorithmen. Hier wird vorher eine Reihe von Merkmalen (Features) definiert, um eine möglichst präzise Erkennung möglich zu machen. Zum Beispiel können Wortlisten berücksichtigt werden, die alle Namen von Personen, Orten und Organisationen verzeichnet, die vorkommen könnten. Zusätzlich können auch Wörter mit einbezogen werden, die sich entweder vor oder nach der benannten Entität befinden. Weitere Merkmale könnten auch häufig vorher genannte Wörter sein, sowie zum Beispiel bei Orten das Wort `in`. Ein anderes erlernbares Muster könnte das Darstellungsformat bei Daten sein (z.B. 01.01.2023 oder 1. Januar 2023). Eine wichtige Rolle spielen auch Merkmale wie Groß- und Kleinschreibung sowie Positionen im Satz. Sämtliche Tools, die es gibt, unterscheiden sich u.a. genau in diesem Punkt, der Anzahl der verschiedenen Merkmale.[^6] 
 
 Mit Hilfe dieser im Tool vordefinierten Merkmale findet dann der überwachte Machine Learning Prozess statt. Der Lernprozess des NER-Tools besteht darin, dass diese Merkmale mit einem manuell annotierten Text (ein Teil des Goldstandards) abgeglichen werden, dem sogenannten Trainingskorpus. Das Ergebnis dieses Abgleichs ist dann das NER-Modell. Da Entitäten meist unterschiedliche Bedeutungen tragen können, führt nur die Kombination verschiedener Merkmale zu guten Ergebnissen. Das Tool errechnet anhand der Feature-Kombinationen und der Trainingsdaten, welche Zuordnung in welchem Kontext wahrscheinlicher ist.  
 
@@ -103,7 +103,7 @@ Mit Hilfe dieser im Tool vordefinierten Merkmale findet dann der überwachte Mac
 
     ??? question "Wikidata-Eintrag"
 
-        Wikidata ist eine globale Wissensdatenbank, wo es für jeden Eintrag einen persistenten Identifikator (QID) gibt. 
+        Wikidata ist eine globale Wissensdatenbank, in der es für jeden Eintrag einen persistenten Identifikator (QID) gibt. 
         Für die Stadt Trier wäre der persistente Identifikator [`Q3138`](https://www.wikidata.org/wiki/Q3138). Hierdurch kann 
         eine Entität eindeutig identifiziert und verlinkt werden.
    

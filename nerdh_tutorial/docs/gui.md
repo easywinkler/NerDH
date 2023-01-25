@@ -9,7 +9,7 @@ Der Abschluss des Tutorials stellt der NerDH-Visualisierer dar. Er kommt mit ein
 Neben dem selbst trainierten `de_fnhd_nerdh` Modell, wurden dem Visualisierer auch die drei deutschen `spaCy` Sprachpakete implementiert. Somit kann ein Text mit vier verschiedenen NER-Modellen getestet und auf seine unterschiedlichen Ergebnisse hin verglichen werden. Zusätzlich gibt es über jedes Modell Informationen und eine Übersicht über die Named Entities Typen. 
 
 !!! info "Das Modell `de_fnhd_nerdh`"
-    Es sollte klar sein, dass das selbst erstellte Modell `de_fnhd_nerdh` besonders gut mit Texten von **Philipp Hainhofer** funktioniert (F-Score 0.92), da es mit diesen trainiert wurden. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. 
+    Es sollte klar sein, dass das selbst erstellte Modell `de_fnhd_nerdh` besonders gut mit Texten von **Philipp Hainhofer** funktioniert (F-Score 0.92), da es mit diesen trainiert wurde. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. 
 
 Der zu analysierende Text kann einfach ins Textfeld reinkopiert werden oder aber - sofern im .txt-Format vorliegend - hochgeladen werden. Der NER-Prozess startet sobald der Text erfolgreich eingelesen wurde. Mittels der `displacy`-Funktion von `spaCy` werden die Named Entities visuell übersichtlich dargestellt. Abgerundet wird der NerDH Visualisierer durch die Download-Funktion der NER-Ergebnisse. 
 
@@ -33,7 +33,7 @@ Der NerDH Visualisierer kann zum einen im **Browser** direkt besucht werden oder
     [Hier geht es zum NerDH Visualisierer auf Hugging Face](https://huggingface.co/spaces/easyh/NerDH_Visualisierer){ .md-button }
 
 
-    Falls der Visualisierer längere Zeit nicht benutzt wurde, muss sich dieser erst wieder zusammenbauen. Das kann einen Moment dauern, da hier die Sprackpakete erneut heruntegeladen werden müssen. An `Running`, `Building` und `Stopped` ist der aktuelle Status der App zu erkennen. Nachdem `Restart Space` gedrückt wurde, sollte die Seite nach einer kurzen Zeit nochmal neu aktualisiert werden.
+    Falls der Visualisierer längere Zeit nicht benutzt wurde, muss sich dieser erst wieder zusammenbauen. Das kann einen Moment dauern, da hier die Sprackpakete erneut heruntergeladen werden müssen. An `Running`, `Building` und `Stopped` ist der aktuelle Status der App zu erkennen. Nachdem `Restart Space` gedrückt wurde, sollte die Seite nach einer kurzen Zeit nochmal neu aktualisiert werden.
 
     <br>
 
@@ -49,7 +49,7 @@ Der NerDH Visualisierer kann zum einen im **Browser** direkt besucht werden oder
         git clone https://github.com/easyh/NerDH.git
 
 
-    Dann müssen - sofern noch nicht im Tutorial gemacht -die entsprechenden Python-Pakete und die Sprachmodelle der `requirements.txt` lokal auf der Maschine installiert werden. 
+    Dann müssen - sofern noch nicht im Tutorial erfolgt -die entsprechenden Python-Pakete und die Sprachmodelle der `requirements.txt` lokal auf der Maschine installiert werden. 
 
     ??? note "Python Pakete und NER-Sprachmodelle installieren"
 
@@ -88,11 +88,11 @@ Der NerDH Visualisierer kann zum einen im **Browser** direkt besucht werden oder
             
                 `de_fnhd_nerdh`: 586MB`, `de_core_news_sm: 13MB`, `de_core_news_md: 42MB`, `de_core_news_lg: 541MB`
 
-    Jetzt muss nurnoch in den entsprechenden Ordner navigiert werden. 
+    Jetzt muss nur noch in den entsprechenden Ordner navigiert werden. 
 
         cd nerdh_visualisierer
 
-    Danach muss nurnoch folgender Befehl einmal ausgeführt werden. 
+    Danach muss nur noch folgender Befehl einmal ausgeführt werden. 
 
         streamlit run app.py
 

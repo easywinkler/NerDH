@@ -53,7 +53,7 @@ Zunächst wird die Bibliothek `spaCy` von der theoretischen Seite vorgestellt. A
 
 `spaCy` ist ein leistungsstarkes Tool zur Verarbeitung natürlicher Sprache. Die NLP-Bibliothek für maschinelles Lernen wird seit 2016 von *Explosion AI* stetig weiterentwickelt und befindet sich mittlerweile in der dritten Version (`v.3.4.1`). Das ist auch die Version, mit der wir hier im Tutorial arbeiten werden. *Explosion AI* ist ein Berliner Team aus Informatikern und Computerlinguisten. 
 
-Die Software-Bibiliothek unterstützt [70 europäische Sprachen](https://spacy.io/usage/models) mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist `spaCy` auch in der Lage, benutzerdefinierte Modelle auf domänenspezifsche Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 70 unterstützten insgesamt bietet `spaCy` bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.[^1] 
+Die Software-Bibiliothek unterstützt [70 europäische Sprachen](https://spacy.io/usage/models) mit statistischen Modellen, die in der Lage sind Texte zu parsen, Wortteile zu identifizieren und Entitäten zu extrahieren. Zudem ist `spaCy` auch in der Lage, benutzerdefinierte Modelle auf domänenspezifische Texte zu verbessern bzw. von Grund auf zu trainieren. Für 24 von 70 unterstützten Sprachen bietet `spaCy` bereits trainierte Pipelines mit unterschiedlichen Package-Größen an. Weitere sind in Aussicht.[^1] 
 
 ??? info "Leistungsumfang von spaCy"
     
@@ -71,13 +71,13 @@ Die Software-Bibiliothek unterstützt [70 europäische Sprachen](https://spacy.i
     |  **Named Entity Recognition** | spaCy kann verschiedene Arten von benannten Entitäten in einem Dokument erkennen, indem es das Modell um eine Vorhersage bittet. Da Modelle statistisch sind und stark von den Beispielen abhängen, mit denen sie trainiert wurden, funktioniert dies nicht immer perfekt und muss je nach Anwendungsfall möglicherweise später angepasst werden. | [Link](https://spacy.io/usage/linguistic-features#named-entities)| 
     |  **Named Entity Linking** | Um die benannten Entitäten in der "realen Welt" zu verankern, bietet spaCy Funktionen für das Entity Linking, bei dem eine textuelle Entität in einen eindeutigen Identifikator aus einer Wissensbasis (KB) aufgelöst wird. Es kann eine eigene KnowledgeBase erstellt und einen neuen EntityLinker mit dieser Wissensbasis trainiert werden. | [Link](https://spacy.io/usage/linguistic-features#entity-linking)| 
 
-Wie wir sehen, stellt Named Entity Recognition nur ein Bruchteil des Leistungsumfangs von `spaCy` dar. Daher ist ein Blick in die [spaCy Dokumentation](https://spacy.io/usage) für weiterführende Informationen sehr empfehlenswert. Ebenfalls zu empfehlen ist das [Tutorial von `spaCy`](https://course.spacy.io/de), welches den vollen Leistumgsumfang berücksichtigt.
+Wie wir sehen, stellt Named Entity Recognition nur ein Bruchteil des Leistungsumfangs von `spaCy` dar. Daher ist ein Blick in die [spaCy Dokumentation](https://spacy.io/usage) für weiterführende Informationen sehr empfehlenswert. Ebenfalls zu empfehlen ist das [Tutorial von `spaCy`](https://course.spacy.io/de), welches den vollen Leistungsumfang berücksichtigt.
 
 
 
 ### **1.2 Installation spaCy**
 
-Um `spaCy` zu installieren, muss nur Folgendes im Terminal eingeben werden[^2].
+Um `spaCy` zu installieren, muss lediglich folgender Befehl im Terminal eingeben werden[^2].
 
     pip install spacy 
 
@@ -128,7 +128,7 @@ Mit folgendem Befehl können wir uns unsere `spaCy`-Version sowie die bereits in
 ##
 ## **2. Erste Schritte mit spaCy**
 
-Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung beginnen, lernen wir zunächts ein paar grundlegende Objekte und Funktionen von `spaCy` kennen. Bis auf den ersten Codeteil sind die anderen NLP-Funktionen für unsere NER-Aufgabe nicht wichtig, sollen aber dennoch kurz vorgestellt werden, da sie wichtige Grundlagen für Textanalysen sind.
+Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung beginnen, lernen wir zunächst ein paar grundlegende Objekte und Funktionen von `spaCy` kennen. Bis auf den ersten Codeteil sind die anderen NLP-Funktionen für unsere NER-Aufgabe nicht wichtig, sollen aber dennoch kurz vorgestellt werden, da sie wichtige Grundlagen für Textanalysen sind.
 
 === "Code"
    
@@ -247,7 +247,7 @@ Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung begi
     === "Code"
     
         ``` py
-        #Verben sind im POS-TAg als "VERB" oder "AUX" definiert, daher iterieren wir für über alle POS-TAGS, die übereinstimmen.
+        #Verben sind im POS-TAg als "VERB" oder "AUX" definiert, daher iterieren wir über alle POS-TAGS, die übereinstimmen.
         verbs = ["VERB", "AUX"]
         for token in doc:
             if token.pos_ in verbs:
@@ -300,7 +300,7 @@ Bevor wir nun mit der Erkennung von Named Entities und deren Visualisierung begi
 
 ### **2.1 Entitäten erkennen** 
 
-Der Code um Named Entities in einem Dokument zu erkennen ist ähnlich simpel wie der Code der anderen Funktionen. Wir iterieren erneut über unser `doc-Objekt` mit der Funktion `.ents `. 
+Der Code, um Named Entities in einem Dokument zu erkennen ist ähnlich simpel wie der Code der anderen Funktionen. Wir iterieren erneut über unser `doc-Objekt` mit der Funktion `.ents `. 
 
 === "Code"
    
@@ -320,7 +320,7 @@ Der Code um Named Entities in einem Dokument zu erkennen ist ähnlich simpel wie
 Wie wir sehen, hat das kleine Sprachmodell hier sehr gute Arbeit geleistet. Alle vorkommenden Named Entities wurden richtig erkannt. Sogar die zwei Wörter `Universität` und  `Trier` wurden als `ORGANISATION` verstanden und nicht nur als `ORT`. Dieses Phänomen wird auch als **Nested Entities** bezeichnet, weil in einer Entität gleich mehrere stecken können.
 
 
-Um beispielsweise nur die benannten Entitäten zu extrahieren, die beispielsweise als PERSON identifiziert wurden, können wir eine einfache if-Anweisung in den Mix einfügen.
+Um beispielsweise nur die benannten Entitäten zu extrahieren, die als PERSON identifiziert wurden, können wir eine einfache if-Bedingung in den Mix einfügen.
 
 === "Code"
    
@@ -358,7 +358,7 @@ Wir können uns zusätzlich noch ausgeben lassen, an welcher Stelle im Text die 
 
 ### **2.2 NER visualisieren**
 
-`spaCy` hat eine eingebaute Funktion zur Visualisierung der Entitäten namens `displacy`. Der schnellste Weg, ein `doc-Objekt` zu visualisieren ist `displacy.serve`. Dadurch wird ein einfacher Webserver gestartet und das Ergebnis kann im Browser betrachtet werden. Da wir innerhalb eines Jupyter Notebooks arbeiten, verwenden wir die Funktion `displacy.render`. Zunächst müssen wir dazu noch `displacy` importieren.
+`spaCy` hat eine eingebaute Funktion zur Visualisierung der Entitäten namens `displacy`. Der schnellste Weg, ein `doc-Objekt` zu visualisieren ist `displacy.serve`. Dadurch wird ein einfacher Webserver gestartet und das Ergebnis kann im Browser betrachtet werden. Da wir innerhalb eines Jupyter Notebooks arbeiten, verwenden wir die Funktion `displacy.render`. Dazu müssen wir zunächst noch `displacy` importieren.
 
 === "Code"
    
@@ -399,7 +399,7 @@ Wir können uns zusätzlich noch ausgeben lassen, an welcher Stelle im Text die 
     </figure>
     </div>
 
-Hier können wir jetzt noch eigene Anpassungen wie die Auswahl der Entitäten, als auch die Farbe ausführen. Die individuellen Farben geben wir für alle vier Entitätstypen an, allerdings wollen wir uns hier nur die Personen (`PER`) und Orte (`LOC`) ausgeben lassen.    
+Hier können wir jetzt noch eigene Anpassungen wie die Auswahl der Entitäten oder auch die Farbe ausführen. Die individuellen Farben geben wir für alle vier Entitätstypen an, allerdings wollen wir uns hier nur die Personen (`PER`) und Orte (`LOC`) ausgeben lassen.    
 
 === "Code"
    
@@ -469,7 +469,7 @@ Hier können wir jetzt noch eigene Anpassungen wie die Auswahl der Entitäten, a
 ##
 ## **3. Eigenes Modell trainieren mit spaCy**
 
-Je nach Anwendungsfall macht es wenig Sinn nur mit dem Standardmodell zu arbeiten. Weshalb es besser ist, ein neues Modell zu trainieren bzw. auf ein bestehendes aufzubauen. Besonders bei historischen Texten entstehen Probleme und Schwierigkeiten aufgrund ihrer Heterogenität. 
+Je nach Anwendungsfall ergibt es wenig Sinn nur mit dem Standardmodell zu arbeiten, weshalb es besser ist, ein neues Modell zu trainieren bzw. auf ein bestehendes aufzubauen. Besonders bei historischen Texten entstehen Probleme und Schwierigkeiten aufgrund ihrer Heterogenität. 
 
 !!! ex "NER mit fnhd. Text"
     Folgendes Beispiel zeigt, wie das kleine `spaCy` Sprachmodell mit einem Satz aus dem frühneuhochdeutschen abschneidet. Der Satz ist aus unserem Traningstext [**München 1611**](https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}) von Philipp Hainhofer.
@@ -518,7 +518,7 @@ Vor dem Training eines eigenen NER-Modells ist es wichtig, folgende drei Fragen 
 
 
 ??? question "Wie möchte ich diese Entitäten kennzeichen?"
-    Hier geht es darum, wie die Entitäten annotiert werden. Dabei sollte sich auf eine einheitliche Annotationskonvention beschränkt werden. Das Ergebnis sollte am ein Ende ein Goldstandard sein, anhand dessen später das NER-Modell bewertet wird, indem die per Hand angefertigen Annotationen mit der Ausgabe des NER-Systems verglichen werden. 
+    Hier geht es darum, wie die Entitäten annotiert werden. Dabei sollte sich auf eine einheitliche Annotationskonvention beschränkt werden. Das Ergebnis sollte am Ende ein Goldstandard sein, anhand dessen später das NER-Modell bewertet wird, indem die per Hand angefertigen Annotationen mit der Ausgabe des NER-Systems verglichen werden. 
 
 
 Im Laufe dieses Kapitels werden wir lernen, wie das Training eines eigenen Modells mit `spaCy` umgesetzt wird. Unser Workflow für das Training eines eigenen NER-Modells sieht wie folgt aus: 
@@ -532,7 +532,7 @@ Im Laufe dieses Kapitels werden wir lernen, wie das Training eines eigenen Model
 ### **3.1 Preprocessing**
 Bevor wir mit dem Trainings- und dem anschließenden Evaluierungsprozess starten, müssen wir zunächst einen Goldstandard erstellen und diesen dann in Trainings-, Validierungs- & Testdaten aufteilen. Dieser Schritt gehört zum sogennanten **Preprocessing** des maschinellen Lernens. 
 
-Vor der Annotation des Goldstandards, sollten wir unsere beiden Texte allerdings noch etwas kennenlernen und vorbereiten. Auf die nähere Ausführung soll an dieser Stelle verzichtet werden, allerdings ist alles wichtige zu diesem Schritt im Notebook `02_preprocessingText.ipynb` festgehalten.
+Vor der Annotation des Goldstandards, sollten wir unsere beiden Texte allerdings noch etwas kennenlernen und vorbereiten. Auf die nähere Ausführung soll an dieser Stelle verzichtet werden, allerdings ist alles Wichtige zu diesem Schritt im Notebook `02_preprocessingText.ipynb` festgehalten.
 
 !!! int "Jupyter Notebooks"
 
@@ -591,7 +591,7 @@ In der `JSON`-Datei ist dieser Satz dann im folgenden Format wieder zu finden:
         {"entities": [[33,55,"PERSON"],[60,70,"ORT"],[165,174,"ZEIT"],[178,182,"ORT"],[186,196,"ORT"],[234,243,"ORT"]]}]]}
 ```
 
-Der Prozess des Annotieren kann je nach Länge des Textes sehr aufwändig und anstrengend sein. Bei sehr langen Texten bietet es sich an, den Text in einzelene Dateien zu unterteilen, um dann in Etappen die Annotation durchzuführen. Am Ende können die einzelnen `JSON`-Dateien, dann wieder zu einer Datei zusammengefügt werden, die dann den finalen Goldstandard darstellt. 
+Der Prozess des Annotierens kann je nach Länge des Textes sehr aufwändig und anstrengend sein. Bei sehr langen Texten bietet es sich an, den Text in einzelne Dateien zu unterteilen, um dann in Etappen die Annotation durchzuführen. Am Ende können die einzelnen `JSON`-Dateien dann wieder zu einer Datei zusammengefügt werden, die dann den finalen Goldstandard darstellt. 
 
 
 !!! info "Die folgende Tabelle soll einen kurzen Überblick über den Trainingstext  [**München 1611**](https://hainhofer.hab.de/reiseberichte/muenchen1611) und den Testtext [**München 1603**](https://hainhofer.hab.de/reiseberichte/muenchen1603) und dessen annotierten Enititäten geben."
@@ -612,7 +612,7 @@ Beim maschinellen Lernen benötigen wir einen Trainingsdatensatz, um ein Modell 
 
 
 ??? info "Überwachtes Lernen"
-    In unserem Fall arbeiten wir mit der  **überwachten Lernmethode**, bei der Beispieldaten in Form eines annotierten Goldtstandards notwendig sind, damit der Algoritmus lernen kann.  Bei **unüberwachten Lernmethode** hingegen bräuchten wir keine Beispiele, da hier direkt mit den Eingabedaten trainiert wird und der Algorithmus hier von selbst Muster und Zusammenhänge lernen würde. 
+    In unserem Fall arbeiten wir mit der  **überwachten Lernmethode**, bei der Beispieldaten in Form eines annotierten Goldstandards notwendig sind, damit der Algorithmus lernen kann.  Bei der **unüberwachten Lernmethode** hingegen bräuchten wir keine Beispiele, da hier direkt mit den Eingabedaten trainiert wird und der Algorithmus hier von selbst Muster und Zusammenhänge lernen würde. 
 
 Die Aufteilung unsrer Daten sieht wie folgt aus. Den Datensatz [`taggedData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json) werden wir noch in **Trainingsdaten** und **Validierungsdaten** einteilen müssen.
 
@@ -630,7 +630,7 @@ Die Aufteilung unsrer Daten sieht wie folgt aus. Den Datensatz [`taggedData.json
     | **Testdaten** | 10% | Die Testdaten sind von den Trainingsdaten unabhängig und werden während des Trainingsprozesses nicht verwendet. Sie dienen dazu, das trainierte Modell zu bewerten und zu überprüfen, wie gut es auf neue, noch nicht gesehene Daten anwendbar ist. Die Testdaten sollten dieselbe Wahrscheinlichkeitsverteilung wie der Trainingsdatensatz aufweisen. Wenn das Modell gut auf die Testdaten anwendbar ist, kann es vermutlich auch auf andere, bisher ungesehene Daten angewendet werden.|
     
 
-Um jetzt unseren großen Datensatz [`taggedData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json) in zwei Datensets aufzuteilen, lesen wir diesen zunächts ein und speichern nur die Einträge von  `annotations` in der Variablen `TAGGED_DATA`, damit wir die Einträge zählen können. Danach ermitteln wir die Grenze (80:20), damit wir den urspünglichen Datensatz in kleinere Datensätze zu je 80% und 20%.
+Um jetzt unseren großen Datensatz [`taggedData.json`](https://github.com/easyh/NerDH/blob/main/data/datensets/taggedData.json) in zwei Datensets aufzuteilen, lesen wir diesen zunächst ein und speichern nur die Einträge von  `annotations` in der Variablen `TAGGED_DATA`, damit wir die Einträge zählen können. Danach ermitteln wir die Grenze (80:20), damit wir den urspünglichen Datensatz in kleinere Datensätze zu je 80% und 20% aufteilen können.
 
 === "Code"
     ```py
@@ -649,7 +649,7 @@ Um jetzt unseren großen Datensatz [`taggedData.json`](https://github.com/easyh/
     696.8000000000001
     ```
 
-Bevor wir den Datensatz an der ermittelten Grenzen in die zwei Datensets aufteilen, mischen wir die Einträge noch einmal durch, damit die Verteilung zufällig ist. Hier lassen wir uns dann jeweils die Länge ausgeben, um das Ergebnis zu überprüfen. Zusätzlich lassen wir uns auch noch die Größe des Testdatensatz ausgeben, um zu überprüfen, ob die 70:20:10 Verteilung ungefähr hinhaut.
+Bevor wir den Datensatz an der ermittelten Grenzen in die zwei Datensets aufteilen, mischen wir die Einträge noch einmal durch, damit die Verteilung zufällig ist. Hier lassen wir uns dann jeweils die Länge ausgeben, um das Ergebnis zu überprüfen. Zusätzlich lassen wir uns auch noch die Größe des Testdatensatz ausgeben, um zu überprüfen, ob die 70:20:10 Verteilung gewährleistet ist.
 
 === "Code"
     ```py
@@ -687,13 +687,13 @@ Anschließend speichern wir die Datensets im `JSON`-Format ab.
         json.dump(val_data, val, ensure_ascii=False, indent=4)
     ```
 
-Da wir weiter oben nur die Einträge aus annotations der JSON-Datei übernommen haben, müssen wir jetzt noch einmal manuell bei `trainData.json` sowie `validationData.json` die `classes` hinzufügen, damit unsere Kategorien für die Entitäten nicht verloren gehen. Dazu setzen wir an den Anfang des Dokuments folgendes und ans Ende eine `}` um das Dokument zu schließen.
+Da wir weiter oben nur die Einträge aus der Klasse `annotations` der JSON-Datei übernommen haben, müssen wir jetzt noch einmal manuell bei `trainData.json` sowie `validationData.json` die `classes` hinzufügen, damit unsere Kategorien für die Entitäten nicht verloren gehen. Dazu setzen wir an den Anfang des Dokuments folgendes und ans Ende eine `}` um das Dokument zu schließen.
 
 ```json
 {"classes": ["PERSON","ORT", "ORGANISATION","OBJEKT","ZEIT"],
     "annotations": 
 ```
-Jetzt müssen die Datensets im `JSON`-Format nurnoch ins `spaCy`-Format konvertiert werden. Dafür importieren wir zunächst die ensprechenden Bibliotheken und das mittlere Sprachmodell von `spaCy`.
+Jetzt müssen die Datensets im `JSON`-Format nur noch ins `spaCy`-Format konvertiert werden. Dafür importieren wir zunächst die ensprechenden Bibliotheken und das mittlere Sprachmodell von `spaCy`.
 
 === "Code"
     ```py
@@ -799,7 +799,7 @@ Damit ist das Preprocessing abgeschlossen und wir können mit dem Training des M
 
 ### **3.3 Training**
 
-Da wir jetzt alle unsere Daten haben, ist es an der Zeit unser  Modell zu trainieren. In `spaCy` können wir die Architektur unserer Netzes sowie die Hyperparamter für unser Modell weitgehend steuern. Dies geschieht in der `config.cfg` Datei. Diese Konfigurationsdatei wird `spaCy` während dem Trainingsprozess übergeben, damit das System weiß, was und wie es trainieren soll. Um die `config.cfg` Datei zu erstellen, können wir die [praktische GUI von `spaCy`](https://spacy.io/usage/training#quickstart) selbst benutzen.
+Da wir jetzt alle unsere Daten haben, ist es an der Zeit unser  Modell zu trainieren. In `spaCy` können wir die Architektur unseres Netzes sowie die Hyperparamter für unser Modell weitgehend steuern. Dies geschieht in der `config.cfg` Datei. Diese Konfigurationsdatei wird `spaCy` während dem Trainingsprozess übergeben, damit das System weiß, was und wie es trainieren soll. Um die `config.cfg` Datei zu erstellen, können wir die [praktische GUI von `spaCy`](https://spacy.io/usage/training#quickstart) selbst benutzen.
 
 Für unsere Zwecke wählen wir `German`, `ner` und `CPU`(GPU ist etwas komplexer). Jenachdem ob wir ohne Wortvektoren oder mit ihnen trainieren wollen, wählen wir `efficiency` oder `accuracy`. In unserem Beispiel haben wir mit `accuracy`, also mit Wortvektoren trainiert. Hier werden dann die Vektoren des großen deutschen Modell `de_core_news_lg` übernommen (das können wir natürlich auch mit dem kleinen bzw. mittleren Modell machen). Diese Datei speichern wir zunächst als `base_config.cfg` ab. Die `base_config.cfg`-Datei befindet sich ebenfalls auf Github im Ordner `notebooks` oder kann hier einfach kopiert werden. 
 
@@ -949,7 +949,7 @@ nlp = spacy.load(output/model-best)
 Im Github Repositry gibt es keinen `output`-Ordner mit einem Modell, da das trainierte Modell zu groß ist. Allerdings gibt es von `spaCy` die Möglichkeit ein Modell in ein Python Package zu packen, dass dann wie jedes andere Package mit `pip install`installiert werden kann. 
 
 ??? note "Modell als Python Package verpacken" 
-    Dafür müssen wir uns einmal in das innere unseres Modells klicken und in der `meta.json`-Datei noch kleine Änderungen machen.  Bei `name` vergeben wir dem Modell einen Namen, mit dem wir es laden möchten. Zusätzlich geben wir noch eine `version` an: Da es unser erstes Modell ist setzen wir die Version auf `0.0.1`. Natürlich können wir hier auch noch mehr Informationen wie z.B. `description`, `author` oder `email`angeben. 
+    Dafür müssen wir uns einmal in das Innere unseres Modells klicken und in der `meta.json`-Datei noch kleine Änderungen vornehmen.  Bei `name` vergeben wir dem Modell einen Namen, mit dem wir es laden möchten. Zusätzlich geben wir noch eine `version` an: Da es unser erstes Modell ist setzen wir die Version auf `0.0.1`. Natürlich können wir hier auch noch mehr Informationen wie z.B. `description`, `author` oder `email`angeben. 
 
     ```json
     {
@@ -968,7 +968,7 @@ Im Github Repositry gibt es keinen `output`-Ordner mit einem Modell, da das trai
     ```
     python -m spacy package ./output/model-best ./package --build wheel
     ```
-    Lokal können wir unser Modell jetzt installieren einfach wie folgt installieren. Wir müssen uns hierfür allerdings im Verzeichnis `dist` befinden oder dorthin navigieren: 
+    Lokal können wir unser Modell jetzt installieren wie folgt installieren. Wir müssen uns hierfür allerdings im Verzeichnis `dist` befinden oder dorthin navigieren: 
 
     ```
     pip install package/de_fnhd_nerdh-0.0.1/dist/de_fnhd_nerdh-0.0.1-py3-none-any.whl
@@ -988,7 +988,7 @@ Im Github Repositry gibt es keinen `output`-Ordner mit einem Modell, da das trai
         ```
         pip install spacy-huggingface-hub
         ```
-        Jetzt können wir uns über den Terminal in [huggingface.co](https://huggingface.co/) einloggen, damit unser Package unserem Profil zugeordnet wird. Hier werden wir nach einem Token gefragt, den wir [hier](https://huggingface.co/settings/tokens) abrufen können. 
+        Jetzt können wir uns über das Terminal in [huggingface.co](https://huggingface.co/) einloggen, damit unser Package unserem Profil zugeordnet wird. Hier werden wir nach einem Token gefragt, den wir [hier](https://huggingface.co/settings/tokens) abrufen können. 
 
         ```
         huggingface-cli login
@@ -1003,7 +1003,7 @@ Im Github Repositry gibt es keinen `output`-Ordner mit einem Modell, da das trai
         - wo das Repository auf [huggingface.co](https://huggingface.co/) gefunden wird 
         - Link, mit welchem das Modell installiert werden kann
 
-Das Modell, welches hier im Tutorial erstellt wurde kann mit diesem Befehl als Python Package installiert werden.
+Das Modell, welches hier im Tutorial erstellt wurde, kann mit diesem Befehl als Python Package installiert werden.
 
 ```
 pip install https://huggingface.co/easyh/de_fnhd_nerdh/resolve/main/de_fnhd_nerdh-any-py3-none-any.whl
@@ -1036,7 +1036,7 @@ Der nächste logische Schritt ist jetzt natürlich die Evaluation unseres Modell
 python -m spacy evaluate de_fnhd_nerdh ./data/datensets/testData.spacy
 ```
 
-Das Output sollte dann in etwa so aussehen: 
+Der Output sollte dann in etwa so aussehen: 
 ```
 ℹ Using CPU
 
@@ -1058,7 +1058,7 @@ ORT            95.94   94.26   95.09
 OBJEKT         94.44   81.79   87.66
 ORGANISATION   95.59   82.28   88.44
 ```
-Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nicht der Fall sein, dann würden wir einfach unseren Trainingsprozess mit kleinen Veränderungen nochmal erneut starten. Allerdings bedeutet der Wert nur, dass das selbst erstellte Modell `de_fnhd_nerdh` besonders gut mit Texten von **Philipp Hainhofer** funktioniert (F-Score 0.92), da es mit diesen trainiert wurden. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. 
+Mit diesen Werten können wir ziemlich zufrieden sein. Sollte das allerdings nicht der Fall sein, dann würden wir einfach unseren Trainingsprozess mit kleinen Veränderungen erneut starten. Allerdings bedeutet der Wert nur, dass das selbst erstellte Modell `de_fnhd_nerdh` besonders gut mit Texten von **Philipp Hainhofer** funktioniert (F-Score 0.92), da es mit diesen trainiert wurde. Nur weil ein Text in frühneuhochdeutsch geschrieben wurde, ist dies keine Garantie für ein gutes Ergebnis mit diesem Modell. Der Grund: Historische Texte sind zu spezifisch, als dass sie in einem Modell zusammengefasst werden könnten. 
 
 
 <br>
