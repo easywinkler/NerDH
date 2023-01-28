@@ -861,7 +861,7 @@ mit ihrem Bruder
 <p>Vor dem Training eines eigenen NER-Modells ist es wichtig, folgende drei Fragen zu klären: </p>
 <details class="question"><summary>Was sind die Daten?</summary><p>Unsere Daten entstammen der digitalen Edition <a href="https://hainhofer.hab.de/" target="blank"><strong>Philipp Hainhofer</strong></a>. Hier haben wir uns für den Reisebericht <a href="https://hainhofer.hab.de/reiseberichte/muenchen1611?v={%22view%22:%22info%22}" target="blank"><strong>München 1611</strong></a> als Trainingstext und <a href="https://hainhofer.hab.de/reiseberichte/muenchen1603" target="blank"><strong>München 1603</strong></a> als Testtext entschieden. Die Texte der Edition stehen in <code>TEI-XML</code>, <code>PDF</code> sowie <code>TXT</code> zum Download verfügbar. Wir verwenden die Daten im  <code>TXT</code>-Format, denn einige Studien haben gezeigt, dass eine umfangreiche XML-Annotation, die dem NER-Prozess vorausgeht, die Leistung beeinträchtigen kann. NER-Systeme sollten daher idealerweise angewendet werden, bevor ein Korpus mit Standards wie TEI annotiert wird. In dieser Reihenfolge können die NER-Ergebnisse dann auch bei der TEI-Codierung sehr hilfreich sein. </p>
 </details>
-<details class="question"><summary>Welche Entitäten möchte ich auswählen?</summary><p>Hier geht es darum, die relevanten Kategorien und Entitäten auszuwählen. Dafür ist es wichtig zu wissen, welche und wie viele NE-Katogorien man für die jeweiligen Texte verwenden will.</p>
+<details class="question"><summary>Welche Entitäten möchte ich auswählen?</summary><p>Hier geht es darum, die relevanten Kategorien und Entitäten auszuwählen. Dafür ist es wichtig zu wissen, welche und wie viele NE-Kategorien man für die jeweiligen Texte verwenden will.</p>
 <p>In unserem Modell werden wir die folgenden Entitäten trainieren: </p>
 <table>
 <thead>
@@ -894,7 +894,7 @@ mit ihrem Bruder
 </tbody>
 </table>
 </details>
-<details class="question"><summary>Wie möchte ich diese Entitäten kennzeichen?</summary><p>Hier geht es darum, wie die Entitäten annotiert werden. Dabei sollte sich auf eine einheitliche Annotationskonvention beschränkt werden. Das Ergebnis sollte am Ende ein Goldstandard sein, anhand dessen später das NER-Modell bewertet wird, indem die per Hand angefertigen Annotationen mit der Ausgabe des NER-Systems verglichen werden. </p>
+<details class="question"><summary>Wie möchte ich diese Entitäten kennzeichnen?</summary><p>Hier geht es darum, wie die Entitäten annotiert werden. Dabei sollte sich auf eine einheitliche Annotationskonvention beschränkt werden. Das Ergebnis sollte am Ende ein Goldstandard sein, anhand dessen später das NER-Modell bewertet wird, indem die per Hand angefertigen Annotationen mit der Ausgabe des NER-Systems verglichen werden. </p>
 </details>
 <p>Im Laufe dieses Kapitels werden wir lernen, wie das Training eines eigenen Modells mit <code>spaCy</code> umgesetzt wird. Unser Workflow für das Training eines eigenen NER-Modells sieht wie folgt aus: </p>
 <figure>
@@ -903,7 +903,7 @@ mit ihrem Bruder
 <figcaption style="font-size: 0.8em;">Workflow: Training eines eigenen NER Modells</figcaption>
 </figure>
 <h3 id="31-preprocessing"><strong>3.1 Preprocessing</strong></h3>
-<p>Bevor wir mit dem Trainings- und dem anschließenden Evaluierungsprozess starten, müssen wir zunächst einen Goldstandard erstellen und diesen dann in Trainings-, Validierungs- &amp; Testdaten aufteilen. Dieser Schritt gehört zum sogennanten <strong>Preprocessing</strong> des maschinellen Lernens. </p>
+<p>Bevor wir mit dem Trainings- und dem anschließenden Evaluierungsprozess starten, müssen wir zunächst einen Goldstandard erstellen und diesen dann in Trainings-, Validierungs- &amp; Testdaten aufteilen. Dieser Schritt gehört zum sogenannten <strong>Preprocessing</strong> des maschinellen Lernens. </p>
 <p>Vor der Annotation des Goldstandards, sollten wir unsere beiden Texte allerdings noch etwas kennenlernen und vorbereiten. Auf die nähere Ausführung soll an dieser Stelle verzichtet werden, allerdings ist alles Wichtige zu diesem Schritt im Notebook <code>02_preprocessingText.ipynb</code> festgehalten.</p>
 <div class="admonition int">
 <p class="admonition-title">Jupyter Notebooks</p>
@@ -922,10 +922,10 @@ mit ihrem Bruder
 </div>
 <p><br/></p>
 <h4 id="311-annotation-eines-goldstandards"><strong>3.1.1 Annotation eines Goldstandards</strong></h4>
-<p>Die Annotation des Goldstandrds ist der erste wichtige Schritt, um ein Trainingskorpus zu erstellen. </p>
+<p>Die Annotation des Goldstandards ist der erste wichtige Schritt, um ein Trainingskorpus zu erstellen. </p>
 <div class="admonition goldstandard info">
 <p class="admonition-title">Goldstandard</p>
-<p>Ein Goldstandard ist eine manuelle Referenz-Annotation, bei der die relevanten Named Entities annotiert werden. Es ist die finale Version der annotierten Daten, die für den Trainingsprozess verwendet werden. Je besser und genauer die Auszeichnungen für den Goldstandard gemacht werden, desto besser ist das Trainingsergebnis. Anhand des Goldstandards, kann später die Qualität eines NER-Modell bewertet werden, quantifziert als Recall, Precision und F-Score.</p>
+<p>Ein Goldstandard ist eine manuelle Referenz-Annotation, bei der die relevanten Named Entities annotiert werden. Es ist die finale Version der annotierten Daten, die für den Trainingsprozess verwendet werden. Je besser und genauer die Auszeichnungen für den Goldstandard gemacht werden, desto besser ist das Trainingsergebnis. Anhand des Goldstandards, kann später die Qualität eines NER-Modell bewertet werden, quantifiziert als Recall, Precision und F-Score.</p>
 </div>
 <p>Es gibt mehrere Möglichkeiten Texte so zu annotieren, dass sie maschinenlesbar sind. Hier muss je nach Anwendungsbereich entschieden werden, welcher Annotationsstandard der passendste ist. In den Digital Humanities werden die meisten Texte mithilfe der auf XML basierenden Anwendung der <a href="https://tei-c.org/" target="blank">Text Encoding Initiative (TEI)</a> annotiert. Ein anderer bekannter Standard zum Annotieren von Named Entities ist das <a href="https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)" target="blank">IOB-Schema</a> (bzw. BIO-Schema). </p>
 <p>Da wir allerdings ein NER-Modell mit <code>spaCy</code> trainieren wollen, müssen wir unseren Goldstandard entsprechend für die Software anpassen. <code>spaCy</code> verlangt ein spezielles Trainingsformat, in welchem die Daten vorliegen müssen. Das Beispiel zeigt das klassische Format: </p>
@@ -1064,7 +1064,7 @@ stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir d
 </div>
 </div>
 </div>
-<p>Bevor wir den Datensatz an der ermittelten Grenzen in die zwei Datensets aufteilen, mischen wir die Einträge noch einmal durch, damit die Verteilung zufällig ist. Hier lassen wir uns dann jeweils die Länge ausgeben, um das Ergebnis zu überprüfen. Zusätzlich lassen wir uns auch noch die Größe des Testdatensatz ausgeben, um zu überprüfen, ob die 70:20:10 Verteilung gewährleistet ist.</p>
+<p>Bevor wir den Datensatz an der ermittelten Grenze in die zwei Datensets aufteilen, mischen wir die Einträge noch einmal durch, damit die Verteilung zufällig ist. Hier lassen wir uns dann jeweils die Länge ausgeben, um das Ergebnis zu überprüfen. Zusätzlich lassen wir uns auch noch die Größe des Testdatensatz ausgeben, um zu überprüfen, ob die 70:20:10 Verteilung gewährleistet ist.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio"/><input id="__tabbed_17_2" name="__tabbed_17" type="radio"/><div class="tabbed-labels"><label for="__tabbed_17_1">Code</label><label for="__tabbed_17_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1211,7 +1211,7 @@ Der Code ist von <a href="https://web.archive.org/web/20230119162746/https://tow
 <p><br/></p>
 <h3 id="33-training"><strong>3.3 Training</strong></h3>
 <p>Da wir jetzt alle unsere Daten haben, ist es an der Zeit unser  Modell zu trainieren. In <code>spaCy</code> können wir die Architektur unseres Netzes sowie die Hyperparamter für unser Modell weitgehend steuern. Dies geschieht in der <code>config.cfg</code> Datei. Diese Konfigurationsdatei wird <code>spaCy</code> während dem Trainingsprozess übergeben, damit das System weiß, was und wie es trainieren soll. Um die <code>config.cfg</code> Datei zu erstellen, können wir die <a href="https://spacy.io/usage/training#quickstart" target="blank">praktische GUI von <code>spaCy</code></a> selbst benutzen.</p>
-<p>Für unsere Zwecke wählen wir <code>German</code>, <code>ner</code> und <code>CPU</code>(GPU ist etwas komplexer). Jenachdem ob wir ohne Wortvektoren oder mit ihnen trainieren wollen, wählen wir <code>efficiency</code> oder <code>accuracy</code>. In unserem Beispiel haben wir mit <code>accuracy</code>, also mit Wortvektoren trainiert. Hier werden dann die Vektoren des großen deutschen Modell <code>de_core_news_lg</code> übernommen (das können wir natürlich auch mit dem kleinen bzw. mittleren Modell machen). Diese Datei speichern wir zunächst als <code>base_config.cfg</code> ab. Die <code>base_config.cfg</code>-Datei befindet sich ebenfalls auf Github im Ordner <code>notebooks</code> oder kann hier einfach kopiert werden. </p>
+<p>Für unsere Zwecke wählen wir <code>German</code>, <code>ner</code> und <code>CPU</code>(GPU ist etwas komplexer). Je nachdem ob wir ohne Wortvektoren oder mit ihnen trainieren wollen, wählen wir <code>efficiency</code> oder <code>accuracy</code>. In unserem Beispiel haben wir mit <code>accuracy</code>, also mit Wortvektoren trainiert. Hier werden dann die Vektoren des großen deutschen Modell <code>de_core_news_lg</code> übernommen (das können wir natürlich auch mit dem kleinen bzw. mittleren Modell machen). Diese Datei speichern wir zunächst als <code>base_config.cfg</code> ab. Die <code>base_config.cfg</code>-Datei befindet sich ebenfalls auf Github im Ordner <code>notebooks</code> oder kann hier einfach kopiert werden. </p>
 <details class="code"><summary><code>base_config.cfg</code></summary><div class="highlight"><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="k">[paths]</span><span class="w"></span>
 <a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="na">train</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">null</span><span class="w"></span>
 <a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="na">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">null</span><span class="w"></span>
