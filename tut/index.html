@@ -928,7 +928,7 @@ mit ihrem Bruder
 <p>Ein Goldstandard ist eine manuelle Referenz-Annotation, bei der die relevanten Named Entities annotiert werden. Es ist die finale Version der annotierten Daten, die für den Trainingsprozess verwendet werden. Je besser und genauer die Auszeichnungen für den Goldstandard gemacht werden, desto besser ist das Trainingsergebnis. Anhand des Goldstandards, kann später die Qualität eines NER-Modell bewertet werden, quantifziert als Recall, Precision und F-Score.</p>
 </div>
 <p>Es gibt mehrere Möglichkeiten Texte so zu annotieren, dass sie maschinenlesbar sind. Hier muss je nach Anwendungsbereich entschieden werden, welcher Annotationsstandard der passendste ist. In den Digital Humanities werden die meisten Texte mithilfe der auf XML basierenden Anwendung der <a href="https://tei-c.org/" target="blank">Text Encoding Initiative (TEI)</a> annotiert. Ein anderer bekannter Standard zum Annotieren von Named Entities ist das <a href="https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)" target="blank">IOB-Schema</a> (bzw. BIO-Schema). </p>
-<p>Da wir allerdings ein NER-Modell mit <code>spaCy</code> trainieren wollen, müssen wir unseren Goldstandard entsprechend für die Software anpassen. <code>spaCy</code> verlangt ein spezielles Traningsformat, in welchem die Daten vorliegen müssen. Das Beispiel zeigt das klassische Format: </p>
+<p>Da wir allerdings ein NER-Modell mit <code>spaCy</code> trainieren wollen, müssen wir unseren Goldstandard entsprechend für die Software anpassen. <code>spaCy</code> verlangt ein spezielles Trainingsformat, in welchem die Daten vorliegen müssen. Das Beispiel zeigt das klassische Format: </p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a>TRAIN_DATA = ["TEXT AS A STRING",{"entities:"[(START,END,LABEL)]}]
 </code></pre></div>
 <p>Es gibt zahlreiche Auszeichnungstools, die für Anwendungen des maschinellen Lernens entwickelt wurden und bei der Annotation von Texten helfen. Darunter auch einige, welche die Daten direkt in das entsprechende Trainingsformat für <code>spaCy</code> bringen. Dafür wurde speziell <a href="https://prodi.gy/" target="blank"><code>prodigy</code></a>  entwickelt, was allerdings kostenpflichtig ist. Aber es gibt auch einige Open-Source-Programme, die eine gute Alternative darstellen. </p>
@@ -1028,7 +1028,7 @@ stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir d
 </thead>
 <tbody>
 <tr>
-<td><strong>Traningsdaten</strong></td>
+<td><strong>Trainingsdaten</strong></td>
 <td>70%</td>
 <td>Ein Trainingsdatensatz ist eine Sammlung von Beispielen, die verwendet werden, um einem Algorithmus beizubringen, Muster und Zusammenhänge in den Daten zu erkennen. Der Algorithmus passt seine Gewichte anhand der Trainingsdaten an, indem er aus ihnen lernt. Trainingsdaten werden für Klassifikations- und Regressionsprobleme benötigt, bei denen es darum geht, Vorhersagen für bestimmte Zielvariablen zu treffen. Es kann vorkommen, dass Algorithmen, die auf Trainingsdaten lernen, zu sehr auf die Muster in diesen Daten angepasst werden und somit nicht gut auf neue, noch nicht gesehene Daten anwendbar sind. Dies wird als "Überanpassung" oder "Overfitting" bezeichnet. Das bedeutet, dass der Algorithmus zu starke Regeln aus den Trainingsdaten lernt, die auf die Gesamtheit der Daten nicht gut anwendbar sind.</td>
 </tr>
@@ -1074,7 +1074,7 @@ stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir d
 <a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="n">train_data</span> <span class="o">=</span> <span class="n">TAGGED_DATA</span><span class="p">[:</span><span class="mi">697</span><span class="p">]</span>
 <a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="n">val_data</span> <span class="o">=</span> <span class="n">TAGGED_DATA</span><span class="p">[</span><span class="mi">697</span><span class="p">:]</span>
 <a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a>
-<a href="#__codelineno-29-7" id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Traningsdaten: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)))</span>
+<a href="#__codelineno-29-7" id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Trainingsdaten: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)))</span>
 <a href="#__codelineno-29-8" id="__codelineno-29-8" name="__codelineno-29-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Validierungsdaten: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">val_data</span><span class="p">)))</span>
 <a href="#__codelineno-29-9" id="__codelineno-29-9" name="__codelineno-29-9"></a>
 <a href="#__codelineno-29-10" id="__codelineno-29-10" name="__codelineno-29-10"></a><span class="c1">#Zum vergleich, lassen wir uns auch die Göße von unseren Testdaten ausgeben</span>
@@ -1085,7 +1085,7 @@ stammt von Explosian AI - den Machern von spaCy - selbst. Verwenden werden wir d
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a>Traningsdaten: 697
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a>Trainingsdaten: 697
 <a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a>Validierungsdaten: 174
 <a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a>Testdaten: 87
 </code></pre></div>
@@ -1127,7 +1127,7 @@ Jetzt müssen die Datensets im <code>JSON</code>-Format nur noch ins <code>spaCy
 </div>
 <p>Jetzt müssen wir für jedes Datenset nur noch folgenden Code ausführen, damit die Datensets im <code>spaCy</code>-Datenformat sind. 
 Der Code ist von <a href="https://web.archive.org/web/20230119162746/https://towardsdatascience.com/using-spacy-3-0-to-build-a-custom-ner-model-c9256bea098?gi=fa93a146dfd7" target="blank">hier</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="20:3"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio"/><input id="__tabbed_20_2" name="__tabbed_20" type="radio"/><input id="__tabbed_20_3" name="__tabbed_20" type="radio"/><div class="tabbed-labels"><label for="__tabbed_20_1">Traningsdaten</label><label for="__tabbed_20_2">Validierungsdaten</label><label for="__tabbed_20_3">Testdaten</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:3"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio"/><input id="__tabbed_20_2" name="__tabbed_20" type="radio"/><input id="__tabbed_20_3" name="__tabbed_20" type="radio"/><div class="tabbed-labels"><label for="__tabbed_20_1">Trainingsdaten</label><label for="__tabbed_20_2">Validierungsdaten</label><label for="__tabbed_20_3">Testdaten</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'../data/datensets/trainData.json'</span><span class="p">)</span>
