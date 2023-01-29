@@ -28,7 +28,7 @@ st.markdown(""" <style>
         #MainMenu {visibility: hidden;} 
         footer {visibility: hidden;} 
         </style> """, unsafe_allow_html=True)
-st.markdown('## NER-Visualisierer für deutsche (historische) Texte')
+st.markdown('## NER-Visualisierer für (historische) deutsche Texte')
 
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
